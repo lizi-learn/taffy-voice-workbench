@@ -1,4 +1,6 @@
 {
+  "gsv": {"repository": "https://github.com/RVC-Boss/GPT-SoVITS", "commit": "1b47ca07ef43a284e0b8bd7f29d3e1e3ff76082a", "version": "v2ProPlus", "license": "MIT code; check models and recordings separately"},
+  "bert": {"repository": "https://huggingface.co/spaces/songdaooi/Taffy-Bert-VITS2", "commit": "8d3a82bc3a94242cf91cee4f32902f13357653e9", "checkpoint": "logs/Taffy/G_15800.pth", "sha256": "de9643c67cb99a208471b54c8557b5bc8a43e8d7ae73aca39e0b0fa9e3fba6a8", "license": "Check model, code and voice permissions separately; no weights redistributed"},
   "index": {"repository": "https://github.com/index-tts/index-tts", "commit": "d9e41aac89fd00b3d71497fddb287b7f24613712", "license": "bilibili Model Use License Agreement"},
   "cosy": {"repository": "https://github.com/QwenAudio/CosyVoice", "commit": "074ca6dc9e80a2f424f1f74b48bdd7d3fea531cc", "matcha_commit": "dd9105b34bf2be2230f4aa1e4769fb586a3c824e", "license": "Apache-2.0"}
 }

@@ -5,6 +5,7 @@ import unittest
 import json
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from workbench import Request, MOODS, VECTORS, INSTRUCTIONS
+from timbre import GsvParameters, BertParameters, neutral_only
 
 class ContractTest(unittest.TestCase):
     def setUp(self):
@@ -38,6 +39,26 @@ class ContractTest(unittest.TestCase):
         rows=json.loads((Path(__file__).resolve().parents[1]/'prompts.json').read_text())
         self.assertEqual(21,len(rows))
         self.assertEqual(18,sum('cosy' in r.get('engines',['cosy','index']) for r in rows))
+    def test_gsv_parameters(self):
+        GsvParameters(auxiliary_references=(self.ref,)).validate()
+        for kw in [dict(top_k=0),dict(top_k=1.5),dict(top_k=True),dict(top_p=0),dict(temperature=0),dict(temperature=float('nan')),dict(auxiliary_references=(self.out,))]:
+            with self.assertRaises(ValueError):
+                GsvParameters(**kw).validate()
+    def test_bert_parameters(self):
+        BertParameters(noise_scale=.35).validate()
+        for kw in [dict(sdp_ratio=-1),dict(noise_scale=2),dict(noise_scale_w=float('nan'))]:
+            with self.assertRaises(ValueError):
+                BertParameters(**kw).validate()
+    def test_no_fake_timbre_emotion(self):
+        neutral_only(self.req())
+        for kw in [dict(mood='happy'),dict(strength=.5)]:
+            with self.assertRaises(ValueError):
+                neutral_only(self.req(**kw))
+    def test_bert_without_reference(self):
+        req=Request('人工智能合成。',None,'',self.out)
+        req.validate(require_reference=False)
+        with self.assertRaises(ValueError):
+            req.validate()
 
 if __name__ == "__main__":
     unittest.main()

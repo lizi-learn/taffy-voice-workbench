@@ -2,17 +2,18 @@
   "date": "2026-10-15",
   "synthetic": true,
   "model_families": 5,
-  "configurations": 10,
-  "utterances": 113,
+  "configurations": 21,
+  "utterances": 201,
   "human_listening_accepted": false,
   "emotion_recognition_validated": false,
   "rk3588_measured": false,
-  "method": "RTX 4090 48 GiB. Batch 1, 4 CPU threads. Shared train-only reference contents; normalized 32 kHz reference for GSV proper/new models, original gain for F5: a confound. Public Bert training set unknown and legacy condition-layer mismatch. Same Whisper large-v3-turbo; OpenCC t2s+cn2an+NFKC. Do not call CER a timbre/MOS score. Equal-loudness listening copies; raw WAV hashes retained.",
+  "method": "RTX 4090 48 GiB. Batch 1, 4 CPU threads. Original baselines retained. Timbre round varies only documented train-only references/sampling/checkpoint stages, not a strict architecture or timing ranking. Public Bert training set unknown; loader matches source Space live-key rules, with no missing live tensors. New Bert resets seed per prompt and has a matched control. Same Whisper large-v3-turbo; OpenCC t2s+cn2an+NFKC. CER is not a timbre/MOS score. Equal-loudness listening copies; raw WAV hashes retained.",
   "results": [
     {
       "configuration": "f5-refined",
       "utterances": 8,
       "baseline_cer": 0.05084745762711865,
+      "parameters": {},
       "emotion_cer": null,
       "showcase_cer": null,
       "control_cer": null,
@@ -137,6 +138,7 @@
       "configuration": "gsv-base",
       "utterances": 8,
       "baseline_cer": 0.5988700564971752,
+      "parameters": {},
       "emotion_cer": null,
       "showcase_cer": null,
       "control_cer": null,
@@ -261,6 +263,7 @@
       "configuration": "gsv-trained",
       "utterances": 8,
       "baseline_cer": 0.2824858757062147,
+      "parameters": {},
       "emotion_cer": null,
       "showcase_cer": null,
       "control_cer": null,
@@ -385,6 +388,7 @@
       "configuration": "public-baseline",
       "utterances": 8,
       "baseline_cer": 0.3333333333333333,
+      "parameters": {},
       "emotion_cer": null,
       "showcase_cer": null,
       "control_cer": null,
@@ -509,6 +513,7 @@
       "configuration": "gsv-base-prepared-ref",
       "utterances": 8,
       "baseline_cer": 0.23163841807909605,
+      "parameters": {},
       "emotion_cer": null,
       "showcase_cer": null,
       "control_cer": null,
@@ -633,6 +638,7 @@
       "configuration": "gsv-trained-prepared-ref",
       "utterances": 8,
       "baseline_cer": 0.2824858757062147,
+      "parameters": {},
       "emotion_cer": null,
       "showcase_cer": null,
       "control_cer": null,
@@ -757,6 +763,7 @@
       "configuration": "gsv-sovits-only-prepared-ref",
       "utterances": 8,
       "baseline_cer": 0.1751412429378531,
+      "parameters": {},
       "emotion_cer": null,
       "showcase_cer": null,
       "control_cer": null,
@@ -881,6 +888,7 @@
       "configuration": "cosy-instruct",
       "utterances": 18,
       "baseline_cer": 0.05649717514124294,
+      "parameters": {},
       "emotion_cer": 0.040229885057471264,
       "showcase_cer": 0.009259259259259259,
       "control_cer": null,
@@ -1263,6 +1271,7 @@
       "configuration": "index-upstream-pcm",
       "utterances": 18,
       "baseline_cer": 0.03389830508474576,
+      "parameters": {},
       "emotion_cer": 0.08620689655172414,
       "showcase_cer": 0.06481481481481481,
       "control_cer": null,
@@ -1645,6 +1654,7 @@
       "configuration": "index-peak-safe",
       "utterances": 21,
       "baseline_cer": 0.03389830508474576,
+      "parameters": {},
       "emotion_cer": 0.08620689655172414,
       "showcase_cer": 0.07407407407407407,
       "control_cer": 0.11494252873563218,
@@ -2084,6 +2094,2172 @@
           "acoustics": {
             "yin_f0_median_hz": 413.4052105335729,
             "yin_f0_iqr_hz": 100.77932958934747,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "bertcontrol",
+      "utterances": 8,
+      "baseline_cer": 0.288135593220339,
+      "parameters": {
+        "family": "bert",
+        "weight_sha256": "de9643c67cb99a208471b54c8557b5bc8a43e8d7ae73aca39e0b0fa9e3fba6a8",
+        "noise_scale": 0.6,
+        "noise_scale_w": 0.8,
+        "sdp_ratio": 0.2,
+        "length_scale": 1.0,
+        "seed": 20261015,
+        "seed_reset_per_prompt": true,
+        "note": "Fixed public voice, no reference; reduced noise is not an emotion control. Original run seeded once, so this includes a matched per-prompt-seed control."
+      },
+      "emotion_cer": null,
+      "showcase_cer": null,
+      "control_cer": null,
+      "baseline_warm_median_rtf": 0.008356280747420897,
+      "max_clipped_fraction": 0.0,
+      "samples": [
+        {
+          "id": "heldout-1",
+          "group": "baseline",
+          "text": "最后编辑于今天，今天刚更新过",
+          "file": "bertcontrol-heldout-1-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.622312925170068,
+          "compute_seconds": 2.7557381300721318,
+          "rtf": 0.7607675501814216,
+          "sample_rate": 44100,
+          "peak": 0.1935369372367859,
+          "clipped_fraction": 0.0,
+          "sha256": "0084c5c2f0057851354c1b72158bd4d5d2a28f83a249d461e5b813014f146457",
+          "asr_text": "最後編輯今天,今天更更新過",
+          "writing_normalized_cer": 0.15384615384615385,
+          "acoustics": {
+            "yin_f0_median_hz": 403.2842564943769,
+            "yin_f0_iqr_hz": 86.83350590602981,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-2",
+          "group": "baseline",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "file": "bertcontrol-heldout-2-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.829750566893424,
+          "compute_seconds": 0.050736199016682804,
+          "rtf": 0.010504931530929384,
+          "sample_rate": 44100,
+          "peak": 0.2194039225578308,
+          "clipped_fraction": 0.0,
+          "sha256": "a5961c1d035d448725a576417a73c608dfb0eb1b404babad7c834e06f551b9a9",
+          "asr_text": "不敢说啊这帮鸡谁让你们放图的",
+          "writing_normalized_cer": 0.14285714285714285,
+          "acoustics": {
+            "yin_f0_median_hz": 428.561841032158,
+            "yin_f0_iqr_hz": 129.83807061134877,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-3",
+          "group": "baseline",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "file": "bertcontrol-heldout-3-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.23609977324263,
+          "compute_seconds": 0.050238993018865585,
+          "rtf": 0.009594735622799909,
+          "sample_rate": 44100,
+          "peak": 0.33633163571357727,
+          "clipped_fraction": 0.0,
+          "sha256": "c25b5e3f3f028eae14785e4dd76073e93b6b94745d679826e503abfc3f79f84e",
+          "asr_text": "Tommy想在哪不?Tommy都想好了Tommy本來就是找了一個比較...",
+          "writing_normalized_cer": 0.68,
+          "acoustics": {
+            "yin_f0_median_hz": 381.8725409989803,
+            "yin_f0_iqr_hz": 171.08689107481126,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-4",
+          "group": "baseline",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "file": "bertcontrol-heldout-4-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.006984126984127,
+          "compute_seconds": 0.051713331951759756,
+          "rtf": 0.017197740250004565,
+          "sample_rate": 44100,
+          "peak": 0.230589359998703,
+          "clipped_fraction": 0.0,
+          "sha256": "3ced095e1d468157ad41535e5da56b640fe96ff9a0f9f24db2b14e9aeb684a9e",
+          "asr_text": "谢谢是不是网组的告白话说明",
+          "writing_normalized_cer": 0.5294117647058824,
+          "acoustics": {
+            "yin_f0_median_hz": 358.97935098743284,
+            "yin_f0_iqr_hz": 64.15991597428649,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "welcome",
+          "group": "baseline",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "file": "bertcontrol-welcome-AI.wav",
+          "mood": "neutral",
+          "seconds": 8.997732426303855,
+          "compute_seconds": 0.05536098196171224,
+          "rtf": 0.006152770424676184,
+          "sample_rate": 44100,
+          "peak": 0.2731253504753113,
+          "clipped_fraction": 0.0,
+          "sha256": "f49aec69dc89627d774929da07f66701b2c3a07c94815893f8c8bd3dd1c4ab54",
+          "asr_text": "下午好妙欢迎来到猫耳它们的小小展台这个声音是人工智能合成的不是本人录音妙",
+          "writing_normalized_cer": 0.1111111111111111,
+          "acoustics": {
+            "yin_f0_median_hz": 352.5989946233781,
+            "yin_f0_iqr_hz": 113.98722067094826,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "actions",
+          "group": "baseline",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "file": "bertcontrol-actions-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.188117913832199,
+          "compute_seconds": 0.04926647909451276,
+          "rtf": 0.007961464177078494,
+          "sample_rate": 44100,
+          "peak": 0.1862563192844391,
+          "clipped_fraction": 0.0,
+          "sha256": "d60507a42c95b21ab417545c69f489ca714ecc2576d6f8cad47ce420da028c16",
+          "asr_text": "你可以点一下双手再换一个贪心的表情好可爱妙",
+          "writing_normalized_cer": 0.14285714285714285,
+          "acoustics": {
+            "yin_f0_median_hz": 345.30420226492356,
+            "yin_f0_iqr_hz": 87.12050726352322,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "story",
+          "group": "baseline",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "file": "bertcontrol-story-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.804988662131519,
+          "compute_seconds": 0.0485081149963662,
+          "rtf": 0.008356280747420897,
+          "sample_rate": 44100,
+          "peak": 0.2568068504333496,
+          "clipped_fraction": 0.0,
+          "sha256": "e24665f6f51f94f31d1c9ffc94db8b892069fe96141b054a5023f3e547da1c31",
+          "asr_text": "今天的羊毛暖暖的小猫怕在窗边看着一朵鱼慢慢骗墨鸡",
+          "writing_normalized_cer": 0.2916666666666667,
+          "acoustics": {
+            "yin_f0_median_hz": 376.63047940838055,
+            "yin_f0_iqr_hz": 76.2777627708989,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "numbers",
+          "group": "baseline",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "file": "bertcontrol-numbers-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.942766439909297,
+          "compute_seconds": 0.049835704965516925,
+          "rtf": 0.007178075972575565,
+          "sample_rate": 44100,
+          "peak": 0.3151794373989105,
+          "clipped_fraction": 0.0,
+          "sha256": "58634795774a42d6507b3fa9a1be7ab681cda97f21c491fb972a786ec4a4db31",
+          "asr_text": "现在是10月15日,下午3点20分请静的喝水,比较静的休息秒",
+          "writing_normalized_cer": 0.25925925925925924,
+          "acoustics": {
+            "yin_f0_median_hz": 330.55587310094995,
+            "yin_f0_iqr_hz": 71.61601308739534,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "bertsoft",
+      "utterances": 8,
+      "baseline_cer": 0.384180790960452,
+      "parameters": {
+        "family": "bert",
+        "weight_sha256": "de9643c67cb99a208471b54c8557b5bc8a43e8d7ae73aca39e0b0fa9e3fba6a8",
+        "noise_scale": 0.35,
+        "noise_scale_w": 0.8,
+        "sdp_ratio": 0.2,
+        "length_scale": 1.0,
+        "seed": 20261015,
+        "seed_reset_per_prompt": true,
+        "note": "Fixed public voice, no reference; reduced noise is not an emotion control. Original run seeded once, so this includes a matched per-prompt-seed control."
+      },
+      "emotion_cer": null,
+      "showcase_cer": null,
+      "control_cer": null,
+      "baseline_warm_median_rtf": 0.005007504437958617,
+      "max_clipped_fraction": 0.0,
+      "samples": [
+        {
+          "id": "heldout-1",
+          "group": "baseline",
+          "text": "最后编辑于今天，今天刚更新过",
+          "file": "bertsoft-heldout-1-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.645532879818594,
+          "compute_seconds": 0.04368772997986525,
+          "rtf": 0.011983907818173128,
+          "sample_rate": 44100,
+          "peak": 0.198894664645195,
+          "clipped_fraction": 0.0,
+          "sha256": "9f6cb2da21386392a5f76c853b4174c4cdcfc62c2fa26393a6f973e310a8d54a",
+          "asr_text": "最後編輯的GinGinGinGinGin更更新過",
+          "writing_normalized_cer": 1.3076923076923077,
+          "acoustics": {
+            "yin_f0_median_hz": 401.293587485138,
+            "yin_f0_iqr_hz": 87.46370451457898,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-2",
+          "group": "baseline",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "file": "bertsoft-heldout-2-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.829750566893424,
+          "compute_seconds": 0.027677781996317208,
+          "rtf": 0.0057306855940016,
+          "sample_rate": 44100,
+          "peak": 0.21649138629436493,
+          "clipped_fraction": 0.0,
+          "sha256": "8f2b4c97a0fb7e328557683039b0970cae602b4e47f3518ba73b80889822266c",
+          "asr_text": "不敢说啊这毛巾谁让你们放图的",
+          "writing_normalized_cer": 0.0,
+          "acoustics": {
+            "yin_f0_median_hz": 430.74650708471006,
+            "yin_f0_iqr_hz": 116.9645611228222,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-3",
+          "group": "baseline",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "file": "bertsoft-heldout-3-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.23609977324263,
+          "compute_seconds": 0.02953069598879665,
+          "rtf": 0.00563982683059318,
+          "sample_rate": 44100,
+          "peak": 0.3203587532043457,
+          "clipped_fraction": 0.0,
+          "sha256": "f29046d4fa927fc9a43905e8bb63b9e269509569ed1840314624faa23081eea3",
+          "asr_text": "Tommy想在哪不?Tommy都想好了Tommy本來就是找了一個比較...",
+          "writing_normalized_cer": 0.68,
+          "acoustics": {
+            "yin_f0_median_hz": 382.3839225142414,
+            "yin_f0_iqr_hz": 169.56296189691045,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-4",
+          "group": "baseline",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "file": "bertsoft-heldout-4-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.006984126984127,
+          "compute_seconds": 0.024243330000899732,
+          "rtf": 0.008062340530282323,
+          "sample_rate": 44100,
+          "peak": 0.21832315623760223,
+          "clipped_fraction": 0.0,
+          "sha256": "d7c677c9a484e8e6309e8220fc4d40613fb21927664101cb93dd35e506a28c21",
+          "asr_text": "现在是不是网友的告白话说明",
+          "writing_normalized_cer": 0.6470588235294118,
+          "acoustics": {
+            "yin_f0_median_hz": 360.0895442721884,
+            "yin_f0_iqr_hz": 66.5012762102026,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "welcome",
+          "group": "baseline",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "file": "bertsoft-welcome-AI.wav",
+          "mood": "neutral",
+          "seconds": 8.997732426303855,
+          "compute_seconds": 0.037436596932820976,
+          "rtf": 0.0041606701732293475,
+          "sample_rate": 44100,
+          "peak": 0.2667674422264099,
+          "clipped_fraction": 0.0,
+          "sha256": "553acd4be03deb1f10dc5da50c6429ca860c026e97c2fd114d6f5c9cde9b51bc",
+          "asr_text": "下午好喵歡迎來到貓爾他命的小小展台這個聲音是人工智能合成的不是本人錄音喵",
+          "writing_normalized_cer": 0.08333333333333333,
+          "acoustics": {
+            "yin_f0_median_hz": 354.4135108744788,
+            "yin_f0_iqr_hz": 118.1874384404822,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "actions",
+          "group": "baseline",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "file": "bertsoft-actions-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.188117913832199,
+          "compute_seconds": 0.030987027916125953,
+          "rtf": 0.005007504437958617,
+          "sample_rate": 44100,
+          "peak": 0.1703113466501236,
+          "clipped_fraction": 0.0,
+          "sha256": "488833991505181d439143c10ab1b8c0b30b831ed8cbe884d3daf0e1bd113872",
+          "asr_text": "你可以点一下伤手再换一个贪心的表情好可爱喵",
+          "writing_normalized_cer": 0.09523809523809523,
+          "acoustics": {
+            "yin_f0_median_hz": 348.80758170468636,
+            "yin_f0_iqr_hz": 94.27168566706098,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "story",
+          "group": "baseline",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "file": "bertsoft-story-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.804988662131519,
+          "compute_seconds": 0.0281899010296911,
+          "rtf": 0.004856150919567881,
+          "sample_rate": 44100,
+          "peak": 0.2464459389448166,
+          "clipped_fraction": 0.0,
+          "sha256": "30b330c5df3dc91cecd5c8a7508bef316457a51913e9b164592b68542f7524b8",
+          "asr_text": "今天的羊毛暖暖的小猫叛战窗面看见一朵鱼漫漫骗墨鸡",
+          "writing_normalized_cer": 0.5,
+          "acoustics": {
+            "yin_f0_median_hz": 379.0987725333056,
+            "yin_f0_iqr_hz": 81.24219420435497,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "numbers",
+          "group": "baseline",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "file": "bertsoft-numbers-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.942766439909297,
+          "compute_seconds": 0.030982561060227454,
+          "rtf": 0.004462567094599285,
+          "sample_rate": 44100,
+          "peak": 0.29099178314208984,
+          "clipped_fraction": 0.0,
+          "sha256": "890e996fc885fc4613464015344cc0eaf1d4eda24cf9b5ecb69c95c5c22bdee2",
+          "asr_text": "现在是10月15日,下午3点20分请静的喝水,也要静的休息一秒",
+          "writing_normalized_cer": 0.2222222222222222,
+          "acoustics": {
+            "yin_f0_median_hz": 328.5891189386474,
+            "yin_f0_iqr_hz": 73.54451187395512,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "berttiming",
+      "utterances": 8,
+      "baseline_cer": 0.2655367231638418,
+      "parameters": {
+        "family": "bert",
+        "weight_sha256": "de9643c67cb99a208471b54c8557b5bc8a43e8d7ae73aca39e0b0fa9e3fba6a8",
+        "noise_scale": 0.35,
+        "noise_scale_w": 0.6,
+        "sdp_ratio": 0.2,
+        "length_scale": 1.0,
+        "seed": 20261015,
+        "seed_reset_per_prompt": true,
+        "note": "Fixed public voice, no reference; reduced noise is not an emotion control. Original run seeded once, so this includes a matched per-prompt-seed control."
+      },
+      "emotion_cer": null,
+      "showcase_cer": null,
+      "control_cer": null,
+      "baseline_warm_median_rtf": 0.0070104541961020575,
+      "max_clipped_fraction": 0.0,
+      "samples": [
+        {
+          "id": "heldout-1",
+          "group": "baseline",
+          "text": "最后编辑于今天，今天刚更新过",
+          "file": "berttiming-heldout-1-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.633922902494331,
+          "compute_seconds": 0.04353102995082736,
+          "rtf": 0.011979073612416924,
+          "sample_rate": 44100,
+          "peak": 0.2155444175004959,
+          "clipped_fraction": 0.0,
+          "sha256": "5b2efb58061f0c694044345d89cc6ca239a4163155ad416bb7a1d02799cb8fe8",
+          "asr_text": "最後編輯了今天,今天更新過",
+          "writing_normalized_cer": 0.15384615384615385,
+          "acoustics": {
+            "yin_f0_median_hz": 404.0698234324616,
+            "yin_f0_iqr_hz": 86.79759488392699,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-2",
+          "group": "baseline",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "file": "berttiming-heldout-2-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.818140589569161,
+          "compute_seconds": 0.04352686007041484,
+          "rtf": 0.009033953920864526,
+          "sample_rate": 44100,
+          "peak": 0.21960458159446716,
+          "clipped_fraction": 0.0,
+          "sha256": "621a8ecf0e6607a36ddc8e493323ffd9a1001647ba99bb858c318c047da964b0",
+          "asr_text": "不敢说啊这包机谁让你们放图的",
+          "writing_normalized_cer": 0.14285714285714285,
+          "acoustics": {
+            "yin_f0_median_hz": 430.35556438819714,
+            "yin_f0_iqr_hz": 122.82813751475271,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-3",
+          "group": "baseline",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "file": "berttiming-heldout-3-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.23609977324263,
+          "compute_seconds": 0.028556863078847528,
+          "rtf": 0.005453842423854871,
+          "sample_rate": 44100,
+          "peak": 0.31269195675849915,
+          "clipped_fraction": 0.0,
+          "sha256": "71bc6828260360c3da093dc131652fb0921b86ee831f05e47f90d5c228609020",
+          "asr_text": "Tummy想在哪不?Tummy都想好了Tummy本来就是找了一个比较",
+          "writing_normalized_cer": 0.68,
+          "acoustics": {
+            "yin_f0_median_hz": 378.54694850709507,
+            "yin_f0_iqr_hz": 168.7294378168255,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-4",
+          "group": "baseline",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "file": "berttiming-heldout-4-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.006984126984127,
+          "compute_seconds": 0.023519589914940298,
+          "rtf": 0.007821654163013296,
+          "sample_rate": 44100,
+          "peak": 0.23527118563652039,
+          "clipped_fraction": 0.0,
+          "sha256": "4a4dfd05bfabe14fbcd77cf3cf5793c168c505f277f4b26220e22682c999f4d5",
+          "asr_text": "谢谢师父上王子的告白画素描",
+          "writing_normalized_cer": 0.5882352941176471,
+          "acoustics": {
+            "yin_f0_median_hz": 360.4056914431208,
+            "yin_f0_iqr_hz": 67.13403262667396,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "welcome",
+          "group": "baseline",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "file": "berttiming-welcome-AI.wav",
+          "mood": "neutral",
+          "seconds": 9.02095238095238,
+          "compute_seconds": 0.04427744902204722,
+          "rtf": 0.004908289851472718,
+          "sample_rate": 44100,
+          "peak": 0.272040992975235,
+          "clipped_fraction": 0.0,
+          "sha256": "46f9ff4e723dbe9a92aa72d4fbd60c04accdb1db9f60424f1b034798f40cb7da",
+          "asr_text": "下午好喵歡迎來到摩爾特命的小小展台這個聲音是人工智能合成的不是本人錄音喵",
+          "writing_normalized_cer": 0.1111111111111111,
+          "acoustics": {
+            "yin_f0_median_hz": 353.93896427516114,
+            "yin_f0_iqr_hz": 118.74928972158318,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "actions",
+          "group": "baseline",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "file": "berttiming-actions-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.176507936507937,
+          "compute_seconds": 0.043300125980749726,
+          "rtf": 0.0070104541961020575,
+          "sample_rate": 44100,
+          "peak": 0.16573084890842438,
+          "clipped_fraction": 0.0,
+          "sha256": "179541a816e3522787fcd48d412d7bdbbabd9ea160e2673839877eb12494b665",
+          "asr_text": "你可以点一下招手再换一个贪心的表情好可爱喵",
+          "writing_normalized_cer": 0.047619047619047616,
+          "acoustics": {
+            "yin_f0_median_hz": 351.4347945293608,
+            "yin_f0_iqr_hz": 95.12437038738824,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "story",
+          "group": "baseline",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "file": "berttiming-story-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.851428571428571,
+          "compute_seconds": 0.043405720964074135,
+          "rtf": 0.007417969891321263,
+          "sample_rate": 44100,
+          "peak": 0.2518555223941803,
+          "clipped_fraction": 0.0,
+          "sha256": "0e7f694b3281f4b766968fee39c322689ab92c65e2559f173b3676e0486d266c",
+          "asr_text": "今天的阳光暖暖的小猫怕在窗面看着一朵鱼慢慢偏不及",
+          "writing_normalized_cer": 0.25,
+          "acoustics": {
+            "yin_f0_median_hz": 379.1365357992312,
+            "yin_f0_iqr_hz": 79.58714896222705,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "numbers",
+          "group": "baseline",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "file": "berttiming-numbers-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.977596371882086,
+          "compute_seconds": 0.04430861596483737,
+          "rtf": 0.00635012597509791,
+          "sample_rate": 44100,
+          "peak": 0.2866641879081726,
+          "clipped_fraction": 0.0,
+          "sha256": "f8ffb8898b616c7a60e4742051ebcfd9cf3555d28ddbbfe494b1818288015050",
+          "asr_text": "现在是10月15日,下午3点20分请进来喝水,也要进来休息庙",
+          "writing_normalized_cer": 0.18518518518518517,
+          "acoustics": {
+            "yin_f0_median_hz": 331.155468970977,
+            "yin_f0_iqr_hz": 73.57497382312914,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "gsvcasual",
+      "utterances": 8,
+      "baseline_cer": 0.2033898305084746,
+      "parameters": {
+        "family": "gsv",
+        "top_k": 15,
+        "top_p": 1.0,
+        "temperature": 1.0,
+        "gpt_sha256": "87133414860ea14ff6620c483a3db5ed07b44be42e2c3fcdad65523a729a745a",
+        "sovits_sha256": "56f4b9e87e4454ee0c203c6a8ff84d87cf8f1019a379677f8edd9c74afbfc3e6",
+        "seed": 20261015,
+        "reference_from_train_only": true,
+        "primary_reference": "000157",
+        "auxiliary_references": [],
+        "reference_sha256": [
+          "d2d758f67969a95d286b8ec7dc8086565651c248322d4e1a03b8711c3ae8f8db"
+        ],
+        "note": "No emotion labels; reference style only. Warm cache differs across configurations; not a strict timing comparison."
+      },
+      "emotion_cer": null,
+      "showcase_cer": null,
+      "control_cer": null,
+      "baseline_warm_median_rtf": 0.11183387073581975,
+      "max_clipped_fraction": 0.0,
+      "samples": [
+        {
+          "id": "heldout-1",
+          "group": "baseline",
+          "text": "最后编辑于今天，今天刚更新过",
+          "file": "gsvcasual-heldout-1-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.42,
+          "compute_seconds": 2.1314770709723234,
+          "rtf": 0.6232389096410302,
+          "sample_rate": 32000,
+          "peak": 0.479248046875,
+          "clipped_fraction": 0.0,
+          "sha256": "948f32d5c9b0e6a997bed59a49dd7c8e5ec93d9adefc8c992508566502fdbe7b",
+          "asr_text": "最后编辑人今天今天刚刚更新闻",
+          "writing_normalized_cer": 0.23076923076923078,
+          "acoustics": {
+            "yin_f0_median_hz": 403.70729017454175,
+            "yin_f0_iqr_hz": 51.80726226852033,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-2",
+          "group": "baseline",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "file": "gsvcasual-heldout-2-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.26,
+          "compute_seconds": 0.5882461600704119,
+          "rtf": 0.11183387073581975,
+          "sample_rate": 32000,
+          "peak": 0.66162109375,
+          "clipped_fraction": 0.0,
+          "sha256": "a574c12467608f2ad1d80dcc866025dd551346e5d36121e199d7b6256453d438",
+          "asr_text": "不敢說啊這毛巾誰讓你們放圖的",
+          "writing_normalized_cer": 0.0,
+          "acoustics": {
+            "yin_f0_median_hz": 394.1724002407258,
+            "yin_f0_iqr_hz": 95.49925944122026,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-3",
+          "group": "baseline",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "file": "gsvcasual-heldout-3-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.94,
+          "compute_seconds": 2.436834138003178,
+          "rtf": 0.35112883832898817,
+          "sample_rate": 32000,
+          "peak": 0.5458984375,
+          "clipped_fraction": 0.0,
+          "sha256": "f107e1d7e0d5251c94e280032d501ad43bf2be7cbc79ad874da22259493d39a9",
+          "asr_text": "他們三 盯著哪波 他們都想好了他們本來就是找了一個比較",
+          "writing_normalized_cer": 0.36,
+          "acoustics": {
+            "yin_f0_median_hz": 382.89151305608476,
+            "yin_f0_iqr_hz": 134.253425305698,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-4",
+          "group": "baseline",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "file": "gsvcasual-heldout-4-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.02,
+          "compute_seconds": 0.5615791040472686,
+          "rtf": 0.13969629453912155,
+          "sample_rate": 32000,
+          "peak": 0.440185546875,
+          "clipped_fraction": 0.0,
+          "sha256": "a0a6337213f8d912e54a38d943e3c6b1b1c46b2ed4c3a17a44bb6f93b39e3771",
+          "asr_text": "這件事完全不是完全完整的到來花鼠娘",
+          "writing_normalized_cer": 0.7647058823529411,
+          "acoustics": {
+            "yin_f0_median_hz": 375.4364710455464,
+            "yin_f0_iqr_hz": 90.39361369154568,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "welcome",
+          "group": "baseline",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "file": "gsvcasual-welcome-AI.wav",
+          "mood": "neutral",
+          "seconds": 8.62,
+          "compute_seconds": 0.8194360689958557,
+          "rtf": 0.09506218897863757,
+          "sample_rate": 32000,
+          "peak": 0.623046875,
+          "clipped_fraction": 0.0,
+          "sha256": "4c3910d716769bb0d07af100708610260cbccd82755319abf777e0fdcc90e6de",
+          "asr_text": "下午好喵,欢迎来到猫耳塔飞的小小展台这的声音是人工智能合成的,不是本人录音面",
+          "writing_normalized_cer": 0.08333333333333333,
+          "acoustics": {
+            "yin_f0_median_hz": 379.1183388916922,
+            "yin_f0_iqr_hz": 107.90151758854739,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "actions",
+          "group": "baseline",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "file": "gsvcasual-actions-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.62,
+          "compute_seconds": 0.6516723829554394,
+          "rtf": 0.11595594002765826,
+          "sample_rate": 32000,
+          "peak": 0.54931640625,
+          "clipped_fraction": 0.0,
+          "sha256": "13d58cc5b33c0bc85460b5eef64e6d009828add2043931adfcc193a09c3f27df",
+          "asr_text": "你可以點一下招手,再畫一個開心的表情好看愛妙",
+          "writing_normalized_cer": 0.14285714285714285,
+          "acoustics": {
+            "yin_f0_median_hz": 390.7429566553251,
+            "yin_f0_iqr_hz": 120.61845859203748,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "story",
+          "group": "baseline",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "file": "gsvcasual-story-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.74,
+          "compute_seconds": 0.7173608740558848,
+          "rtf": 0.106433364103247,
+          "sample_rate": 32000,
+          "peak": 0.55810546875,
+          "clipped_fraction": 0.0,
+          "sha256": "6d4652e69f739c74c1fb3d649035de109abbc1ca65364fca31c3410c5e4f1478",
+          "asr_text": "今天的阳光暖暖的小猫趴在窗边看着一朵云慢慢飘过去",
+          "writing_normalized_cer": 0.0,
+          "acoustics": {
+            "yin_f0_median_hz": 403.1435309318613,
+            "yin_f0_iqr_hz": 97.62255827923775,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "numbers",
+          "group": "baseline",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "file": "gsvcasual-numbers-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.82,
+          "compute_seconds": 0.7878729669610038,
+          "rtf": 0.10075101879296725,
+          "sample_rate": 32000,
+          "peak": 0.626953125,
+          "clipped_fraction": 0.0,
+          "sha256": "2f27f1dca84896586670ec60a499fb2fc2e4f68e0dd005407b55741f689c7b1d",
+          "asr_text": "現在是10月15日, 下午3點20分請進的喝水, 也要進的休息廟",
+          "writing_normalized_cer": 0.18518518518518517,
+          "acoustics": {
+            "yin_f0_median_hz": 386.99363588651465,
+            "yin_f0_iqr_hz": 105.2350476014667,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "gsve2vits",
+      "utterances": 8,
+      "baseline_cer": 0.1864406779661017,
+      "parameters": {
+        "family": "gsv",
+        "top_k": 15,
+        "top_p": 1.0,
+        "temperature": 1.0,
+        "gpt_sha256": "87133414860ea14ff6620c483a3db5ed07b44be42e2c3fcdad65523a729a745a",
+        "sovits_sha256": "e67abed344a0437cc2a3a8d0668062d8aacfe516af85537e76d42fde2065222d",
+        "seed": 20261015,
+        "reference_from_train_only": true,
+        "primary_reference": "000006",
+        "auxiliary_references": [],
+        "reference_sha256": [
+          "a0ee00e104a7261ecf45a06e77899ce68315fb25d8dcf90be04f970936f72232"
+        ],
+        "note": "No emotion labels; reference style only. Warm cache differs across configurations; not a strict timing comparison."
+      },
+      "emotion_cer": null,
+      "showcase_cer": null,
+      "control_cer": null,
+      "baseline_warm_median_rtf": 0.098559631381043,
+      "max_clipped_fraction": 0.0,
+      "samples": [
+        {
+          "id": "heldout-1",
+          "group": "baseline",
+          "text": "最后编辑于今天，今天刚更新过",
+          "file": "gsve2vits-heldout-1-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.98,
+          "compute_seconds": 0.5323297400027514,
+          "rtf": 0.13375119095546517,
+          "sample_rate": 32000,
+          "peak": 0.54248046875,
+          "clipped_fraction": 0.0,
+          "sha256": "d92f515276a66514952b7763a6dcfc98f2a007532756b476fcf909f7acd7d3fd",
+          "asr_text": "最後編輯於今天今天剛更新過",
+          "writing_normalized_cer": 0.0,
+          "acoustics": {
+            "yin_f0_median_hz": 381.070582748353,
+            "yin_f0_iqr_hz": 93.74254431429551,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-2",
+          "group": "baseline",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "file": "gsve2vits-heldout-2-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.86,
+          "compute_seconds": 0.5530224388930947,
+          "rtf": 0.11379062528664498,
+          "sample_rate": 32000,
+          "peak": 0.53173828125,
+          "clipped_fraction": 0.0,
+          "sha256": "90878054113f3ccc513c6882014a93e486078b7cd4213e195e199d6dd083e7f0",
+          "asr_text": "不敢說這毛巾誰讓你們放圖的",
+          "writing_normalized_cer": 0.07142857142857142,
+          "acoustics": {
+            "yin_f0_median_hz": 356.0884587758957,
+            "yin_f0_iqr_hz": 95.6244923403516,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-3",
+          "group": "baseline",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "file": "gsve2vits-heldout-3-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.38,
+          "compute_seconds": 0.715549782034941,
+          "rtf": 0.09695796504538497,
+          "sample_rate": 32000,
+          "peak": 0.6015625,
+          "clipped_fraction": 0.0,
+          "sha256": "30ad65ec4d6704281950f0526577524c8a8536685ee0d679ce6191e26db36414",
+          "asr_text": "它们3接在哪播它们都想好了它们本来就是找了一个比较",
+          "writing_normalized_cer": 0.28,
+          "acoustics": {
+            "yin_f0_median_hz": 369.2724405816307,
+            "yin_f0_iqr_hz": 117.68090396036519,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-4",
+          "group": "baseline",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "file": "gsve2vits-heldout-4-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.9,
+          "compute_seconds": 0.5074253759812564,
+          "rtf": 0.1301090707644247,
+          "sample_rate": 32000,
+          "peak": 0.498291015625,
+          "clipped_fraction": 0.0,
+          "sha256": "c7640a94b094a77c25d55235bbc98cc456964a4a700c1322ed1b99b87e363f33",
+          "asr_text": "谢谢这玩具不是玩具王子的告白挖手面啊",
+          "writing_normalized_cer": 0.5294117647058824,
+          "acoustics": {
+            "yin_f0_median_hz": 375.737682058883,
+            "yin_f0_iqr_hz": 79.5692123827123,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "welcome",
+          "group": "baseline",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "file": "gsve2vits-welcome-AI.wav",
+          "mood": "neutral",
+          "seconds": 9.02,
+          "compute_seconds": 0.8206939420197159,
+          "rtf": 0.0909860246141592,
+          "sample_rate": 32000,
+          "peak": 0.4697265625,
+          "clipped_fraction": 0.0,
+          "sha256": "de4ccf4cc046da357c04419a3d14e7e3b2cfe23826fb4ad5e97a2a0cf3176e93",
+          "asr_text": "笑我好面啊欢迎来到猫儿台飞的小小展台这个双烟是人工智能合成的不是本人录音鸟",
+          "writing_normalized_cer": 0.2777777777777778,
+          "acoustics": {
+            "yin_f0_median_hz": 379.0061717746511,
+            "yin_f0_iqr_hz": 86.53941944587245,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "actions",
+          "group": "baseline",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "file": "gsve2vits-actions-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.42,
+          "compute_seconds": 0.6510891509242356,
+          "rtf": 0.10141575559567532,
+          "sample_rate": 32000,
+          "peak": 0.572265625,
+          "clipped_fraction": 0.0,
+          "sha256": "392d7f17992cc47e2a9b88955875348bd82405df661b31c06f80ec409c31b472",
+          "asr_text": "你可以点一下招手再换一个太新的表情好可爱妙",
+          "writing_normalized_cer": 0.14285714285714285,
+          "acoustics": {
+            "yin_f0_median_hz": 365.8855894594515,
+            "yin_f0_iqr_hz": 97.9027223207205,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "story",
+          "group": "baseline",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "file": "gsve2vits-story-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.14,
+          "compute_seconds": 0.6982305359560996,
+          "rtf": 0.09779139159049015,
+          "sample_rate": 32000,
+          "peak": 0.52294921875,
+          "clipped_fraction": 0.0,
+          "sha256": "e175cf4b8b8d285ea727af102b9b2c34ae275c14ba2775c69d12e0c648a1b2f4",
+          "asr_text": "今天的阳光暖暖的小猫趴在窗边看着一朵云慢慢跳过去",
+          "writing_normalized_cer": 0.041666666666666664,
+          "acoustics": {
+            "yin_f0_median_hz": 371.20473337417366,
+            "yin_f0_iqr_hz": 96.69684055120666,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "numbers",
+          "group": "baseline",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "file": "gsve2vits-numbers-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.14,
+          "compute_seconds": 0.703715768060647,
+          "rtf": 0.098559631381043,
+          "sample_rate": 32000,
+          "peak": 0.494873046875,
+          "clipped_fraction": 0.0,
+          "sha256": "8e0169e5c3981d8981df90eae9708fca5ffdc5fc4ccb423977fd3a032a2b9d85",
+          "asr_text": "現在是10月15日 下午3點20分請記得喝水 也要記得休息秒哦",
+          "writing_normalized_cer": 0.07407407407407407,
+          "acoustics": {
+            "yin_f0_median_hz": 364.49613726294535,
+            "yin_f0_iqr_hz": 81.74833984314171,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "gsvfull2",
+      "utterances": 8,
+      "baseline_cer": 0.4124293785310734,
+      "parameters": {
+        "family": "gsv",
+        "top_k": 15,
+        "top_p": 0.9,
+        "temperature": 0.7,
+        "gpt_sha256": "3cc3ef76293e70c417c82377a221bbcbcd5d6f1ee54967747edcc00aef73b751",
+        "sovits_sha256": "56f4b9e87e4454ee0c203c6a8ff84d87cf8f1019a379677f8edd9c74afbfc3e6",
+        "seed": 20261015,
+        "reference_from_train_only": true,
+        "primary_reference": "000157",
+        "auxiliary_references": [
+          "000103",
+          "000104"
+        ],
+        "reference_sha256": [
+          "d2d758f67969a95d286b8ec7dc8086565651c248322d4e1a03b8711c3ae8f8db",
+          "194c269eba0aa81398994d4cd89147750ab47c7aa9ab6824a85c06f010aec8e6",
+          "1dcc021fda8663b88fc951b5efd0c695b6da2bb9bd591801627f62efea7d3cf2"
+        ],
+        "note": "No emotion labels; reference style only. Warm cache differs across configurations; not a strict timing comparison."
+      },
+      "emotion_cer": null,
+      "showcase_cer": null,
+      "control_cer": null,
+      "baseline_warm_median_rtf": 0.13641858530310888,
+      "max_clipped_fraction": 0.0,
+      "samples": [
+        {
+          "id": "heldout-1",
+          "group": "baseline",
+          "text": "最后编辑于今天，今天刚更新过",
+          "file": "gsvfull2-heldout-1-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.02,
+          "compute_seconds": 0.5610938660101965,
+          "rtf": 0.13957558855975039,
+          "sample_rate": 32000,
+          "peak": 0.642578125,
+          "clipped_fraction": 0.0,
+          "sha256": "6b76d29862285c7a625717e0a6a3a57b3997bad7b5d8342f268e52c916a8c0d1",
+          "asr_text": "做了编辑于今天今天到更新路",
+          "writing_normalized_cer": 0.3076923076923077,
+          "acoustics": {
+            "yin_f0_median_hz": 379.5769515790428,
+            "yin_f0_iqr_hz": 65.1914163339435,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-2",
+          "group": "baseline",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "file": "gsvfull2-heldout-2-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.26,
+          "compute_seconds": 0.5919300749665126,
+          "rtf": 0.13895072182312504,
+          "sample_rate": 32000,
+          "peak": 0.444580078125,
+          "clipped_fraction": 0.0,
+          "sha256": "852376d89eaed707dc3e60bd045322ce55b86c9816c82087e89b140da212a4b1",
+          "asr_text": "不敢说当然这毛巾谁让你们放出呢",
+          "writing_normalized_cer": 0.2857142857142857,
+          "acoustics": {
+            "yin_f0_median_hz": 362.6563187365995,
+            "yin_f0_iqr_hz": 112.59618512072541,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-3",
+          "group": "baseline",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "file": "gsvfull2-heldout-3-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.42,
+          "compute_seconds": 0.6029701470397413,
+          "rtf": 0.13641858530310888,
+          "sample_rate": 32000,
+          "peak": 0.52685546875,
+          "clipped_fraction": 0.0,
+          "sha256": "41031a6a0fdbe8290adf4c50d6806c2bf1e4911b7c4e380959000c0d1d1d6090",
+          "asr_text": "她的餐廳在哪裏她們本來就能找人一個比較",
+          "writing_normalized_cer": 0.6,
+          "acoustics": {
+            "yin_f0_median_hz": 377.923581995387,
+            "yin_f0_iqr_hz": 132.70529830896265,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-4",
+          "group": "baseline",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "file": "gsvfull2-heldout-4-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.58,
+          "compute_seconds": 0.5480940649285913,
+          "rtf": 0.15309890081804226,
+          "sample_rate": 32000,
+          "peak": 0.408447265625,
+          "clipped_fraction": 0.0,
+          "sha256": "76e6600e8c38de1d812fdb8819bd3aa5e22a14ca33c8630ca25d93c6eca20f8a",
+          "asr_text": "這就是完全不是完全的告白發術呀",
+          "writing_normalized_cer": 0.6470588235294118,
+          "acoustics": {
+            "yin_f0_median_hz": 380.71028436064313,
+            "yin_f0_iqr_hz": 74.87442614972002,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "welcome",
+          "group": "baseline",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "file": "gsvfull2-welcome-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.9,
+          "compute_seconds": 0.8067397809354588,
+          "rtf": 0.1021189596120834,
+          "sample_rate": 32000,
+          "peak": 0.529296875,
+          "clipped_fraction": 0.0,
+          "sha256": "696714fec547d4bf4b6b04cab4333a9790b7ca2f89a1ee9970ae04d1b2d6909e",
+          "asr_text": "欢迎来到莫尔特利的小小展台这的声音是人工智能合成的不是本人如意妙",
+          "writing_normalized_cer": 0.3333333333333333,
+          "acoustics": {
+            "yin_f0_median_hz": 387.8041167594862,
+            "yin_f0_iqr_hz": 118.84697758953621,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "actions",
+          "group": "baseline",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "file": "gsvfull2-actions-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.86,
+          "compute_seconds": 0.6860253039048985,
+          "rtf": 0.11706916448889051,
+          "sample_rate": 32000,
+          "peak": 0.74560546875,
+          "clipped_fraction": 0.0,
+          "sha256": "064e1c21bbdf871ed6db0fa9e3a6885fd7635fed1df0209df7a4c5d7acf67b1f",
+          "asr_text": "你可以点一下招手再发一个开心的秒请好可爱喵",
+          "writing_normalized_cer": 0.14285714285714285,
+          "acoustics": {
+            "yin_f0_median_hz": 374.85284326347767,
+            "yin_f0_iqr_hz": 90.3658332915142,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "story",
+          "group": "baseline",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "file": "gsvfull2-story-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.18,
+          "compute_seconds": 0.5788071310380474,
+          "rtf": 0.1384706055114946,
+          "sample_rate": 32000,
+          "peak": 0.473876953125,
+          "clipped_fraction": 0.0,
+          "sha256": "7ee678d3c704cc7e4ef91643675d97028631560fb47d3e4263a853c924a24396",
+          "asr_text": "小猫趴在窗边看着一朵鱼蜡蜡飘落起",
+          "writing_normalized_cer": 0.5416666666666666,
+          "acoustics": {
+            "yin_f0_median_hz": 384.3676866278259,
+            "yin_f0_iqr_hz": 84.76228894902863,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "numbers",
+          "group": "baseline",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "file": "gsvfull2-numbers-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.14,
+          "compute_seconds": 0.7708362239645794,
+          "rtf": 0.10796025545722401,
+          "sample_rate": 32000,
+          "peak": 0.544921875,
+          "clipped_fraction": 0.0,
+          "sha256": "5acd822f38049763049d8f985e0619f4e274330f3855506d47c939adc895419e",
+          "asr_text": "现在是十月十五月下午三点二十分钟请进到喝水一样进来谢谢您",
+          "writing_normalized_cer": 0.4074074074074074,
+          "acoustics": {
+            "yin_f0_median_hz": 374.33537659137585,
+            "yin_f0_iqr_hz": 106.72820068894418,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "gsvfull4",
+      "utterances": 8,
+      "baseline_cer": 0.384180790960452,
+      "parameters": {
+        "family": "gsv",
+        "top_k": 15,
+        "top_p": 0.9,
+        "temperature": 0.7,
+        "gpt_sha256": "0fd6c79b54ad74dec83dec0b50abba8d4364faa80299ee159e2eed218d27cb41",
+        "sovits_sha256": "56f4b9e87e4454ee0c203c6a8ff84d87cf8f1019a379677f8edd9c74afbfc3e6",
+        "seed": 20261015,
+        "reference_from_train_only": true,
+        "primary_reference": "000157",
+        "auxiliary_references": [
+          "000103",
+          "000104"
+        ],
+        "reference_sha256": [
+          "d2d758f67969a95d286b8ec7dc8086565651c248322d4e1a03b8711c3ae8f8db",
+          "194c269eba0aa81398994d4cd89147750ab47c7aa9ab6824a85c06f010aec8e6",
+          "1dcc021fda8663b88fc951b5efd0c695b6da2bb9bd591801627f62efea7d3cf2"
+        ],
+        "note": "No emotion labels; reference style only. Warm cache differs across configurations; not a strict timing comparison."
+      },
+      "emotion_cer": null,
+      "showcase_cer": null,
+      "control_cer": null,
+      "baseline_warm_median_rtf": 0.12108437920583405,
+      "max_clipped_fraction": 0.0,
+      "samples": [
+        {
+          "id": "heldout-1",
+          "group": "baseline",
+          "text": "最后编辑于今天，今天刚更新过",
+          "file": "gsvfull4-heldout-1-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.62,
+          "compute_seconds": 0.5699717059032992,
+          "rtf": 0.1574507474870992,
+          "sample_rate": 32000,
+          "peak": 0.61572265625,
+          "clipped_fraction": 0.0,
+          "sha256": "cbabb37d2c6e328e6a1f40b954c555657b2f034c393c04be20a83b17e1d859bb",
+          "asr_text": "最后编辑于今天今天更新末",
+          "writing_normalized_cer": 0.15384615384615385,
+          "acoustics": {
+            "yin_f0_median_hz": 391.5177898407787,
+            "yin_f0_iqr_hz": 61.51602004285701,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-2",
+          "group": "baseline",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "file": "gsvfull4-heldout-2-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.06,
+          "compute_seconds": 0.5671169359702617,
+          "rtf": 0.13968397437691177,
+          "sample_rate": 32000,
+          "peak": 0.55712890625,
+          "clipped_fraction": 0.0,
+          "sha256": "5eb5df139e78b5272703e17c8f83fc69e80da31565bcff5f1ed458a9b7e04b7c",
+          "asr_text": "那不能說啊那這毛巾誰讓你們放出來啊",
+          "writing_normalized_cer": 0.42857142857142855,
+          "acoustics": {
+            "yin_f0_median_hz": 379.8520458800585,
+            "yin_f0_iqr_hz": 93.50146673182263,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-3",
+          "group": "baseline",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "file": "gsvfull4-heldout-3-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.74,
+          "compute_seconds": 0.8450024590129033,
+          "rtf": 0.10917344431691256,
+          "sample_rate": 32000,
+          "peak": 0.58203125,
+          "clipped_fraction": 0.0,
+          "sha256": "95531a7add104f80816ce3081b1afb25b6d8bb08e1d0e22df43d33ed66515ed3",
+          "asr_text": "她的善情在哪播她們都想好了可是本來正在找了一個比較",
+          "writing_normalized_cer": 0.4,
+          "acoustics": {
+            "yin_f0_median_hz": 367.9454801739889,
+            "yin_f0_iqr_hz": 124.06810145844861,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-4",
+          "group": "baseline",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "file": "gsvfull4-heldout-4-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.22,
+          "compute_seconds": 0.5935050179250538,
+          "rtf": 0.1406409995083066,
+          "sample_rate": 32000,
+          "peak": 0.53955078125,
+          "clipped_fraction": 0.0,
+          "sha256": "c271b40d35f8ac7bef48d5bec571ca42161fea47f05245b2a12ccc5bc5ca0300",
+          "asr_text": "今天这玩具不是玩具王子的动漫发送面啊",
+          "writing_normalized_cer": 0.7647058823529411,
+          "acoustics": {
+            "yin_f0_median_hz": 374.5362583959846,
+            "yin_f0_iqr_hz": 85.30663352085253,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "welcome",
+          "group": "baseline",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "file": "gsvfull4-welcome-AI.wav",
+          "mood": "neutral",
+          "seconds": 9.02,
+          "compute_seconds": 0.8581364180427045,
+          "rtf": 0.09513707517103154,
+          "sample_rate": 32000,
+          "peak": 0.64990234375,
+          "clipped_fraction": 0.0,
+          "sha256": "f1262802e91ac62d74878ebfcbcb399b46019335f9c9d8f8e748c4a761317e3e",
+          "asr_text": "叫我好妙欢迎来到猛热台边的小小展台这种声音是人工智能合成的可是本人录音样",
+          "writing_normalized_cer": 0.2777777777777778,
+          "acoustics": {
+            "yin_f0_median_hz": 382.3063799859761,
+            "yin_f0_iqr_hz": 85.83083527425111,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "actions",
+          "group": "baseline",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "file": "gsvfull4-actions-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.58,
+          "compute_seconds": 0.675650835968554,
+          "rtf": 0.12108437920583405,
+          "sample_rate": 32000,
+          "peak": 0.66015625,
+          "clipped_fraction": 0.0,
+          "sha256": "92c61b92ca5f14097fd294ce1c336b2fc899eb2d06c4275fa852dae2538b699e",
+          "asr_text": "你可以点一下招手在发现那开心的表情好可爱你啊",
+          "writing_normalized_cer": 0.2857142857142857,
+          "acoustics": {
+            "yin_f0_median_hz": 384.8538864917885,
+            "yin_f0_iqr_hz": 96.1879681614542,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "story",
+          "group": "baseline",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "file": "gsvfull4-story-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.26,
+          "compute_seconds": 0.5387762959580868,
+          "rtf": 0.12647330891034902,
+          "sample_rate": 32000,
+          "peak": 0.51416015625,
+          "clipped_fraction": 0.0,
+          "sha256": "19e2158c4f74a435e241965e64e85cc1c63f6bb6f2734ec4c6c7cea570c3eab7",
+          "asr_text": "閃貓看在側邊看著一朵魚慢慢飄過自然",
+          "writing_normalized_cer": 0.625,
+          "acoustics": {
+            "yin_f0_median_hz": 387.12351297599645,
+            "yin_f0_iqr_hz": 92.30253721080794,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "numbers",
+          "group": "baseline",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "file": "gsvfull4-numbers-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.7,
+          "compute_seconds": 0.733186295023188,
+          "rtf": 0.10943079030196835,
+          "sample_rate": 32000,
+          "peak": 0.54931640625,
+          "clipped_fraction": 0.0,
+          "sha256": "48e8f11010966db7643844a0a0da432aac2a2aaa2e1ba8cb19059ad8aad3c107",
+          "asr_text": "現在是10月15日下午3點20分請進來喝水不要進來休息娘",
+          "writing_normalized_cer": 0.2222222222222222,
+          "acoustics": {
+            "yin_f0_median_hz": 381.18779938057673,
+            "yin_f0_iqr_hz": 109.57290732237482,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "gsvmulti",
+      "utterances": 8,
+      "baseline_cer": 0.22033898305084745,
+      "parameters": {
+        "family": "gsv",
+        "top_k": 15,
+        "top_p": 1.0,
+        "temperature": 1.0,
+        "gpt_sha256": "87133414860ea14ff6620c483a3db5ed07b44be42e2c3fcdad65523a729a745a",
+        "sovits_sha256": "56f4b9e87e4454ee0c203c6a8ff84d87cf8f1019a379677f8edd9c74afbfc3e6",
+        "seed": 20261015,
+        "reference_from_train_only": true,
+        "primary_reference": "000157",
+        "auxiliary_references": [
+          "000103",
+          "000104"
+        ],
+        "reference_sha256": [
+          "d2d758f67969a95d286b8ec7dc8086565651c248322d4e1a03b8711c3ae8f8db",
+          "194c269eba0aa81398994d4cd89147750ab47c7aa9ab6824a85c06f010aec8e6",
+          "1dcc021fda8663b88fc951b5efd0c695b6da2bb9bd591801627f62efea7d3cf2"
+        ],
+        "note": "No emotion labels; reference style only. Warm cache differs across configurations; not a strict timing comparison."
+      },
+      "emotion_cer": null,
+      "showcase_cer": null,
+      "control_cer": null,
+      "baseline_warm_median_rtf": 0.10334688588716519,
+      "max_clipped_fraction": 0.0,
+      "samples": [
+        {
+          "id": "heldout-1",
+          "group": "baseline",
+          "text": "最后编辑于今天，今天刚更新过",
+          "file": "gsvmulti-heldout-1-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.42,
+          "compute_seconds": 0.5322487299563363,
+          "rtf": 0.15562828361296385,
+          "sample_rate": 32000,
+          "peak": 0.458740234375,
+          "clipped_fraction": 0.0,
+          "sha256": "a701f2bfc2cf04be73cec1e029a8ee59c06b941cbac139364c2ab61eb2889103",
+          "asr_text": "最後編輯的今天今天剛剛登記我",
+          "writing_normalized_cer": 0.38461538461538464,
+          "acoustics": {
+            "yin_f0_median_hz": 404.7851011109845,
+            "yin_f0_iqr_hz": 46.06796257495438,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-2",
+          "group": "baseline",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "file": "gsvmulti-heldout-2-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.26,
+          "compute_seconds": 0.6031113680219278,
+          "rtf": 0.1146599558977049,
+          "sample_rate": 32000,
+          "peak": 0.5458984375,
+          "clipped_fraction": 0.0,
+          "sha256": "8d72cc29997c3b3bb9246e640b4103288458364f8c743eccca34f5b06e4c0d55",
+          "asr_text": "不敢說啊這毛巾誰讓你們放圖的",
+          "writing_normalized_cer": 0.0,
+          "acoustics": {
+            "yin_f0_median_hz": 389.443025930791,
+            "yin_f0_iqr_hz": 83.74719743970888,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-3",
+          "group": "baseline",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "file": "gsvmulti-heldout-3-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.94,
+          "compute_seconds": 0.7172273880569264,
+          "rtf": 0.10334688588716519,
+          "sample_rate": 32000,
+          "peak": 0.57177734375,
+          "clipped_fraction": 0.0,
+          "sha256": "b380b780142f1383104acccba2575b7d43e86388c372dd58dc9952b92f2873f9",
+          "asr_text": "他們三 盯著哪波 他們都想好了他們本來就是找了一個比較",
+          "writing_normalized_cer": 0.36,
+          "acoustics": {
+            "yin_f0_median_hz": 385.6743632357285,
+            "yin_f0_iqr_hz": 123.52462477753909,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-4",
+          "group": "baseline",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "file": "gsvmulti-heldout-4-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.02,
+          "compute_seconds": 0.5356716210953891,
+          "rtf": 0.13325164703865403,
+          "sample_rate": 32000,
+          "peak": 0.43701171875,
+          "clipped_fraction": 0.0,
+          "sha256": "e5b61263f09a30cab8dfb7e942ea800d0b690e80a62d530517a91b022b1438ae",
+          "asr_text": "這件事完全不是完全完整的到來花鼠娘",
+          "writing_normalized_cer": 0.7647058823529411,
+          "acoustics": {
+            "yin_f0_median_hz": 375.79393928634846,
+            "yin_f0_iqr_hz": 77.15811560210881,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "welcome",
+          "group": "baseline",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "file": "gsvmulti-welcome-AI.wav",
+          "mood": "neutral",
+          "seconds": 8.62,
+          "compute_seconds": 0.8075411430327222,
+          "rtf": 0.09368226717316963,
+          "sample_rate": 32000,
+          "peak": 0.59375,
+          "clipped_fraction": 0.0,
+          "sha256": "d447656c7e87e8bd3a3964b0195a5176a3d7b5d61cb97e35b65db9ecc53fb268",
+          "asr_text": "下午喊喵欢迎来到猫岳塔街的小小展台这个声音是人工智能合成的不是本人录一面",
+          "writing_normalized_cer": 0.1388888888888889,
+          "acoustics": {
+            "yin_f0_median_hz": 379.31451956908677,
+            "yin_f0_iqr_hz": 93.98249305782076,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "actions",
+          "group": "baseline",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "file": "gsvmulti-actions-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.62,
+          "compute_seconds": 0.619972150074318,
+          "rtf": 0.11031532919471851,
+          "sample_rate": 32000,
+          "peak": 0.5029296875,
+          "clipped_fraction": 0.0,
+          "sha256": "cd19911e27cdd63bc92c111dbcfe504366a9b1b9461f15e607ee8b69c5c37c1c",
+          "asr_text": "你可以点一下招手再画一个开心的表情好开啊",
+          "writing_normalized_cer": 0.19047619047619047,
+          "acoustics": {
+            "yin_f0_median_hz": 391.2299088111072,
+            "yin_f0_iqr_hz": 112.29940864125416,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "story",
+          "group": "baseline",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "file": "gsvmulti-story-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.74,
+          "compute_seconds": 0.6898128860630095,
+          "rtf": 0.10234612552863642,
+          "sample_rate": 32000,
+          "peak": 0.537109375,
+          "clipped_fraction": 0.0,
+          "sha256": "612cefbc2ea183ba27fdbfa5048580ab6cf68d0a0be755eacf57481ae7a49073",
+          "asr_text": "今天的阳光暖暖的小猫趴在窗边看见一朵云慢慢飘过去",
+          "writing_normalized_cer": 0.041666666666666664,
+          "acoustics": {
+            "yin_f0_median_hz": 398.78513614764165,
+            "yin_f0_iqr_hz": 88.58579631182351,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "numbers",
+          "group": "baseline",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "file": "gsvmulti-numbers-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.82,
+          "compute_seconds": 0.7532366529339924,
+          "rtf": 0.09632182262583024,
+          "sample_rate": 32000,
+          "peak": 0.638671875,
+          "clipped_fraction": 0.0,
+          "sha256": "ae6a35583e6f3d249cadad800b755e76298b5196b0bc81db723ccf205e605e96",
+          "asr_text": "现在是10月15日,下午3点20分,请进得喝水,也要进得休息喵。",
+          "writing_normalized_cer": 0.07407407407407407,
+          "acoustics": {
+            "yin_f0_median_hz": 386.5909464423285,
+            "yin_f0_iqr_hz": 92.6385295479567,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "gsvoriginalmulti",
+      "utterances": 8,
+      "baseline_cer": 0.1864406779661017,
+      "parameters": {
+        "family": "gsv",
+        "top_k": 15,
+        "top_p": 1.0,
+        "temperature": 1.0,
+        "gpt_sha256": "87133414860ea14ff6620c483a3db5ed07b44be42e2c3fcdad65523a729a745a",
+        "sovits_sha256": "56f4b9e87e4454ee0c203c6a8ff84d87cf8f1019a379677f8edd9c74afbfc3e6",
+        "seed": 20261015,
+        "reference_from_train_only": true,
+        "primary_reference": "000006",
+        "auxiliary_references": [
+          "000103",
+          "000157"
+        ],
+        "reference_sha256": [
+          "a0ee00e104a7261ecf45a06e77899ce68315fb25d8dcf90be04f970936f72232",
+          "194c269eba0aa81398994d4cd89147750ab47c7aa9ab6824a85c06f010aec8e6",
+          "d2d758f67969a95d286b8ec7dc8086565651c248322d4e1a03b8711c3ae8f8db"
+        ],
+        "note": "No emotion labels; reference style only. Warm cache differs across configurations; not a strict timing comparison."
+      },
+      "emotion_cer": null,
+      "showcase_cer": null,
+      "control_cer": null,
+      "baseline_warm_median_rtf": 0.11415706074874953,
+      "max_clipped_fraction": 0.0,
+      "samples": [
+        {
+          "id": "heldout-1",
+          "group": "baseline",
+          "text": "最后编辑于今天，今天刚更新过",
+          "file": "gsvoriginalmulti-heldout-1-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.98,
+          "compute_seconds": 2.136135575012304,
+          "rtf": 0.5367174811588703,
+          "sample_rate": 32000,
+          "peak": 0.46337890625,
+          "clipped_fraction": 0.0,
+          "sha256": "b19c2d4b76ec418ffec8c95b53ca84f56c8d13da0987a01277cf4a396cee7d4b",
+          "asr_text": "最後編輯於今天今天剛剛更新過",
+          "writing_normalized_cer": 0.07692307692307693,
+          "acoustics": {
+            "yin_f0_median_hz": 388.84661359681644,
+            "yin_f0_iqr_hz": 94.95482377605919,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-2",
+          "group": "baseline",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "file": "gsvoriginalmulti-heldout-2-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.86,
+          "compute_seconds": 0.5755073690088466,
+          "rtf": 0.11841715411704662,
+          "sample_rate": 32000,
+          "peak": 0.51806640625,
+          "clipped_fraction": 0.0,
+          "sha256": "c3df1c4e3eec1f0bfb0fc79ed0d4e5d6dbdf2dabd856d8b50bc7ace6eaab953c",
+          "asr_text": "不敢說這毛巾誰讓你們放圖的",
+          "writing_normalized_cer": 0.07142857142857142,
+          "acoustics": {
+            "yin_f0_median_hz": 360.5506380920096,
+            "yin_f0_iqr_hz": 85.63819926855558,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-3",
+          "group": "baseline",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "file": "gsvoriginalmulti-heldout-3-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.38,
+          "compute_seconds": 2.4409440980525687,
+          "rtf": 0.33075123279845103,
+          "sample_rate": 32000,
+          "peak": 0.54052734375,
+          "clipped_fraction": 0.0,
+          "sha256": "c8b1073ba1ebfe61a7ae5ef184c2b33cdc74c7fbcd0a4a9f2d50e8da2c57ad22",
+          "asr_text": "他们三接在哪波他们都想好了他们本来就是找了一个比较",
+          "writing_normalized_cer": 0.32,
+          "acoustics": {
+            "yin_f0_median_hz": 370.05669926263016,
+            "yin_f0_iqr_hz": 121.72817438670154,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-4",
+          "group": "baseline",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "file": "gsvoriginalmulti-heldout-4-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.9,
+          "compute_seconds": 0.5625585960224271,
+          "rtf": 0.1442457938519044,
+          "sample_rate": 32000,
+          "peak": 0.43505859375,
+          "clipped_fraction": 0.0,
+          "sha256": "30340ff2a1163a4b96b12f201dd771c2224216f138fec57d8cf25a56c312201a",
+          "asr_text": "谢谢这玩具不是玩具王子的告白发出面啊",
+          "writing_normalized_cer": 0.5294117647058824,
+          "acoustics": {
+            "yin_f0_median_hz": 369.86734740017846,
+            "yin_f0_iqr_hz": 73.5473128481542,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "welcome",
+          "group": "baseline",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "file": "gsvoriginalmulti-welcome-AI.wav",
+          "mood": "neutral",
+          "seconds": 9.02,
+          "compute_seconds": 0.8703993239905685,
+          "rtf": 0.09649659911203642,
+          "sample_rate": 32000,
+          "peak": 0.427490234375,
+          "clipped_fraction": 0.0,
+          "sha256": "0249715c0ca361fc41e589cafaa7d3bfd807e2271ab6ade3e94104113da82f1c",
+          "asr_text": "笑我好面啊欢迎来到摩尔塔碑的小小展台觉得双音是人工智能合成的不是本人录音面",
+          "writing_normalized_cer": 0.3055555555555556,
+          "acoustics": {
+            "yin_f0_median_hz": 379.8256585950211,
+            "yin_f0_iqr_hz": 83.7087917611434,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "actions",
+          "group": "baseline",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "file": "gsvoriginalmulti-actions-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.42,
+          "compute_seconds": 0.732888330006972,
+          "rtf": 0.11415706074874953,
+          "sample_rate": 32000,
+          "peak": 0.56005859375,
+          "clipped_fraction": 0.0,
+          "sha256": "3f2daf2916efed40f5e6c3d7d3a5574c08b96ef9a6b0d7380685d12a79d1f47e",
+          "asr_text": "你可以点一下招手再换一个开心的表情好可爱妙",
+          "writing_normalized_cer": 0.047619047619047616,
+          "acoustics": {
+            "yin_f0_median_hz": 368.16378878518105,
+            "yin_f0_iqr_hz": 95.65719828411471,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "story",
+          "group": "baseline",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "file": "gsvoriginalmulti-story-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.14,
+          "compute_seconds": 0.770174540928565,
+          "rtf": 0.10786758276310435,
+          "sample_rate": 32000,
+          "peak": 0.461181640625,
+          "clipped_fraction": 0.0,
+          "sha256": "05aa3111835bd4046374f2baa3f3a3e81a715d964b5923c84a49cf3d59f3d1d2",
+          "asr_text": "今天的阳光暖暖的小猫趴在窗边看着一朵鱼慢慢飘过去",
+          "writing_normalized_cer": 0.041666666666666664,
+          "acoustics": {
+            "yin_f0_median_hz": 368.24873398576517,
+            "yin_f0_iqr_hz": 94.092399728852,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "numbers",
+          "group": "baseline",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "file": "gsvoriginalmulti-numbers-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.14,
+          "compute_seconds": 0.7271393580595031,
+          "rtf": 0.10184024622682117,
+          "sample_rate": 32000,
+          "peak": 0.4462890625,
+          "clipped_fraction": 0.0,
+          "sha256": "9db355ce8fbf13a89d2758ec4a44020a65e83d91fdf7f3ffa7e35cc52d0614cc",
+          "asr_text": "现在是10月15日下午3点20分请记得喝水也要记得休息秒",
+          "writing_normalized_cer": 0.037037037037037035,
+          "acoustics": {
+            "yin_f0_median_hz": 366.6883107772236,
+            "yin_f0_iqr_hz": 78.63864633251052,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "gsvoriginalstable",
+      "utterances": 8,
+      "baseline_cer": 0.1977401129943503,
+      "parameters": {
+        "family": "gsv",
+        "top_k": 15,
+        "top_p": 0.9,
+        "temperature": 0.7,
+        "gpt_sha256": "87133414860ea14ff6620c483a3db5ed07b44be42e2c3fcdad65523a729a745a",
+        "sovits_sha256": "56f4b9e87e4454ee0c203c6a8ff84d87cf8f1019a379677f8edd9c74afbfc3e6",
+        "seed": 20261015,
+        "reference_from_train_only": true,
+        "primary_reference": "000006",
+        "auxiliary_references": [],
+        "reference_sha256": [
+          "a0ee00e104a7261ecf45a06e77899ce68315fb25d8dcf90be04f970936f72232"
+        ],
+        "note": "No emotion labels; reference style only. Warm cache differs across configurations; not a strict timing comparison."
+      },
+      "emotion_cer": null,
+      "showcase_cer": null,
+      "control_cer": null,
+      "baseline_warm_median_rtf": 0.10529572092781221,
+      "max_clipped_fraction": 0.0,
+      "samples": [
+        {
+          "id": "heldout-1",
+          "group": "baseline",
+          "text": "最后编辑于今天，今天刚更新过",
+          "file": "gsvoriginalstable-heldout-1-AI.wav",
+          "mood": "neutral",
+          "seconds": 3.9,
+          "compute_seconds": 0.5136700089788064,
+          "rtf": 0.13171025871251446,
+          "sample_rate": 32000,
+          "peak": 0.52294921875,
+          "clipped_fraction": 0.0,
+          "sha256": "f139198d8dbf5247bfc7ae25aa88999f2fdef2e3b8a929b0781f19d5db9e8555",
+          "asr_text": "最后编辑于今天今天刚刚辛苦",
+          "writing_normalized_cer": 0.23076923076923078,
+          "acoustics": {
+            "yin_f0_median_hz": 373.05900788987174,
+            "yin_f0_iqr_hz": 49.85374829813475,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-2",
+          "group": "baseline",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "file": "gsvoriginalstable-heldout-2-AI.wav",
+          "mood": "neutral",
+          "seconds": 5.14,
+          "compute_seconds": 0.6319548609899357,
+          "rtf": 0.12294841653500695,
+          "sample_rate": 32000,
+          "peak": 0.55029296875,
+          "clipped_fraction": 0.0,
+          "sha256": "c97e54bdc53294f4d8d22f9050d15e454b03429bc4bfdc5f3cfe27ed15ddcd37",
+          "asr_text": "不敢說這毛巾誰讓你們放圖的",
+          "writing_normalized_cer": 0.07142857142857142,
+          "acoustics": {
+            "yin_f0_median_hz": 358.99774221135345,
+            "yin_f0_iqr_hz": 76.12014020720494,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-3",
+          "group": "baseline",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "file": "gsvoriginalstable-heldout-3-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.74,
+          "compute_seconds": 0.724217590992339,
+          "rtf": 0.10745068115613338,
+          "sample_rate": 32000,
+          "peak": 0.5458984375,
+          "clipped_fraction": 0.0,
+          "sha256": "3c0bdad07c8e6f660f2239492f29fc6bf130ab762cf3d4d52d650fdf7759e492",
+          "asr_text": "他们3接下来打播他们都想好了他们本来就是找了一个比较",
+          "writing_normalized_cer": 0.4,
+          "acoustics": {
+            "yin_f0_median_hz": 368.63130951031746,
+            "yin_f0_iqr_hz": 124.67256430760636,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-4",
+          "group": "baseline",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "file": "gsvoriginalstable-heldout-4-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.86,
+          "compute_seconds": 0.5660879900678992,
+          "rtf": 0.11647901030203688,
+          "sample_rate": 32000,
+          "peak": 0.5517578125,
+          "clipped_fraction": 0.0,
+          "sha256": "e54d28d30f00a96242a31e428ff19573c2f8a9f4ac22fc17cba79b0ebc59887d",
+          "asr_text": "这也是玩具不是玩具网址的大白花树庙",
+          "writing_normalized_cer": 0.6470588235294118,
+          "acoustics": {
+            "yin_f0_median_hz": 367.35957343072755,
+            "yin_f0_iqr_hz": 47.921841101120265,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "welcome",
+          "group": "baseline",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "file": "gsvoriginalstable-welcome-AI.wav",
+          "mood": "neutral",
+          "seconds": 8.86,
+          "compute_seconds": 0.858520925976336,
+          "rtf": 0.09689852437656163,
+          "sample_rate": 32000,
+          "peak": 0.49072265625,
+          "clipped_fraction": 0.0,
+          "sha256": "42f485227544eb2a8c2ce86247deaa00a2a8d186e831f2e7e66d54d5e6e9542b",
+          "asr_text": "笑我好妙,欢迎来到马尔塔菲的小小展台这段声音是人工智能合成的,不是本人录音片",
+          "writing_normalized_cer": 0.19444444444444445,
+          "acoustics": {
+            "yin_f0_median_hz": 378.40507950603137,
+            "yin_f0_iqr_hz": 80.42942067751329,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "actions",
+          "group": "baseline",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "file": "gsvoriginalstable-actions-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.42,
+          "compute_seconds": 0.6615636879578233,
+          "rtf": 0.1030473034202217,
+          "sample_rate": 32000,
+          "peak": 0.54150390625,
+          "clipped_fraction": 0.0,
+          "sha256": "4499b766379d26aa97f71c9850787178481a74a93d25a9d0a20479bd93d87b64",
+          "asr_text": "你可以点一下招手,再换一种开心的表情好可爱,喵",
+          "writing_normalized_cer": 0.047619047619047616,
+          "acoustics": {
+            "yin_f0_median_hz": 371.8911078018367,
+            "yin_f0_iqr_hz": 62.28145972330191,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "story",
+          "group": "baseline",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "file": "gsvoriginalstable-story-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.98,
+          "compute_seconds": 0.7349641320761293,
+          "rtf": 0.10529572092781221,
+          "sample_rate": 32000,
+          "peak": 0.58349609375,
+          "clipped_fraction": 0.0,
+          "sha256": "51d036fa9944365389f449e67a70b7daef547bb10bf3a8773a0adbb7c3c5aab1",
+          "asr_text": "今天的阳光暖暖的小猫趴在窗边看着一朵银慢慢飘过去",
+          "writing_normalized_cer": 0.041666666666666664,
+          "acoustics": {
+            "yin_f0_median_hz": 367.41479263970393,
+            "yin_f0_iqr_hz": 77.91634630310182,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "numbers",
+          "group": "baseline",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "file": "gsvoriginalstable-numbers-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.78,
+          "compute_seconds": 0.7891462710686028,
+          "rtf": 0.10143268265663274,
+          "sample_rate": 32000,
+          "peak": 0.53076171875,
+          "clipped_fraction": 0.0,
+          "sha256": "a85c297498ba6a8f8ccd822f09b3b00a14d98aea95305ae3cf8455fae61165b9",
+          "asr_text": "现在是10月15日,下午3点20分请记得喝水,也要记得休息秒",
+          "writing_normalized_cer": 0.037037037037037035,
+          "acoustics": {
+            "yin_f0_median_hz": 378.4306287869681,
+            "yin_f0_iqr_hz": 88.30562704501642,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "gsvsteady",
+      "utterances": 8,
+      "baseline_cer": 0.22033898305084745,
+      "parameters": {
+        "family": "gsv",
+        "top_k": 15,
+        "top_p": 0.9,
+        "temperature": 0.7,
+        "gpt_sha256": "87133414860ea14ff6620c483a3db5ed07b44be42e2c3fcdad65523a729a745a",
+        "sovits_sha256": "56f4b9e87e4454ee0c203c6a8ff84d87cf8f1019a379677f8edd9c74afbfc3e6",
+        "seed": 20261015,
+        "reference_from_train_only": true,
+        "primary_reference": "000157",
+        "auxiliary_references": [
+          "000103",
+          "000104"
+        ],
+        "reference_sha256": [
+          "d2d758f67969a95d286b8ec7dc8086565651c248322d4e1a03b8711c3ae8f8db",
+          "194c269eba0aa81398994d4cd89147750ab47c7aa9ab6824a85c06f010aec8e6",
+          "1dcc021fda8663b88fc951b5efd0c695b6da2bb9bd591801627f62efea7d3cf2"
+        ],
+        "note": "No emotion labels; reference style only. Warm cache differs across configurations; not a strict timing comparison."
+      },
+      "emotion_cer": null,
+      "showcase_cer": null,
+      "control_cer": null,
+      "baseline_warm_median_rtf": 0.1108759078134254,
+      "max_clipped_fraction": 0.0,
+      "samples": [
+        {
+          "id": "heldout-1",
+          "group": "baseline",
+          "text": "最后编辑于今天，今天刚更新过",
+          "file": "gsvsteady-heldout-1-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.02,
+          "compute_seconds": 0.523215249995701,
+          "rtf": 0.1301530472626122,
+          "sample_rate": 32000,
+          "peak": 0.720703125,
+          "clipped_fraction": 0.0,
+          "sha256": "245c7602a6807cd4b5726c5f6bb5fed8639316878aa7f1e3bb5af825b090bf1e",
+          "asr_text": "最后编辑于今天今天刚更新过",
+          "writing_normalized_cer": 0.0,
+          "acoustics": {
+            "yin_f0_median_hz": 389.5258705397073,
+            "yin_f0_iqr_hz": 51.28549686855871,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-2",
+          "group": "baseline",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "file": "gsvsteady-heldout-2-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.82,
+          "compute_seconds": 0.627838960965164,
+          "rtf": 0.130257045843395,
+          "sample_rate": 32000,
+          "peak": 0.55859375,
+          "clipped_fraction": 0.0,
+          "sha256": "276ac1871c7bacc0d4a8ddbdc96542251fac241cff5ee153832e6a8d900d07e4",
+          "asr_text": "不敢说啊这毛巾谁让你们放涂的",
+          "writing_normalized_cer": 0.07142857142857142,
+          "acoustics": {
+            "yin_f0_median_hz": 387.47842194935066,
+            "yin_f0_iqr_hz": 73.94606332715125,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-3",
+          "group": "baseline",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "file": "gsvsteady-heldout-3-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.66,
+          "compute_seconds": 0.7384335460374132,
+          "rtf": 0.1108759078134254,
+          "sample_rate": 32000,
+          "peak": 0.5302734375,
+          "clipped_fraction": 0.0,
+          "sha256": "45bc49f5a4b85887f0761d213c1615dfee37ca2cf6ecaef4b7dd2c77d1142760",
+          "asr_text": "他們算了滴蛋打波他們都想好了他們本來就是找了一個比較",
+          "writing_normalized_cer": 0.48,
+          "acoustics": {
+            "yin_f0_median_hz": 380.26394184433224,
+            "yin_f0_iqr_hz": 134.37735088882988,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "heldout-4",
+          "group": "baseline",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "file": "gsvsteady-heldout-4-AI.wav",
+          "mood": "neutral",
+          "seconds": 4.22,
+          "compute_seconds": 0.5807133810594678,
+          "rtf": 0.13760980593826252,
+          "sample_rate": 32000,
+          "peak": 0.414794921875,
+          "clipped_fraction": 0.0,
+          "sha256": "ce21a4dbb3f2e31877253078c9a5fb3a30961729d78c4a53ab7727193131eee6",
+          "asr_text": "这件事玩具不是玩具王子的豆白花书面",
+          "writing_normalized_cer": 0.5882352941176471,
+          "acoustics": {
+            "yin_f0_median_hz": 391.9900677876068,
+            "yin_f0_iqr_hz": 52.9271799168406,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "welcome",
+          "group": "baseline",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "file": "gsvsteady-welcome-AI.wav",
+          "mood": "neutral",
+          "seconds": 9.02,
+          "compute_seconds": 0.8859409239375964,
+          "rtf": 0.09821961462722799,
+          "sample_rate": 32000,
+          "peak": 0.541015625,
+          "clipped_fraction": 0.0,
+          "sha256": "64fcf11d9d5e44b7ec45394ef0fbd10f4f124852c00a74cd78907a3f6340e046",
+          "asr_text": "下午好妙歡迎來到貓爾塔爹的小小講臺這個聲音是人工智能合成的不是本人錄音妙",
+          "writing_normalized_cer": 0.1388888888888889,
+          "acoustics": {
+            "yin_f0_median_hz": 392.57198834555675,
+            "yin_f0_iqr_hz": 100.50971924187468,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "actions",
+          "group": "baseline",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "file": "gsvsteady-actions-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.18,
+          "compute_seconds": 0.7537686589639634,
+          "rtf": 0.121969038667308,
+          "sample_rate": 32000,
+          "peak": 0.51513671875,
+          "clipped_fraction": 0.0,
+          "sha256": "854dd2ea4dfecf0b0cfd5c6794ec4ee55eb8598940c68381648cd52a5244f081",
+          "asr_text": "你可以点一下招手再换一个开心的表情好可爱喵",
+          "writing_normalized_cer": 0.0,
+          "acoustics": {
+            "yin_f0_median_hz": 382.7077793270712,
+            "yin_f0_iqr_hz": 100.51688736863917,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "story",
+          "group": "baseline",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "file": "gsvsteady-story-AI.wav",
+          "mood": "neutral",
+          "seconds": 6.74,
+          "compute_seconds": 0.702662221970968,
+          "rtf": 0.1042525551885709,
+          "sample_rate": 32000,
+          "peak": 0.578125,
+          "clipped_fraction": 0.0,
+          "sha256": "507a7ccd72d06209db220ffce58f87c770cfcdaa8ba8a6e808ec53cbf031c03c",
+          "asr_text": "今天的羊貓懶懶的小貓趴在窗邊看著一朵雲慢慢跳過去",
+          "writing_normalized_cer": 0.25,
+          "acoustics": {
+            "yin_f0_median_hz": 388.21253505500766,
+            "yin_f0_iqr_hz": 79.7324284847661,
+            "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
+          }
+        },
+        {
+          "id": "numbers",
+          "group": "baseline",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "file": "gsvsteady-numbers-AI.wav",
+          "mood": "neutral",
+          "seconds": 7.02,
+          "compute_seconds": 0.7755165069829673,
+          "rtf": 0.11047243689216059,
+          "sample_rate": 32000,
+          "peak": 0.53466796875,
+          "clipped_fraction": 0.0,
+          "sha256": "cff1ac5c452273dce70f4d95a8b32dbc2523ca9b4f77f179778027b54e2c540f",
+          "asr_text": "现在是10月15日,下午3点20分,请进来喝水,也要进来休息宵",
+          "writing_normalized_cer": 0.18518518518518517,
+          "acoustics": {
+            "yin_f0_median_hz": 397.77770022276525,
+            "yin_f0_iqr_hz": 90.0057216881653,
             "warning": "RMS-gated YIN proxy, not a validated emotion classifier or speaker similarity metric."
           }
         }

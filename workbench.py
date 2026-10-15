@@ -24,7 +24,7 @@ INSTRUCTIONS = {
 @dataclass(frozen=True)
 class Request:
     text: str
-    reference: Path
+    reference: Path | None
     reference_text: str
     output: Path
     mood: str = "neutral"
@@ -32,14 +32,14 @@ class Request:
     speed: float = 1.0
     seed: int = 20261015
 
-    def validate(self):
+    def validate(self, require_reference=True):
         if not 1 <= len(self.text.strip()) <= 300:
             raise ValueError("Text must have 1–300 characters")
         if self.mood not in MOODS:
             raise ValueError("Unsupported mood")
         if not 0 <= self.strength <= 1 or not .8 <= self.speed <= 1.25:
             raise ValueError("strength: 0–1, speed: .8–1.25")
-        if not self.reference.is_file():
+        if require_reference and (self.reference is None or not self.reference.is_file()):
             raise ValueError("Provide a permitted local reference WAV")
         if self.output.exists():
             raise FileExistsError("Refusing to overwrite existing output")

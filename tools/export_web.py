@@ -12,7 +12,7 @@ def main():
     (dest/'voice').mkdir(parents=True,exist_ok=True)
     for name in ['style.css','favicon.svg']:
         shutil.copy2(args.site_dist/name,dest/name)
-    for name in ['index.html','voice.css','voice.js','catalog.json','licenses.txt','index-license.txt','index-license-zh.txt']:
+    for name in ['index.html','voice.css','timbre.css','voice.js','catalog.json','licenses.txt','index-license.txt','index-license-zh.txt']:
         text=(args.site_dist/'voice'/name).read_text()
         if name=='index.html':
             text=text.replace('href="../#gallery"','href="https://塔菲.com/#gallery"').replace('href="../resources/"','href="https://塔菲.com/resources/"').replace('href="../resources/nekomimi-taffy/#showcase"','href="https://塔菲.com/resources/nekomimi-taffy/#showcase"')

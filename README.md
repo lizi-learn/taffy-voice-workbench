@@ -6,6 +6,8 @@
 
 ## 已实现
 
+- GPT‑SoVITS v2ProPlus：明确选择 GPT / SoVITS 权重、准确主参考转写、多参考融合、temperature / top-p / top-k；作为当前音色优化主线。
+- Bert‑VITS2：固定公开音色、受控噪声参数和逐句固定种子；检查全部活动参数，不静默随机初始化缺失层。
 - IndexTTS‑2.5：8 维情绪向量、强度、语速，使用参考音频克隆。
 - CosyVoice3‑0.5B‑2512：开心、伤心、生气等独立指令，参考音色与朗读文本分开传递。
 - 相同文案与固定种子对照；记录原始 WAV 校验、RTF、峰值显存、内存、采样率、削波率。
@@ -17,7 +19,7 @@
 
 ## 本地使用
 
-Python 3.10/3.11、CUDA GPU；各引擎请按其官方锁定环境分别安装。不要把两个引擎的 requirements 混装，更不要升级生产推理环境里的 Torch。
+Python 3.10/3.11、CUDA GPU；各引擎请按其官方锁定环境分别安装。每个进程只加载一个引擎，不要混装 requirements，更不要升级生产推理环境里的 Torch。
 
 1. 在独立目录检出 `engines.lock.json` 指定的上游版本，保留各自许可。
 2. 下载模型：安装 `requests`，运行 `python tools/prepare_assets.py --out assets.lock.json` 生成新快照计划；如需复现实验，直接使用仓库已有计划，不重新生成。
@@ -33,6 +35,25 @@ python cli.py --engine index \
 ```
 
 CosyVoice 用 `--engine cosy`，`--strength` 保持 1。它没有经过校准的连续情绪强度接口，不能伪造滑块。Index 的 `gentle` 是低强度平静向量近似，不是训练时独立的“温柔”类别。
+
+GPT‑SoVITS 需先按其上游方法备齐预训练目录（含 BERT、HuBERT、SV、G2PW、fastText 等）。`--models` 指向 `GPT_SoVITS/pretrained_models`；自己训练的 GPT / SoVITS 权重分别传入，不从目录里猜“最新”文件。
+
+```bash
+python cli.py --engine gsv --source /path/to/GPT-SoVITS \
+  --models /path/to/GPT-SoVITS/GPT_SoVITS/pretrained_models \
+  --gpt /path/to/trusted-gpt.ckpt --sovits /path/to/trusted-sovits.pth \
+  --reference /path/to/permitted-reference.wav --reference-text '这条参考录音的准确文本。' \
+  --aux-reference /path/to/permitted-reference-2.wav \
+  --temperature 0.7 --top-p 0.9 --top-k 15 \
+  --text '这是一段人工智能合成的语音。' --output /tmp/gsv-AI.wav
+
+python cli.py --engine bert --source /path/to/pinned-taffy-bert-space \
+  --bert-config /path/to/config.json --bert-weights /path/to/trusted-G_15800.pth \
+  --noise-scale 0.35 --noise-scale-w 0.6 \
+  --text '这是一段人工智能合成的语音。' --output /tmp/bert-AI.wav
+```
+
+两者只支持 `--mood neutral --strength 1`，否则明确报错；“低噪声”不冒充“温柔/开心”。Bert 不需要参考音频。可选 `--nltk-data /path/to/private-nltk-cache` 避免使用损坏的全局缓存。Bert 适配器针对锁定 Space 的 G_15800 架构，不承诺兼容任意版本 checkpoint。
 
 ```bash
 python -m unittest discover -s tests -v
@@ -67,7 +88,7 @@ RK3588：目前没有这块板子的实测结果。可研究固定音色 Piper/O
 
 ## 本轮实测摘要（2026-10-15）
 
-累计 **5 种引擎、10 套配置、113 条生成**，其中网页精选 6 套配置、71 条音频。22 条官方模型与部署路线分别标记实测/资料核验/暂缓。
+累计 **5 种引擎、21 套配置、201 条对照生成**，其中网页精选 17 套配置、159 条音频。本轮新增 11 组、88 条音色参数对照，另有 2 条接口冒烟生成不计入对照。22 条官方模型与部署路线分别标记实测/资料核验/暂缓。
 
 | 方案 | 基础 8 句 CER ↓ | 情绪组 CER ↓ | 热推理 RTF ↓ |
 | --- | --- | --- | --- |
@@ -78,4 +99,8 @@ RK3588：目前没有这块板子的实测结果。可研究固定音色 Piper/O
 
 这些是 RTX 4090 48GiB 上 batch 1 的短句结果，不是主观音色排名。参考响度/采样处理有差异，公共音色训练集未知，详见 `reports/all-configurations.json`。原版 Index 出现微量削波；峰值保护版 21 条重跑均为 0。语速 0.8/1/1.25× 对同一句话分别输出约 7.49/5.99/4.78 秒。
 
-当前先听 CosyVoice3 的情绪表达，再听 Index 的强度/语速对照；F5 保留为固定自训音色基线。Index 的强情绪和控制组有更多 ASR 错字，不能仅凭基础 CER 更低就宣布全面胜出。原始 WAV 保留，统一线性响度试听不改变语速、音高。没有人工盲听验收或情绪识别达标的承诺。
+当前**音色优先于情绪**：根据站长试听反馈，GPT‑SoVITS 为主，Bert‑VITS2 重点备选。CosyVoice3 音色不够符合偏好，降为情绪实验；这不是公开 MOS 排名。原版全部保留，不用 ASR 排名推翻听感。
+
+调优覆盖日常主参考、三参考融合、低温采样、GPT e2/e4、SoVITS e2/e4，以及 Bert 两种噪声参数。固定 8 句、逐句种子 20261015，不后期变调。**本轮未证明 GPT 候选优于原混合版，因此网站默认仍用原版**。Bert 低时长噪声版 CER 为 26.55%，匹配种子对照 28.81%；仅 177 个规范化字符的短句结果，不宣称声音更像。所有候选供同题 A/B，听感等待站长确认。
+
+Index 的强情绪和控制组有更多 ASR 错字，不能仅凭基础 CER 更低就宣布全面胜出。原始 WAV 保留，统一线性响度试听不改变语速、音高。没有人工盲听验收或情绪识别达标的承诺。
