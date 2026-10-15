@@ -2,6 +2,7 @@ import tempfile
 from pathlib import Path
 import sys
 import unittest
+import json
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from workbench import Request, MOODS, VECTORS, INSTRUCTIONS
 
@@ -33,6 +34,10 @@ class ContractTest(unittest.TestCase):
     def test_no_instruction_in_spoken_text(self):
         r = self.req(mood="happy")
         self.assertNotIn("请非常开心", r.text)
+    def test_engine_specific_prompts(self):
+        rows=json.loads((Path(__file__).resolve().parents[1]/'prompts.json').read_text())
+        self.assertEqual(21,len(rows))
+        self.assertEqual(18,sum('cosy' in r.get('engines',['cosy','index']) for r in rows))
 
 if __name__ == "__main__":
     unittest.main()

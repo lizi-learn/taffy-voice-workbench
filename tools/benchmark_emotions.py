@@ -38,6 +38,9 @@ def main():
     load_seconds = time.perf_counter() - start
     records = []
     for item in json.loads(args.prompts.read_text()):
+        if args.engine not in item.get('engines', ['index','cosy']):
+            print('skip_engine_specific_prompt', item['id'], flush=True)
+            continue
         dest = args.out / f'{args.engine}-{item["id"]}-AI.wav'
         if dest.exists():
             raise FileExistsError(dest)

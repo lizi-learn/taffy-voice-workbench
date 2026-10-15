@@ -17,7 +17,7 @@
   {"id":"actions-happy","text":"你可以点一下招手，再换一个开心的表情。好可爱喵！","group":"showcase","mood":"happy"},
   {"id":"story-gentle","text":"今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。","group":"showcase","mood":"gentle"},
   {"id":"numbers-sad","text":"现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。","group":"showcase","mood":"sad"},
-  {"id":"emotion-happy-soft","text":"这是一段人工智能合成的语音。你终于来啦，今天也一起去看看小猫吧。","group":"control","mood":"happy","strength":0.4},
-  {"id":"emotion-happy-slow","text":"这是一段人工智能合成的语音。你终于来啦，今天也一起去看看小猫吧。","group":"control","mood":"happy","speed":0.8},
-  {"id":"emotion-happy-fast","text":"这是一段人工智能合成的语音。你终于来啦，今天也一起去看看小猫吧。","group":"control","mood":"happy","speed":1.25}
+  {"id":"emotion-happy-soft","text":"这是一段人工智能合成的语音。你终于来啦，今天也一起去看看小猫吧。","group":"control","mood":"happy","strength":0.4,"engines":["index"]},
+  {"id":"emotion-happy-slow","text":"这是一段人工智能合成的语音。你终于来啦，今天也一起去看看小猫吧。","group":"control","mood":"happy","speed":0.8,"engines":["index"]},
+  {"id":"emotion-happy-fast","text":"这是一段人工智能合成的语音。你终于来啦，今天也一起去看看小猫吧。","group":"control","mood":"happy","speed":1.25,"engines":["index"]}
 ]
