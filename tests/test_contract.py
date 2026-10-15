@@ -4,7 +4,7 @@ import sys
 import unittest
 import json
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from workbench import Request, MOODS, VECTORS, INSTRUCTIONS
+from workbench import Request, MOODS, VECTORS, INSTRUCTIONS, CosyAdapter
 from timbre import GsvParameters, BertParameters, neutral_only
 
 class ContractTest(unittest.TestCase):
@@ -59,6 +59,13 @@ class ContractTest(unittest.TestCase):
         req.validate(require_reference=False)
         with self.assertRaises(ValueError):
             req.validate()
+    def test_cosy_zero_shot_needs_accurate_transcript(self):
+        adapter=CosyAdapter.__new__(CosyAdapter);adapter.mode='zero_shot'
+        request=Request('你好',self.ref,'',self.out)
+        with self.assertRaises(ValueError):adapter.synthesize(request)
+        with self.assertRaises(ValueError):adapter.synthesize(self.req(mood='happy'))
+    def test_unknown_cosy_mode_fails_before_model_import(self):
+        with self.assertRaises(ValueError):CosyAdapter(Path('/unused'),Path('/unused'),mode='fake')
 
 if __name__ == "__main__":
     unittest.main()

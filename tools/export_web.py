@@ -24,6 +24,17 @@ def main():
         for field in ['raw','listen','download']:
             if field in row:row[field]='https://xn--omsy82h.com/voice/'+row[field]
     (dest/'voice/catalog.json').write_text(json.dumps(c,ensure_ascii=False,indent=2))
+    edge=dest/'voice/edge';edge.mkdir(exist_ok=True)
+    for name in ['index.html','edge.css','edge.js','report.json']:
+        text=(args.site_dist/'voice/edge'/name).read_text()
+        if name=='index.html':
+            text=text.replace('href="../../"','href="https://塔菲.com/"')
+        if name=='report.json':
+            r=json.loads(text)
+            for row in r['samples']:
+                for field in ['raw','listen']:row[field]='https://xn--omsy82h.com/voice/edge/'+row[field]
+            text=json.dumps(r,ensure_ascii=False,indent=2)
+        (edge/name).write_text(text)
     print('Exported static UI; no weights, reference recordings, or credentials.')
 
 if __name__=='__main__':main()

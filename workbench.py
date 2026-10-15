@@ -70,7 +70,10 @@ class IndexAdapter:
             use_random=False, duration_factor=1 / r.speed, verbose=False)
 
 class CosyAdapter:
-    def __init__(self, source: Path, models: Path):
+    def __init__(self, source: Path, models: Path, mode="instruct2"):
+        if mode not in {"instruct2", "zero_shot"}:
+            raise ValueError("Unknown CosyVoice conditioning mode")
+        self.mode = mode
         sys.path[:0] = [str(source.resolve()), str((source / "third_party/Matcha-TTS").resolve())]
         from cosyvoice.cli.cosyvoice import AutoModel
         self.model = AutoModel(model_dir=str(models), load_trt=False, fp16=True)
@@ -79,6 +82,8 @@ class CosyAdapter:
         r.validate()
         if r.strength != 1:
             raise ValueError("CosyVoice instruct has no calibrated intensity slider; use strength=1")
+        if self.mode == "zero_shot" and (r.mood != "neutral" or not r.reference_text.strip()):
+            raise ValueError("Zero-shot control needs an accurate reference transcript and neutral mood")
         import numpy as np
         import torch
         import soundfile as sf
@@ -87,8 +92,12 @@ class CosyAdapter:
         np.random.seed(r.seed)
         torch.manual_seed(r.seed)
         # Emotion belongs to the control prompt, never prepended to spoken text.
-        prompt = "You are a helpful assistant. " + INSTRUCTIONS[r.mood] + "<|endofprompt|>"
-        chunks = [x["tts_speech"].detach().cpu().float() for x in self.model.inference_instruct2(
+        prompt = ("You are a helpful assistant.<|endofprompt|>" + r.reference_text
+                  if self.mode == "zero_shot" else
+                  "You are a helpful assistant. " + INSTRUCTIONS[r.mood] + "<|endofprompt|>")
+        infer = (self.model.inference_zero_shot if self.mode == "zero_shot"
+                 else self.model.inference_instruct2)
+        chunks = [x["tts_speech"].detach().cpu().float() for x in infer(
             r.text, prompt, str(r.reference), stream=False, speed=r.speed, text_frontend=False)]
         if not chunks:
             raise RuntimeError("Engine returned no audio")

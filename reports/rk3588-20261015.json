@@ -1,0 +1,4132 @@
+{
+  "date": "2026-10-15",
+  "synthetic": true,
+  "rk3588_measured": true,
+  "npu_measured": false,
+  "gpu_on_board": false,
+  "human_timbre_accepted": false,
+  "board": "RK3588 / 16GB / Ubuntu 22.04 / aarch64",
+  "runtime": "ONNX Runtime 1.23.2 CPUExecutionProvider",
+  "conditions": "Business workloads stopped by owner permission. Existing performance governor retained. 4 A76 cores for chunk controls; matrix explicitly records thread counts. No microphone recording. No thermal/firmware/network changes.",
+  "method": "RTF=compute/audio duration. Warm matched chunk controls: three texts, two repeats, median of second repeat. Peak RSS over whole process. First PCM array excludes model load, playback and network. Hash checks included in load; page cache may be warm. Fixed NumPy PCG64 external noise, not old Torch RNG. No subjective timbre/MOS score. All generated WAVs are AI.",
+  "warnings": [
+    "Limited short-text test, not long-run or concurrent production validation.",
+    "Pinned Chinese frontend drops Latin letters; runtime now rejects them by default. Research comparison retains original CER and explicit loss flags.",
+    "INT8 BERT changes conditioning and is not lossless. Zero BERT is a destructive ablation, not a recommended optimization.",
+    "GPU GPT was specially trained; Cosy is zero-shot and public Bert training data unknown. No architecture-only ranking.",
+    "GPT-SoVITS ONNX preliminary export only; not yet verified on RK3588. No NPU claim."
+  ],
+  "records": [
+    {
+      "id": "matrix-results/fp32-t4",
+      "context": "fp32",
+      "cpu_threads": 4,
+      "warm_n": 7,
+      "total_n": 8,
+      "median_rtf": 0.7331904048525671,
+      "median_first_pcm_seconds": 4.298671605065465,
+      "first_pcm_basis": "Whole-utterance completion; no incremental PCM path",
+      "median_gapless_start_seconds": 4.298671605065465,
+      "peak_rss_mib": 1894.45703125,
+      "process_load_seconds": 7.462133886059746,
+      "stage_medians": {
+        "frontend_seconds": 0.004300134023651481,
+        "bert_seconds": 0.1579513979377225,
+        "acoustic_seconds": 0.04161793692037463,
+        "decoder_seconds": 4.088745845016092
+      },
+      "samples": [
+        {
+          "id": "heldout-1",
+          "text": "最后编辑于今天，今天刚更新过",
+          "seconds": 3.541043083900227,
+          "compute_seconds": 3.443565465975553,
+          "rtf": 0.9724720610240899,
+          "repeat": 0,
+          "sha256": "ce905e4d390940b861608c16bf27811915f0746d52695c569839624a154018d8",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1770.71875,
+          "stages": {
+            "frontend_seconds": 0.9122115159407258,
+            "bert_seconds": 0.10366114799398929,
+            "acoustic_seconds": 0.025984267937019467,
+            "decoder_seconds": 2.400464841048233,
+            "phonemes": 59,
+            "frames": 305,
+            "normalized_text": "最后编辑于今天,今天刚更新过",
+            "bert_fingerprint": "21e40523360971f1612a3dd6849828e1de64893b4b74a6a27b94d602f01efce9"
+          }
+        },
+        {
+          "id": "heldout-2",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "seconds": 4.748480725623582,
+          "compute_seconds": 3.4367315479321405,
+          "rtf": 0.7237539218358774,
+          "repeat": 0,
+          "sha256": "b89d4489e657478808743c9feb78e7127789ec7ec42ee8fc9596c5cda1d76932",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1784.9140625,
+          "stages": {
+            "frontend_seconds": 0.004137380979955196,
+            "bert_seconds": 0.1106691739987582,
+            "acoustic_seconds": 0.02858949010260403,
+            "decoder_seconds": 3.2920460160821676,
+            "phonemes": 65,
+            "frames": 409,
+            "normalized_text": "不敢说,啊,这毛巾谁让你们放图的",
+            "bert_fingerprint": "572e760f6083d23b09dc8a3c7d7b44176b9a3b83d6aac9a2fed45f49ac208604"
+          }
+        },
+        {
+          "id": "heldout-3",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "seconds": 5.259319727891157,
+          "compute_seconds": 3.8616427090018988,
+          "rtf": 0.734247565996584,
+          "repeat": 0,
+          "sha256": "2cd73b23bb6ae37b38a432efd5288616e28c8890a47b85a856f193aa9270074b",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1790.3203125,
+          "stages": {
+            "frontend_seconds": 0.008491766988299787,
+            "bert_seconds": 0.1579513979377225,
+            "acoustic_seconds": 0.04161793692037463,
+            "decoder_seconds": 3.6517367749474943,
+            "phonemes": 105,
+            "frames": 453,
+            "normalized_text": "塔菲三在哪播,塔菲都想好了,塔菲本来就是找了一个比较",
+            "bert_fingerprint": "5d6d774fa3b0f7528627c8c55c110ad72f60060d0ec922cebf460b9150beb1e1"
+          }
+        },
+        {
+          "id": "heldout-4",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "seconds": 2.948934240362812,
+          "compute_seconds": 2.1864550299942493,
+          "rtf": 0.7414390595991203,
+          "repeat": 0,
+          "sha256": "5764052157dd0125c780fe8bc9d63f12800fc12fb9fa9101314b3ad3bbacf1e3",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1793.6640625,
+          "stages": {
+            "frontend_seconds": 0.0021023789886385202,
+            "bert_seconds": 0.09851924399845302,
+            "acoustic_seconds": 0.026205355999991298,
+            "decoder_seconds": 2.0584181919693947,
+            "phonemes": 57,
+            "frames": 254,
+            "normalized_text": "谢谢是不是王子的告白花束喵",
+            "bert_fingerprint": "6b85e0d5650de146a92a5da3c936881a27750a2085e90191eb65a413fb1390b1"
+          }
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.811972789115647,
+          "compute_seconds": 6.450800288002938,
+          "rtf": 0.7320495015566575,
+          "repeat": 0,
+          "sha256": "db70981b56df6bf32a8d09fad2a9af1d80fdc2203b4f4837616df67a73f7f19a",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1888.53515625,
+          "stages": {
+            "frontend_seconds": 0.006992858950980008,
+            "bert_seconds": 0.22162855800706893,
+            "acoustic_seconds": 0.0601000840542838,
+            "decoder_seconds": 6.159505647956394,
+            "phonemes": 157,
+            "frames": 759,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "bert_fingerprint": "4bb910032d6ff3e9ec628401094289afa635e7049a8d749c87bff5cce94ec055"
+          }
+        },
+        {
+          "id": "actions",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "seconds": 6.130068027210885,
+          "compute_seconds": 4.432181423995644,
+          "rtf": 0.7230232037102269,
+          "repeat": 0,
+          "sha256": "277ee9ade9a36e20514aac5d42ecd7098716d0560785b00e4aabb072235b1584",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1888.53515625,
+          "stages": {
+            "frontend_seconds": 0.0038789580576121807,
+            "bert_seconds": 0.14686257403809577,
+            "acoustic_seconds": 0.03747268102597445,
+            "decoder_seconds": 4.2422752170823514,
+            "phonemes": 95,
+            "frames": 528,
+            "normalized_text": "你可以点一下招手,再换一个开心的表情.好可爱喵!",
+            "bert_fingerprint": "27edbe29f8533f2eb172da64629a4aa697e4502e0d097c80a3a900d4b22b595a"
+          }
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.804988662131519,
+          "compute_seconds": 4.298671605065465,
+          "rtf": 0.7405133507163555,
+          "repeat": 0,
+          "sha256": "2130eec25df918f4dcbd186d50d651e3e1cef502a1f33c92d62a1deef3f00f9b",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1894.45703125,
+          "stages": {
+            "frontend_seconds": 0.004300134023651481,
+            "bert_seconds": 0.16180672601331025,
+            "acoustic_seconds": 0.04193760908674449,
+            "decoder_seconds": 4.088745845016092,
+            "phonemes": 107,
+            "frames": 500,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "bert_fingerprint": "e7c72e47590ea10c3d4808b16963c6ce2b00bfbe4baf80937c06c8e1fa2805b7"
+          }
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.884716553287982,
+          "compute_seconds": 5.047808117000386,
+          "rtf": 0.7331904048525671,
+          "repeat": 0,
+          "sha256": "e9821200dd95a340b09586f561f31c9824f12bf918bfddd52624dfc654ab1c03",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1894.45703125,
+          "stages": {
+            "frontend_seconds": 0.004669683985412121,
+            "bert_seconds": 0.18088446906767786,
+            "acoustic_seconds": 0.04714251297991723,
+            "decoder_seconds": 4.8130163659807295,
+            "phonemes": 121,
+            "frames": 593,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "bert_fingerprint": "bb8749836de57d7bc2b89ae4cbcd45a507f68f91b0abd136cf5aec74d01207eb"
+          }
+        }
+      ]
+    },
+    {
+      "id": "matrix-results/int8-t1",
+      "context": "int8",
+      "cpu_threads": 1,
+      "warm_n": 3,
+      "total_n": 6,
+      "median_rtf": 2.439898682389164,
+      "median_first_pcm_seconds": 16.49144898110535,
+      "first_pcm_basis": "Whole-utterance completion; no incremental PCM path",
+      "median_gapless_start_seconds": 16.49144898110535,
+      "peak_rss_mib": 1286.1640625,
+      "process_load_seconds": 4.611383475014009,
+      "stage_medians": {
+        "frontend_seconds": 0.004572847043164074,
+        "bert_seconds": 0.19498155592009425,
+        "acoustic_seconds": 0.09025408304296434,
+        "decoder_seconds": 16.19917381904088
+      },
+      "samples": [
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 23.024169627926312,
+          "rtf": 2.575501929260223,
+          "repeat": 0,
+          "sha256": "37768698425d07c20873a52c9a2d294967a355293c90c415c59e1403c604bb4c",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1092.328125,
+          "stages": {
+            "frontend_seconds": 0.9288719989126548,
+            "bert_seconds": 0.282980167074129,
+            "acoustic_seconds": 0.1209345820825547,
+            "decoder_seconds": 21.68847986101173,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2"
+          }
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 14.093092588940635,
+          "rtf": 2.4037182208086403,
+          "repeat": 0,
+          "sha256": "d59480b9b3e5737357f58bcc5e5ea4f69fbeb41fa98c1798aaed12892a3a7d8d",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1111.11328125,
+          "stages": {
+            "frontend_seconds": 0.00410296197514981,
+            "bert_seconds": 0.1735698669217527,
+            "acoustic_seconds": 0.08095701702404767,
+            "decoder_seconds": 13.832565994001925,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246"
+          }
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 16.27969238301739,
+          "rtf": 2.4051727128372473,
+          "repeat": 0,
+          "sha256": "db89b55a1f8e3452edc742bc7508fb8f36edfdd7b2a50de8713b24fbb484f5c4",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1111.11328125,
+          "stages": {
+            "frontend_seconds": 0.004596764920279384,
+            "bert_seconds": 0.19579037802759558,
+            "acoustic_seconds": 0.09050434408709407,
+            "decoder_seconds": 15.98671485192608,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e"
+          }
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 21.960619007004425,
+          "rtf": 2.456532310797725,
+          "repeat": 1,
+          "sha256": "37768698425d07c20873a52c9a2d294967a355293c90c415c59e1403c604bb4c",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1268.375,
+          "stages": {
+            "frontend_seconds": 0.0068828960647806525,
+            "bert_seconds": 0.24967052100691944,
+            "acoustic_seconds": 0.12343100097496063,
+            "decoder_seconds": 21.576914009987377,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2"
+          }
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 14.30522002989892,
+          "rtf": 2.439898682389164,
+          "repeat": 1,
+          "sha256": "d59480b9b3e5737357f58bcc5e5ea4f69fbeb41fa98c1798aaed12892a3a7d8d",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1270.953125,
+          "stages": {
+            "frontend_seconds": 0.004299257998354733,
+            "bert_seconds": 0.17381981806829572,
+            "acoustic_seconds": 0.07805982604622841,
+            "decoder_seconds": 14.047097421018407,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246"
+          }
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 16.49144898110535,
+          "rtf": 2.4364577752021668,
+          "repeat": 1,
+          "sha256": "db89b55a1f8e3452edc742bc7508fb8f36edfdd7b2a50de8713b24fbb484f5c4",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1286.1640625,
+          "stages": {
+            "frontend_seconds": 0.004572847043164074,
+            "bert_seconds": 0.19498155592009425,
+            "acoustic_seconds": 0.09025408304296434,
+            "decoder_seconds": 16.19917381904088,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e"
+          }
+        }
+      ]
+    },
+    {
+      "id": "matrix-results/int8-t2",
+      "context": "int8",
+      "cpu_threads": 2,
+      "warm_n": 3,
+      "total_n": 6,
+      "median_rtf": 1.2799145735663733,
+      "median_first_pcm_seconds": 8.631564880022779,
+      "first_pcm_basis": "Whole-utterance completion; no incremental PCM path",
+      "median_gapless_start_seconds": 8.631564880022779,
+      "peak_rss_mib": 1281.28515625,
+      "process_load_seconds": 5.110754419001751,
+      "stage_medians": {
+        "frontend_seconds": 0.004785184049978852,
+        "bert_seconds": 0.10907076497096568,
+        "acoustic_seconds": 0.06353976007085294,
+        "decoder_seconds": 8.45219308603555
+      },
+      "samples": [
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 12.495921396068297,
+          "rtf": 1.3978037073016738,
+          "repeat": 0,
+          "sha256": "37768698425d07c20873a52c9a2d294967a355293c90c415c59e1403c604bb4c",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1087.50390625,
+          "stages": {
+            "frontend_seconds": 0.9436870909994468,
+            "bert_seconds": 0.16415639698971063,
+            "acoustic_seconds": 0.10186761792283505,
+            "decoder_seconds": 11.283402647008188,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2"
+          }
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 7.427023457014002,
+          "rtf": 1.2667533046655224,
+          "repeat": 0,
+          "sha256": "ec0dbbb406c74e1e378dbf651d1d3bc913f670e4a70911e9cbb5fc46288bb70a",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1106.234375,
+          "stages": {
+            "frontend_seconds": 0.00428904895670712,
+            "bert_seconds": 0.09839379298500717,
+            "acoustic_seconds": 0.0570135829038918,
+            "decoder_seconds": 7.26531303091906,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246"
+          }
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 8.658334585954435,
+          "rtf": 1.2791881808821244,
+          "repeat": 0,
+          "sha256": "87cd78f48cfee832296fcf59fa674bd4dfed71160bb174e2e5ae6c603c302dca",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1106.234375,
+          "stages": {
+            "frontend_seconds": 0.004739976022392511,
+            "bert_seconds": 0.10996445396449417,
+            "acoustic_seconds": 0.06374072493053973,
+            "decoder_seconds": 8.477834303979762,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e"
+          }
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 11.472270081052557,
+          "rtf": 1.2832972569359216,
+          "repeat": 1,
+          "sha256": "37768698425d07c20873a52c9a2d294967a355293c90c415c59e1403c604bb4c",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1263.75390625,
+          "stages": {
+            "frontend_seconds": 0.007288319990038872,
+            "bert_seconds": 0.13721690501552075,
+            "acoustic_seconds": 0.08051395497750491,
+            "decoder_seconds": 11.244640137068927,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2"
+          }
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 7.504188483930193,
+          "rtf": 1.2799145735663733,
+          "repeat": 1,
+          "sha256": "ec0dbbb406c74e1e378dbf651d1d3bc913f670e4a70911e9cbb5fc46288bb70a",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1265.81640625,
+          "stages": {
+            "frontend_seconds": 0.004332215990871191,
+            "bert_seconds": 0.09847341605927795,
+            "acoustic_seconds": 0.05476711690425873,
+            "decoder_seconds": 7.344594441005029,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246"
+          }
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 8.631564880022779,
+          "rtf": 1.2752332065052951,
+          "repeat": 1,
+          "sha256": "87cd78f48cfee832296fcf59fa674bd4dfed71160bb174e2e5ae6c603c302dca",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1281.28515625,
+          "stages": {
+            "frontend_seconds": 0.004785184049978852,
+            "bert_seconds": 0.10907076497096568,
+            "acoustic_seconds": 0.06353976007085294,
+            "decoder_seconds": 8.45219308603555,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e"
+          }
+        }
+      ]
+    },
+    {
+      "id": "matrix-results/int8-t4",
+      "context": "int8",
+      "cpu_threads": 4,
+      "warm_n": 7,
+      "total_n": 8,
+      "median_rtf": 0.7164973541049721,
+      "median_first_pcm_seconds": 4.134303462924436,
+      "first_pcm_basis": "Whole-utterance completion; no incremental PCM path",
+      "median_gapless_start_seconds": 4.134303462924436,
+      "peak_rss_mib": 1097.6328125,
+      "process_load_seconds": 4.878687647054903,
+      "stage_medians": {
+        "frontend_seconds": 0.0044240939896553755,
+        "bert_seconds": 0.0585518809966743,
+        "acoustic_seconds": 0.04130409506615251,
+        "decoder_seconds": 4.033357507083565
+      },
+      "samples": [
+        {
+          "id": "heldout-1",
+          "text": "最后编辑于今天，今天刚更新过",
+          "seconds": 3.517823129251701,
+          "compute_seconds": 3.4030737379798666,
+          "rtf": 0.9673805683072408,
+          "repeat": 0,
+          "sha256": "f94edae1672caa55e28f1b4a23dae4db09962ed178f96bcab6b104882def3a49",
+          "sample_rate": 44100,
+          "rss_peak_mib": 966.328125,
+          "stages": {
+            "frontend_seconds": 0.858271504053846,
+            "bert_seconds": 0.055003972025588155,
+            "acoustic_seconds": 0.03173868090379983,
+            "decoder_seconds": 2.456698344089091,
+            "phonemes": 59,
+            "frames": 303,
+            "normalized_text": "最后编辑于今天,今天刚更新过",
+            "bert_fingerprint": "6503cd83f9de5650606be7529fc4828ba410a6f541f4e41a2a60996318b11301"
+          }
+        },
+        {
+          "id": "heldout-2",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "seconds": 4.748480725623582,
+          "compute_seconds": 3.340268370928243,
+          "rtf": 0.7034393870240656,
+          "repeat": 0,
+          "sha256": "2b99d2afb882448fbfc9da8311a567dd13e965e1d9d8a9aa1d9e82e89632c739",
+          "sample_rate": 44100,
+          "rss_peak_mib": 986.28515625,
+          "stages": {
+            "frontend_seconds": 0.004109087982214987,
+            "bert_seconds": 0.04300163104198873,
+            "acoustic_seconds": 0.028976829955354333,
+            "decoder_seconds": 3.2628402929985896,
+            "phonemes": 65,
+            "frames": 409,
+            "normalized_text": "不敢说,啊,这毛巾谁让你们放图的",
+            "bert_fingerprint": "212b25a58e8e1e7bdeea6fff574fb94e8ad9852717e114aa27c78c7e45f50177"
+          }
+        },
+        {
+          "id": "heldout-3",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "seconds": 5.224489795918367,
+          "compute_seconds": 3.812971865059808,
+          "rtf": 0.729826646046604,
+          "repeat": 0,
+          "sha256": "6a43538fce765d3376bdf164b107ba863486d800989f872240cc293ba27bdd8b",
+          "sample_rate": 44100,
+          "rss_peak_mib": 991.17578125,
+          "stages": {
+            "frontend_seconds": 0.008497014991007745,
+            "bert_seconds": 0.0585518809966743,
+            "acoustic_seconds": 0.04130409506615251,
+            "decoder_seconds": 3.7027676249854267,
+            "phonemes": 105,
+            "frames": 450,
+            "normalized_text": "塔菲三在哪播,塔菲都想好了,塔菲本来就是找了一个比较",
+            "bert_fingerprint": "c99a9b645d561c7df807d76ebde0528eadfffb96b289f9a5cdab19615fc50d65"
+          }
+        },
+        {
+          "id": "heldout-4",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "seconds": 2.9257142857142857,
+          "compute_seconds": 2.0894053869415075,
+          "rtf": 0.7141522318647731,
+          "repeat": 0,
+          "sha256": "c23a59890cd2e441af660d93a581ee3495566c2646fde7468b80bda6a0a5052d",
+          "sample_rate": 44100,
+          "rss_peak_mib": 994.26171875,
+          "stages": {
+            "frontend_seconds": 0.0021685881074517965,
+            "bert_seconds": 0.03961268195416778,
+            "acoustic_seconds": 0.026067391969263554,
+            "decoder_seconds": 2.020329655962996,
+            "phonemes": 57,
+            "frames": 252,
+            "normalized_text": "谢谢是不是王子的告白花束喵",
+            "bert_fingerprint": "b938bbd1339c077bc9d25cdf392f89f345323329288bb3a8684ddf476a563fae"
+          }
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 6.4527596139814705,
+          "rtf": 0.7218108232969329,
+          "repeat": 0,
+          "sha256": "3ab92a3b37c337d257238c35c87d848727885bd1ae23cbd7defc3eda8aba8035",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1090.6796875,
+          "stages": {
+            "frontend_seconds": 0.006947356974706054,
+            "bert_seconds": 0.08439701795578003,
+            "acoustic_seconds": 0.06075196899473667,
+            "decoder_seconds": 6.29805454693269,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2"
+          }
+        },
+        {
+          "id": "actions",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "seconds": 5.77015873015873,
+          "compute_seconds": 4.134303462924436,
+          "rtf": 0.7164973541049721,
+          "repeat": 0,
+          "sha256": "8dad9585dc3629fb88e9effe191110b7bd012db5902afd07dca2dbeb6f0f2dac",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1096.6015625,
+          "stages": {
+            "frontend_seconds": 0.00399154401384294,
+            "bert_seconds": 0.05692113609984517,
+            "acoustic_seconds": 0.03824706899467856,
+            "decoder_seconds": 4.033357507083565,
+            "phonemes": 95,
+            "frames": 497,
+            "normalized_text": "你可以点一下招手,再换一个开心的表情.好可爱喵!",
+            "bert_fingerprint": "a39c26f89636f58a00a1e99273f6b254487e3095a3aaf7d09416b18154bb2b93"
+          }
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 4.198323596967384,
+          "rtf": 0.7160661766176579,
+          "repeat": 0,
+          "sha256": "a402abac604d9ab663bc3e3d47d04e574c03cf2704047aa23a8fedd212f714be",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1097.6328125,
+          "stages": {
+            "frontend_seconds": 0.0044240939896553755,
+            "bert_seconds": 0.07087797694839537,
+            "acoustic_seconds": 0.04148697201162577,
+            "decoder_seconds": 4.079636930022389,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246"
+          }
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 4.88373565999791,
+          "rtf": 0.721526394343334,
+          "repeat": 0,
+          "sha256": "6c95905afe192c40cbb3129963edc0059327a3c5a7e7d6549236987457c360fc",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1097.6328125,
+          "stages": {
+            "frontend_seconds": 0.004681057995185256,
+            "bert_seconds": 0.06825817003846169,
+            "acoustic_seconds": 0.04736505600158125,
+            "decoder_seconds": 4.761319664074108,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e"
+          }
+        }
+      ]
+    },
+    {
+      "id": "matrix-results/int8-t8",
+      "context": "int8",
+      "cpu_threads": 8,
+      "warm_n": 3,
+      "total_n": 6,
+      "median_rtf": 0.6538574147494232,
+      "median_first_pcm_seconds": 4.502455944893882,
+      "first_pcm_basis": "Whole-utterance completion; no incremental PCM path",
+      "median_gapless_start_seconds": 4.502455944893882,
+      "peak_rss_mib": 1280.046875,
+      "process_load_seconds": 4.8621791009791195,
+      "stage_medians": {
+        "frontend_seconds": 0.004659182042814791,
+        "bert_seconds": 0.09657753899227828,
+        "acoustic_seconds": 0.05662652803584933,
+        "decoder_seconds": 4.342638196074404
+      },
+      "samples": [
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 6.828942670952529,
+          "rtf": 0.7638909592862381,
+          "repeat": 0,
+          "sha256": "3ab92a3b37c337d257238c35c87d848727885bd1ae23cbd7defc3eda8aba8035",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1089.828125,
+          "stages": {
+            "frontend_seconds": 0.953788532060571,
+            "bert_seconds": 0.11663792293984443,
+            "acoustic_seconds": 0.07132771599572152,
+            "decoder_seconds": 5.684759157942608,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2"
+          }
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 3.835726069053635,
+          "rtf": 0.6542215332815026,
+          "repeat": 0,
+          "sha256": "a402abac604d9ab663bc3e3d47d04e574c03cf2704047aa23a8fedd212f714be",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1108.42578125,
+          "stages": {
+            "frontend_seconds": 0.004140294971875846,
+            "bert_seconds": 0.0747093700338155,
+            "acoustic_seconds": 0.04951583791989833,
+            "decoder_seconds": 3.7055749450810254,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246"
+          }
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 4.44802869297564,
+          "rtf": 0.6571547536992982,
+          "repeat": 0,
+          "sha256": "6c95905afe192c40cbb3129963edc0059327a3c5a7e7d6549236987457c360fc",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1108.42578125,
+          "stages": {
+            "frontend_seconds": 0.004711683024652302,
+            "bert_seconds": 0.0915018500527367,
+            "acoustic_seconds": 0.057021745946258307,
+            "decoder_seconds": 4.2928435819922015,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e"
+          }
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 5.845277714077383,
+          "rtf": 0.6538574147494232,
+          "repeat": 1,
+          "sha256": "3ab92a3b37c337d257238c35c87d848727885bd1ae23cbd7defc3eda8aba8035",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1262.2578125,
+          "stages": {
+            "frontend_seconds": 0.007178943022154272,
+            "bert_seconds": 0.10719909705221653,
+            "acoustic_seconds": 0.0799306039698422,
+            "decoder_seconds": 5.648430058034137,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2"
+          }
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 3.8220672669121996,
+          "rtf": 0.6518918876501701,
+          "repeat": 1,
+          "sha256": "a402abac604d9ab663bc3e3d47d04e574c03cf2704047aa23a8fedd212f714be",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1264.3203125,
+          "stages": {
+            "frontend_seconds": 0.004175004898570478,
+            "bert_seconds": 0.07776755804661661,
+            "acoustic_seconds": 0.052584234974347055,
+            "decoder_seconds": 3.685714596998878,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246"
+          }
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 4.502455944893882,
+          "rtf": 0.6651958725404031,
+          "repeat": 1,
+          "sha256": "6c95905afe192c40cbb3129963edc0059327a3c5a7e7d6549236987457c360fc",
+          "sample_rate": 44100,
+          "rss_peak_mib": 1280.046875,
+          "stages": {
+            "frontend_seconds": 0.004659182042814791,
+            "bert_seconds": 0.09657753899227828,
+            "acoustic_seconds": 0.05662652803584933,
+            "decoder_seconds": 4.342638196074404,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e"
+          }
+        }
+      ]
+    },
+    {
+      "id": "matrix-results/zero-t4",
+      "context": "zero",
+      "cpu_threads": 4,
+      "warm_n": 7,
+      "total_n": 8,
+      "median_rtf": 0.7121919461916093,
+      "median_first_pcm_seconds": 3.704302490921691,
+      "first_pcm_basis": "Whole-utterance completion; no incremental PCM path",
+      "median_gapless_start_seconds": 3.704302490921691,
+      "peak_rss_mib": 652.0,
+      "process_load_seconds": 3.386109857005067,
+      "stage_medians": {
+        "frontend_seconds": 0.004265716066583991,
+        "bert_seconds": 1.7500948160886765e-05,
+        "acoustic_seconds": 0.04159518098458648,
+        "decoder_seconds": 3.648242958006449
+      },
+      "samples": [
+        {
+          "id": "heldout-1",
+          "text": "最后编辑于今天，今天刚更新过",
+          "seconds": 2.972154195011338,
+          "compute_seconds": 3.0177730419673026,
+          "rtf": 1.0153487484036106,
+          "repeat": 0,
+          "sha256": "91ba19112a1d205408d4149888e1ea96049aa6c91f1b5c7a8671f65e2cad0f6e",
+          "sample_rate": 44100,
+          "rss_peak_mib": 504.8125,
+          "stages": {
+            "frontend_seconds": 0.9068049500929192,
+            "bert_seconds": 3.937596920877695e-05,
+            "acoustic_seconds": 0.038681952049955726,
+            "decoder_seconds": 2.0707361890235916,
+            "phonemes": 59,
+            "frames": 256,
+            "normalized_text": "最后编辑于今天,今天刚更新过",
+            "bert_fingerprint": "711c0396e298d17b744fca0338c6ac446e17433e3e26b168a53f0b5a39251752"
+          }
+        },
+        {
+          "id": "heldout-2",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "seconds": 3.564263038548753,
+          "compute_seconds": 2.527953880955465,
+          "rtf": 0.7092500900227504,
+          "repeat": 0,
+          "sha256": "af9cff8dbed2b1bdd3b113913bbd459f5f99bf1785924119c59f2dbd5ed61ced",
+          "sample_rate": 44100,
+          "rss_peak_mib": 543.7734375,
+          "stages": {
+            "frontend_seconds": 0.004193090018816292,
+            "bert_seconds": 1.7500948160886765e-05,
+            "acoustic_seconds": 0.02883682493120432,
+            "decoder_seconds": 2.4936715220101178,
+            "phonemes": 65,
+            "frames": 307,
+            "normalized_text": "不敢说,啊,这毛巾谁让你们放图的",
+            "bert_fingerprint": "3c83e4448c23010326ac8bcc66d7bbf6e66ad2ae06463b7d71e8b9204e0cc8e4"
+          }
+        },
+        {
+          "id": "heldout-3",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "seconds": 5.201269841269841,
+          "compute_seconds": 3.704302490921691,
+          "rtf": 0.7121919461916093,
+          "repeat": 0,
+          "sha256": "f9fbc911218f893fd281f4287f86e627f531b09464dc0bcd0fd1c7a3b9606877",
+          "sample_rate": 44100,
+          "rss_peak_mib": 561.796875,
+          "stages": {
+            "frontend_seconds": 0.008427013992331922,
+            "bert_seconds": 1.9542057998478413e-05,
+            "acoustic_seconds": 0.04583173000719398,
+            "decoder_seconds": 3.648242958006449,
+            "phonemes": 105,
+            "frames": 448,
+            "normalized_text": "塔菲三在哪播,塔菲都想好了,塔菲本来就是找了一个比较",
+            "bert_fingerprint": "a1a32c3fba1fd23ca9cc5d1328340ed563d2b810f8595416a737b454c1111f04"
+          }
+        },
+        {
+          "id": "heldout-4",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "seconds": 3.01859410430839,
+          "compute_seconds": 2.134275062009692,
+          "rtf": 0.7070427451519488,
+          "repeat": 0,
+          "sha256": "d520cfd7a4750abcd12af7bccc8c7697bd27ba1e4a9296f3af561bf02339da38",
+          "sample_rate": 44100,
+          "rss_peak_mib": 561.796875,
+          "stages": {
+            "frontend_seconds": 0.0020962529815733433,
+            "bert_seconds": 1.5166937373578548e-05,
+            "acoustic_seconds": 0.025756759103387594,
+            "decoder_seconds": 2.1052620670525357,
+            "phonemes": 57,
+            "frames": 260,
+            "normalized_text": "谢谢是不是王子的告白花束喵",
+            "bert_fingerprint": "14fb988ddcc6e847861492ee7ce3661feedab1cc83c5c9806d9fa20092b3071f"
+          }
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.010884353741497,
+          "compute_seconds": 5.745213004993275,
+          "rtf": 0.7171758761328221,
+          "repeat": 0,
+          "sha256": "79dff858757f625183334e35ab2657b6d8120fa02c86a11ce64ba0b2c53bd826",
+          "sample_rate": 44100,
+          "rss_peak_mib": 650.71875,
+          "stages": {
+            "frontend_seconds": 0.007000441895797849,
+            "bert_seconds": 2.4792039766907692e-05,
+            "acoustic_seconds": 0.07006304000969976,
+            "decoder_seconds": 5.665565885021351,
+            "phonemes": 157,
+            "frames": 690,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "bert_fingerprint": "bae1c715052eec7505f443df05974ce29574e635b8f719f21c1bfe8ed3f7af52"
+          }
+        },
+        {
+          "id": "actions",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "seconds": 5.050340136054421,
+          "compute_seconds": 3.601765983970836,
+          "rtf": 0.7131729521062943,
+          "repeat": 0,
+          "sha256": "66478c15f9d5e121dc6a26e6b5f946d7e3e8a2a25ddba7553d18a2d4e7005d87",
+          "sample_rate": 44100,
+          "rss_peak_mib": 650.71875,
+          "stages": {
+            "frontend_seconds": 0.0038538750959560275,
+            "bert_seconds": 1.7208978533744812e-05,
+            "acoustic_seconds": 0.037245754967443645,
+            "decoder_seconds": 3.559007319039665,
+            "phonemes": 95,
+            "frames": 435,
+            "normalized_text": "你可以点一下招手,再换一个开心的表情.好可爱喵!",
+            "bert_fingerprint": "d012f7a30b198d8ac0a7a2e6143111e0b5081254fbe3328d4587eef4d4e54509"
+          }
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.305759637188209,
+          "compute_seconds": 3.7726022800197825,
+          "rtf": 0.7110390477505829,
+          "repeat": 0,
+          "sha256": "404490971ddad162c579450fdefa878b740a451ef2860b9f31a419882423d93b",
+          "sample_rate": 44100,
+          "rss_peak_mib": 652.0,
+          "stages": {
+            "frontend_seconds": 0.004265716066583991,
+            "bert_seconds": 1.7208978533744812e-05,
+            "acoustic_seconds": 0.04159518098458648,
+            "decoder_seconds": 3.7249365110183135,
+            "phonemes": 107,
+            "frames": 457,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "bert_fingerprint": "54c875431e61fd273509d85931609a91506a0c6b3f34ceb33a815da0da30082e"
+          }
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 5.9675283446712015,
+          "compute_seconds": 4.271526832017116,
+          "rtf": 0.7157949799821971,
+          "repeat": 0,
+          "sha256": "054a51a88d7e87a2e3112ac702a7ca362dc560c8b68b1707bb04bb03960a3a57",
+          "sample_rate": 44100,
+          "rss_peak_mib": 652.0,
+          "stages": {
+            "frontend_seconds": 0.004628848982974887,
+            "bert_seconds": 1.750106457620859e-05,
+            "acoustic_seconds": 0.04677966597955674,
+            "decoder_seconds": 4.218119774013758,
+            "phonemes": 121,
+            "frames": 514,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "bert_fingerprint": "8a77aa12367c7154eaad2fdb9f2c6c915ee8449f7e9ec4febaeaa5f30c1afd30"
+          }
+        }
+      ]
+    },
+    {
+      "id": "followup-results/fp32-c0",
+      "context": "fp32",
+      "cpu_threads": 4,
+      "warm_n": 3,
+      "total_n": 6,
+      "median_rtf": 0.737178489576172,
+      "median_first_pcm_seconds": 5.068910005968064,
+      "first_pcm_basis": "Explicit chunk events",
+      "median_gapless_start_seconds": 5.068910005968064,
+      "peak_rss_mib": 2664.0859375,
+      "process_load_seconds": 7.398706404026598,
+      "stage_medians": {
+        "frontend_seconds": 0.004761265940032899,
+        "bert_seconds": 0.19490828004200011,
+        "acoustic_seconds": 0.047939334996044636,
+        "decoder_seconds": 4.819307541009039
+      },
+      "samples": [
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.811972789115647,
+          "compute_seconds": 7.436230654944666,
+          "rtf": 0.8438780773505943,
+          "repeat": 0,
+          "sha256": "db70981b56df6bf32a8d09fad2a9af1d80fdc2203b4f4837616df67a73f7f19a",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 7.436230654944666,
+          "minimum_gapless_start_seconds": 7.436230654944666,
+          "rss_peak_mib": 2470.15234375,
+          "stages": {
+            "frontend_seconds": 0.9503255760064349,
+            "bert_seconds": 0.25455594703089446,
+            "acoustic_seconds": 0.060453554964624345,
+            "phonemes": 157,
+            "frames": 759,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "4bb910032d6ff3e9ec628401094289afa635e7049a8d749c87bff5cce94ec055",
+            "decoder_seconds": 6.168210144969635
+          },
+          "chunk_events": []
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.804988662131519,
+          "compute_seconds": 4.3618407470639795,
+          "rtf": 0.7513952224434434,
+          "repeat": 0,
+          "sha256": "2130eec25df918f4dcbd186d50d651e3e1cef502a1f33c92d62a1deef3f00f9b",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 4.3618407470639795,
+          "minimum_gapless_start_seconds": 4.3618407470639795,
+          "rss_peak_mib": 2494.53515625,
+          "stages": {
+            "frontend_seconds": 0.004169753985479474,
+            "bert_seconds": 0.16280502791050822,
+            "acoustic_seconds": 0.0475067850202322,
+            "phonemes": 107,
+            "frames": 500,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "e7c72e47590ea10c3d4808b16963c6ce2b00bfbe4baf80937c06c8e1fa2805b7",
+            "decoder_seconds": 4.145537102012895
+          },
+          "chunk_events": []
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.884716553287982,
+          "compute_seconds": 5.0954697750275955,
+          "rtf": 0.7401132255174858,
+          "repeat": 0,
+          "sha256": "e9821200dd95a340b09586f561f31c9824f12bf918bfddd52624dfc654ab1c03",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 5.0954697750275955,
+          "minimum_gapless_start_seconds": 5.0954697750275955,
+          "rss_peak_mib": 2494.53515625,
+          "stages": {
+            "frontend_seconds": 0.004705557017587125,
+            "bert_seconds": 0.18413651501759887,
+            "acoustic_seconds": 0.04661922494415194,
+            "phonemes": 121,
+            "frames": 593,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "bb8749836de57d7bc2b89ae4cbcd45a507f68f91b0abd136cf5aec74d01207eb",
+            "decoder_seconds": 4.857999435975216
+          },
+          "chunk_events": []
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.811972789115647,
+          "compute_seconds": 6.596644414938055,
+          "rtf": 0.7486001798696069,
+          "repeat": 1,
+          "sha256": "db70981b56df6bf32a8d09fad2a9af1d80fdc2203b4f4837616df67a73f7f19a",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 6.596644414938055,
+          "minimum_gapless_start_seconds": 6.596644414938055,
+          "rss_peak_mib": 2642.9453125,
+          "stages": {
+            "frontend_seconds": 0.006982646067626774,
+            "bert_seconds": 0.24815022805705667,
+            "acoustic_seconds": 0.05912556906696409,
+            "phonemes": 157,
+            "frames": 759,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "4bb910032d6ff3e9ec628401094289afa635e7049a8d749c87bff5cce94ec055",
+            "decoder_seconds": 6.279933879966848
+          },
+          "chunk_events": []
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.804988662131519,
+          "compute_seconds": 4.279312773956917,
+          "rtf": 0.737178489576172,
+          "repeat": 1,
+          "sha256": "2130eec25df918f4dcbd186d50d651e3e1cef502a1f33c92d62a1deef3f00f9b",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 4.279312773956917,
+          "minimum_gapless_start_seconds": 4.279312773956917,
+          "rss_peak_mib": 2645.78125,
+          "stages": {
+            "frontend_seconds": 0.004175295936875045,
+            "bert_seconds": 0.16173400403931737,
+            "acoustic_seconds": 0.040428177919238806,
+            "phonemes": 107,
+            "frames": 500,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "e7c72e47590ea10c3d4808b16963c6ce2b00bfbe4baf80937c06c8e1fa2805b7",
+            "decoder_seconds": 4.071161383064464
+          },
+          "chunk_events": []
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.884716553287982,
+          "compute_seconds": 5.068910005968064,
+          "rtf": 0.7362554386566967,
+          "repeat": 1,
+          "sha256": "e9821200dd95a340b09586f561f31c9824f12bf918bfddd52624dfc654ab1c03",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 5.068910005968064,
+          "minimum_gapless_start_seconds": 5.068910005968064,
+          "rss_peak_mib": 2664.0859375,
+          "stages": {
+            "frontend_seconds": 0.004761265940032899,
+            "bert_seconds": 0.19490828004200011,
+            "acoustic_seconds": 0.047939334996044636,
+            "phonemes": 121,
+            "frames": 593,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "bb8749836de57d7bc2b89ae4cbcd45a507f68f91b0abd136cf5aec74d01207eb",
+            "decoder_seconds": 4.819307541009039
+          },
+          "chunk_events": []
+        }
+      ]
+    },
+    {
+      "id": "followup-results/fp32-c64",
+      "context": "fp32",
+      "cpu_threads": 4,
+      "warm_n": 3,
+      "total_n": 6,
+      "median_rtf": 1.0486438535652363,
+      "median_first_pcm_seconds": 1.3854936680290848,
+      "first_pcm_basis": "Explicit chunk events",
+      "median_gapless_start_seconds": 1.3854936680290848,
+      "peak_rss_mib": 1927.6171875,
+      "process_load_seconds": 7.465378672932275,
+      "stage_medians": {
+        "frontend_seconds": 0.005036312970332801,
+        "bert_seconds": 0.20775441406294703,
+        "acoustic_seconds": 0.049421029980294406,
+        "flow_seconds": 0.5046968110837042,
+        "vocoder_seconds": 6.579070345847867
+      },
+      "samples": [
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.811972789115647,
+          "compute_seconds": 10.158215808914974,
+          "rtf": 1.1527743051433588,
+          "repeat": 0,
+          "sha256": "c07e17060f5d4b11a23ccb318a9f095186a3b63d0ed7193b2c00dae865f2ea1b",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 2.4895713099977,
+          "minimum_gapless_start_seconds": 2.4895713099977,
+          "rss_peak_mib": 1927.13671875,
+          "stages": {
+            "frontend_seconds": 0.8855280979769304,
+            "bert_seconds": 0.2647070219973102,
+            "acoustic_seconds": 0.061913374927826226,
+            "phonemes": 157,
+            "frames": 759,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "4bb910032d6ff3e9ec628401094289afa635e7049a8d749c87bff5cce94ec055",
+            "flow_seconds": 0.6626195319695398,
+            "vocoder_seconds": 8.279472866095603
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 2.4895713099977,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.18309823598247,
+              "audio_before_seconds": 0.7430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.902628369978629,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.622948936885223,
+              "audio_before_seconds": 2.2291156462585033,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.3193380469456315,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.0414491929113865,
+              "audio_before_seconds": 3.7151927437641725,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.783326416974887,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 7.492603960912675,
+              "audio_before_seconds": 5.201269841269841,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 8.20654768589884,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 8.906292488914914,
+              "audio_before_seconds": 6.6873469387755105,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 9.629498572903685,
+              "audio_before_seconds": 7.430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 10.157884176936932,
+              "audio_before_seconds": 8.17342403628118,
+              "chunk_seconds": 0.6385487528344671
+            }
+          ]
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.804988662131519,
+          "compute_seconds": 5.999501661048271,
+          "rtf": 1.0335079033290184,
+          "repeat": 0,
+          "sha256": "1d7d9c33fef60f9808516f36f11b98a3b0de4f088b2a60f604cb23f6eb42106c",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.2414680169895291,
+          "minimum_gapless_start_seconds": 1.2414680169895291,
+          "rss_peak_mib": 1927.13671875,
+          "stages": {
+            "frontend_seconds": 0.004395507974550128,
+            "bert_seconds": 0.18388391798362136,
+            "acoustic_seconds": 0.04217908903956413,
+            "phonemes": 107,
+            "frames": 500,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "e7c72e47590ea10c3d4808b16963c6ce2b00bfbe4baf80937c06c8e1fa2805b7",
+            "flow_seconds": 0.3772597429342568,
+            "vocoder_seconds": 5.3891303477576
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.2414680169895291,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 1.941576244076714,
+              "audio_before_seconds": 0.7430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.6544883199967444,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.3511658910429105,
+              "audio_before_seconds": 2.2291156462585033,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.071930672042072,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.793489970033988,
+              "audio_before_seconds": 3.7151927437641725,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.493987870053388,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.9993485329905525,
+              "audio_before_seconds": 5.201269841269841,
+              "chunk_seconds": 0.603718820861678
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.884716553287982,
+          "compute_seconds": 7.309470165055245,
+          "rtf": 1.061695148737011,
+          "repeat": 0,
+          "sha256": "34114c379f5af66c6943b8488cf0a8d581120751945ed8c5f5a5e32f8eafe621",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.3516091849887744,
+          "minimum_gapless_start_seconds": 1.3516091849887744,
+          "rss_peak_mib": 1927.6171875,
+          "stages": {
+            "frontend_seconds": 0.004682221915572882,
+            "bert_seconds": 0.18135540594812483,
+            "acoustic_seconds": 0.047342278994619846,
+            "phonemes": 121,
+            "frames": 593,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "bb8749836de57d7bc2b89ae4cbcd45a507f68f91b0abd136cf5aec74d01207eb",
+            "flow_seconds": 0.5055642509832978,
+            "vocoder_seconds": 6.567546279053204
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.3516091849887744,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.0624121739529073,
+              "audio_before_seconds": 0.7430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.7818737600464374,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.4993910549674183,
+              "audio_before_seconds": 2.2291156462585033,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.195850744028576,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.917434831033461,
+              "audio_before_seconds": 3.7151927437641725,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.638053189963102,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.335583316977136,
+              "audio_before_seconds": 5.201269841269841,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 7.063406576053239,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 7.30927182699088,
+              "audio_before_seconds": 6.6873469387755105,
+              "chunk_seconds": 0.19736961451247165
+            }
+          ]
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.811972789115647,
+          "compute_seconds": 9.240621103090234,
+          "rtf": 1.0486438535652363,
+          "repeat": 1,
+          "sha256": "c07e17060f5d4b11a23ccb318a9f095186a3b63d0ed7193b2c00dae865f2ea1b",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.5701193200657144,
+          "minimum_gapless_start_seconds": 1.5701193200657144,
+          "rss_peak_mib": 1927.6171875,
+          "stages": {
+            "frontend_seconds": 0.006973895011469722,
+            "bert_seconds": 0.2203908449737355,
+            "acoustic_seconds": 0.058208838920108974,
+            "phonemes": 157,
+            "frames": 759,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "4bb910032d6ff3e9ec628401094289afa635e7049a8d749c87bff5cce94ec055",
+            "flow_seconds": 0.6905836480436847,
+            "vocoder_seconds": 8.260787048959173
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.5701193200657144,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.291485234047286,
+              "audio_before_seconds": 0.7430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.0101870100479573,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.7068549509858713,
+              "audio_before_seconds": 2.2291156462585033,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.430337534053251,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.139447942026891,
+              "audio_before_seconds": 3.7151927437641725,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.856992942048237,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.5744212730787694,
+              "audio_before_seconds": 5.201269841269841,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 7.272196111036465,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 7.9913257689913735,
+              "audio_before_seconds": 6.6873469387755105,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 8.714137210976332,
+              "audio_before_seconds": 7.430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 9.240398555994034,
+              "audio_before_seconds": 8.17342403628118,
+              "chunk_seconds": 0.6385487528344671
+            }
+          ]
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.804988662131519,
+          "compute_seconds": 6.003708099015057,
+          "rtf": 1.0342325279943907,
+          "repeat": 1,
+          "sha256": "1d7d9c33fef60f9808516f36f11b98a3b0de4f088b2a60f604cb23f6eb42106c",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.2053382089361548,
+          "minimum_gapless_start_seconds": 1.2053382089361548,
+          "rss_peak_mib": 1927.6171875,
+          "stages": {
+            "frontend_seconds": 0.004153712070547044,
+            "bert_seconds": 0.16132915497291833,
+            "acoustic_seconds": 0.041234941920265555,
+            "phonemes": 107,
+            "frames": 500,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "e7c72e47590ea10c3d4808b16963c6ce2b00bfbe4baf80937c06c8e1fa2805b7",
+            "flow_seconds": 0.404847898054868,
+            "vocoder_seconds": 5.389438585843891
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.2053382089361548,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 1.9223080290248618,
+              "audio_before_seconds": 0.7430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.623124136007391,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.343389565940015,
+              "audio_before_seconds": 2.2291156462585033,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.062885270919651,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.766238639946096,
+              "audio_before_seconds": 3.7151927437641725,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.491420796024613,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.00347709399648,
+              "audio_before_seconds": 5.201269841269841,
+              "chunk_seconds": 0.603718820861678
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.884716553287982,
+          "compute_seconds": 7.348948115948588,
+          "rtf": 1.067429291978462,
+          "repeat": 1,
+          "sha256": "34114c379f5af66c6943b8488cf0a8d581120751945ed8c5f5a5e32f8eafe621",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.3854936680290848,
+          "minimum_gapless_start_seconds": 1.3854936680290848,
+          "rss_peak_mib": 1927.6171875,
+          "stages": {
+            "frontend_seconds": 0.005036312970332801,
+            "bert_seconds": 0.20775441406294703,
+            "acoustic_seconds": 0.049421029980294406,
+            "phonemes": 121,
+            "frames": 593,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "bb8749836de57d7bc2b89ae4cbcd45a507f68f91b0abd136cf5aec74d01207eb",
+            "flow_seconds": 0.5046968110837042,
+            "vocoder_seconds": 6.579070345847867
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.3854936680290848,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.082892537000589,
+              "audio_before_seconds": 0.7430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.7935398999834433,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.4950267779640853,
+              "audio_before_seconds": 2.2291156462585033,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.2166940530296415,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.954440428991802,
+              "audio_before_seconds": 3.7151927437641725,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.652875964995474,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.376094975974411,
+              "audio_before_seconds": 5.201269841269841,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 7.090514841023833,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 7.348756202030927,
+              "audio_before_seconds": 6.6873469387755105,
+              "chunk_seconds": 0.19736961451247165
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "followup-results/int8-c0",
+      "context": "int8",
+      "cpu_threads": 4,
+      "warm_n": 3,
+      "total_n": 6,
+      "median_rtf": 0.7179584836561808,
+      "median_first_pcm_seconds": 4.9150615649996325,
+      "first_pcm_basis": "Explicit chunk events",
+      "median_gapless_start_seconds": 4.9150615649996325,
+      "peak_rss_mib": 1281.66796875,
+      "process_load_seconds": 5.008404517080635,
+      "stage_medians": {
+        "frontend_seconds": 0.004763016011565924,
+        "bert_seconds": 0.08336415700614452,
+        "acoustic_seconds": 0.04694589599967003,
+        "decoder_seconds": 4.773301896988414
+      },
+      "samples": [
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 7.356959083001129,
+          "rtf": 0.8229552951510496,
+          "repeat": 0,
+          "sha256": "3ab92a3b37c337d257238c35c87d848727885bd1ae23cbd7defc3eda8aba8035",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 7.356959083001129,
+          "minimum_gapless_start_seconds": 7.356959083001129,
+          "rss_peak_mib": 1091.74609375,
+          "stages": {
+            "frontend_seconds": 0.9273898670217022,
+            "bert_seconds": 0.11956045497208834,
+            "acoustic_seconds": 0.0725699319737032,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2",
+            "decoder_seconds": 6.234314137953334
+          },
+          "chunk_events": []
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 4.196152733988129,
+          "rtf": 0.7156959141741819,
+          "repeat": 0,
+          "sha256": "a402abac604d9ab663bc3e3d47d04e574c03cf2704047aa23a8fedd212f714be",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 4.196152733988129,
+          "minimum_gapless_start_seconds": 4.196152733988129,
+          "rss_peak_mib": 1110.5234375,
+          "stages": {
+            "frontend_seconds": 0.004186670063063502,
+            "bert_seconds": 0.062420303001999855,
+            "acoustic_seconds": 0.04152019997127354,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246",
+            "decoder_seconds": 4.086114811012521
+          },
+          "chunk_events": []
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 4.888530176947825,
+          "rtf": 0.7222347395053839,
+          "repeat": 0,
+          "sha256": "6c95905afe192c40cbb3129963edc0059327a3c5a7e7d6549236987457c360fc",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 4.888530176947825,
+          "minimum_gapless_start_seconds": 4.888530176947825,
+          "rss_peak_mib": 1110.5234375,
+          "stages": {
+            "frontend_seconds": 0.004703223006799817,
+            "bert_seconds": 0.08086656301748008,
+            "acoustic_seconds": 0.05915240105241537,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e",
+            "decoder_seconds": 4.741569692036137
+          },
+          "chunk_events": []
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 6.394206464057788,
+          "rtf": 0.7152610213701006,
+          "repeat": 1,
+          "sha256": "3ab92a3b37c337d257238c35c87d848727885bd1ae23cbd7defc3eda8aba8035",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 6.394206464057788,
+          "minimum_gapless_start_seconds": 6.394206464057788,
+          "rss_peak_mib": 1263.87890625,
+          "stages": {
+            "frontend_seconds": 0.007028438034467399,
+            "bert_seconds": 0.08336415700614452,
+            "acoustic_seconds": 0.060090712970122695,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2",
+            "decoder_seconds": 6.241035391925834
+          },
+          "chunk_events": []
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 4.20941826608032,
+          "rtf": 0.7179584836561808,
+          "repeat": 1,
+          "sha256": "a402abac604d9ab663bc3e3d47d04e574c03cf2704047aa23a8fedd212f714be",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 4.20941826608032,
+          "minimum_gapless_start_seconds": 4.20941826608032,
+          "rss_peak_mib": 1266.19921875,
+          "stages": {
+            "frontend_seconds": 0.004181712050922215,
+            "bert_seconds": 0.062260466045700014,
+            "acoustic_seconds": 0.04217150493059307,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246",
+            "decoder_seconds": 4.098810123978183
+          },
+          "chunk_events": []
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 4.9150615649996325,
+          "rtf": 0.7261545046381988,
+          "repeat": 1,
+          "sha256": "6c95905afe192c40cbb3129963edc0059327a3c5a7e7d6549236987457c360fc",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 4.9150615649996325,
+          "minimum_gapless_start_seconds": 4.9150615649996325,
+          "rss_peak_mib": 1281.66796875,
+          "stages": {
+            "frontend_seconds": 0.004763016011565924,
+            "bert_seconds": 0.08788537501823157,
+            "acoustic_seconds": 0.04694589599967003,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e",
+            "decoder_seconds": 4.773301896988414
+          },
+          "chunk_events": []
+        }
+      ]
+    },
+    {
+      "id": "followup-results/int8-c64",
+      "context": "int8",
+      "cpu_threads": 4,
+      "warm_n": 3,
+      "total_n": 6,
+      "median_rtf": 1.048702183818064,
+      "median_first_pcm_seconds": 1.2098489310592413,
+      "first_pcm_basis": "Explicit chunk events",
+      "median_gapless_start_seconds": 1.2104838292438709,
+      "peak_rss_mib": 1045.8125,
+      "process_load_seconds": 4.973702311981469,
+      "stage_medians": {
+        "frontend_seconds": 0.005070567014627159,
+        "bert_seconds": 0.06842977297492325,
+        "acoustic_seconds": 0.04818862501997501,
+        "flow_seconds": 0.48296686296816915,
+        "vocoder_seconds": 6.54467191407457
+      },
+      "samples": [
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 10.12471851799637,
+          "rtf": 1.1325590671764405,
+          "repeat": 0,
+          "sha256": "7a02106dac92a760065a18b10ad8e88141677e22487bbe587ff2eece17987ff7",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 2.3153602039674297,
+          "minimum_gapless_start_seconds": 2.3153602039674297,
+          "rss_peak_mib": 991.87890625,
+          "stages": {
+            "frontend_seconds": 0.8876144579844549,
+            "bert_seconds": 0.11327512108255178,
+            "acoustic_seconds": 0.07211216702125967,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2",
+            "flow_seconds": 0.6241099960170686,
+            "vocoder_seconds": 8.423152792733163
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 2.3153602039674297,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.001435464946553,
+              "audio_before_seconds": 0.7430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.7138907839544117,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.399241021950729,
+              "audio_before_seconds": 2.2291156462585033,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.117380605894141,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.847839483991265,
+              "audio_before_seconds": 3.7151927437641725,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.536153682973236,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 7.246727907913737,
+              "audio_before_seconds": 5.201269841269841,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 7.935479072970338,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 8.650980419944972,
+              "audio_before_seconds": 6.6873469387755105,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 9.362140679964796,
+              "audio_before_seconds": 7.430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 9.980141781968996,
+              "audio_before_seconds": 8.17342403628118,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 10.124146858928725,
+              "audio_before_seconds": 8.916462585034013,
+              "chunk_seconds": 0.023219954648526078
+            }
+          ]
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 5.97609018208459,
+          "rtf": 1.019282089379372,
+          "repeat": 0,
+          "sha256": "172a518f45f9987fb8879dea5e95c0454613eb979b57123a802031b3d3e0bfa7",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.116290969075635,
+          "minimum_gapless_start_seconds": 1.116290969075635,
+          "rss_peak_mib": 995.484375,
+          "stages": {
+            "frontend_seconds": 0.0050965179689228535,
+            "bert_seconds": 0.07347689801827073,
+            "acoustic_seconds": 0.050574648077599704,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246",
+            "flow_seconds": 0.39625358302146196,
+            "vocoder_seconds": 5.447992985020392
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.116290969075635,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 1.8229089740198106,
+              "audio_before_seconds": 0.7430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.5503012880217284,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.235223993076943,
+              "audio_before_seconds": 2.2291156462585033,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.982010488049127,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.668057614006102,
+              "audio_before_seconds": 3.7151927437641725,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.408361961017363,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.975932392058894,
+              "audio_before_seconds": 5.201269841269841,
+              "chunk_seconds": 0.6617687074829932
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 6.992066549952142,
+          "rtf": 1.0330126194417661,
+          "repeat": 0,
+          "sha256": "335963eca58b674c47df7be96e42a54fe2dbff280688aa1ea164d4fcd471da09",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.2149982789997011,
+          "minimum_gapless_start_seconds": 1.2149982789997011,
+          "rss_peak_mib": 995.484375,
+          "stages": {
+            "frontend_seconds": 0.0046992750139907,
+            "bert_seconds": 0.06861314899288118,
+            "acoustic_seconds": 0.04762770107481629,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e",
+            "flow_seconds": 0.48268163995817304,
+            "vocoder_seconds": 6.385476822964847
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.2149982789997011,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 1.9004511079983786,
+              "audio_before_seconds": 0.7430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.6091398919234052,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.2945078989723697,
+              "audio_before_seconds": 2.2291156462585033,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.014376173028722,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.749171511968598,
+              "audio_before_seconds": 3.7151927437641725,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.439608705928549,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.156143354950473,
+              "audio_before_seconds": 5.201269841269841,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.783287946949713,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.99188571900595,
+              "audio_before_seconds": 6.6873469387755105,
+              "chunk_seconds": 0.08126984126984127
+            }
+          ]
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 9.375064602005295,
+          "rtf": 1.048702183818064,
+          "repeat": 1,
+          "sha256": "7a02106dac92a760065a18b10ad8e88141677e22487bbe587ff2eece17987ff7",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.4149831320391968,
+          "minimum_gapless_start_seconds": 1.4149831320391968,
+          "rss_peak_mib": 1032.921875,
+          "stages": {
+            "frontend_seconds": 0.007255995995365083,
+            "bert_seconds": 0.0906010769540444,
+            "acoustic_seconds": 0.06544979603495449,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2",
+            "flow_seconds": 0.6388371100183576,
+            "vocoder_seconds": 8.568300970015116
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.4149831320391968,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.1029923600144684,
+              "audio_before_seconds": 0.7430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.8163906070403755,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.557738968054764,
+              "audio_before_seconds": 2.2291156462585033,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.275310677010566,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.988057423965074,
+              "audio_before_seconds": 3.7151927437641725,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.697336915996857,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.409476479049772,
+              "audio_before_seconds": 5.201269841269841,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 7.149769445997663,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 7.856535166036338,
+              "audio_before_seconds": 6.6873469387755105,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 8.589076368021779,
+              "audio_before_seconds": 7.430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 9.229053287999704,
+              "audio_before_seconds": 8.17342403628118,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 9.374496733071283,
+              "audio_before_seconds": 8.916462585034013,
+              "chunk_seconds": 0.023219954648526078
+            }
+          ]
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 5.92791449802462,
+          "rtf": 1.011065243513636,
+          "repeat": 1,
+          "sha256": "172a518f45f9987fb8879dea5e95c0454613eb979b57123a802031b3d3e0bfa7",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.1100728720193729,
+          "minimum_gapless_start_seconds": 1.1100728720193729,
+          "rss_peak_mib": 1040.65625,
+          "stages": {
+            "frontend_seconds": 0.005070567014627159,
+            "bert_seconds": 0.06811504589859396,
+            "acoustic_seconds": 0.04102506802882999,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246",
+            "flow_seconds": 0.38873350992798805,
+            "vocoder_seconds": 5.422276504919864
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.1100728720193729,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 1.824013925041072,
+              "audio_before_seconds": 0.7430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.55014419707004,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.2595616111066192,
+              "audio_before_seconds": 2.2291156462585033,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.964642305043526,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.6691577770980075,
+              "audio_before_seconds": 3.7151927437641725,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.3820848520845175,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.927750000031665,
+              "audio_before_seconds": 5.201269841269841,
+              "chunk_seconds": 0.6617687074829932
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 7.152203836012632,
+          "rtf": 1.0566714098954662,
+          "repeat": 1,
+          "sha256": "335963eca58b674c47df7be96e42a54fe2dbff280688aa1ea164d4fcd471da09",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.2098489310592413,
+          "minimum_gapless_start_seconds": 1.2104838292438709,
+          "rss_peak_mib": 1045.8125,
+          "stages": {
+            "frontend_seconds": 0.004803405026905239,
+            "bert_seconds": 0.06842977297492325,
+            "acoustic_seconds": 0.04818862501997501,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e",
+            "flow_seconds": 0.48296686296816915,
+            "vocoder_seconds": 6.54467191407457
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.2098489310592413,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 1.9535223779967055,
+              "audio_before_seconds": 0.7430385487528345,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 2.663223767071031,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 3.3865928320446983,
+              "audio_before_seconds": 2.2291156462585033,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.112631808035076,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 4.87168915302027,
+              "audio_before_seconds": 3.7151927437641725,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 5.6246644670609385,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.314917004085146,
+              "audio_before_seconds": 5.201269841269841,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 6.966499065048993,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.7430385487528345
+            },
+            {
+              "ready_seconds": 7.152027670992538,
+              "audio_before_seconds": 6.6873469387755105,
+              "chunk_seconds": 0.08126984126984127
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chunk-results/fp32-c128",
+      "context": "fp32",
+      "cpu_threads": 4,
+      "warm_n": 3,
+      "total_n": 6,
+      "median_rtf": 0.8972113416893913,
+      "median_first_pcm_seconds": 1.826483042910695,
+      "first_pcm_basis": "Explicit chunk events",
+      "median_gapless_start_seconds": 1.826483042910695,
+      "peak_rss_mib": 2101.8828125,
+      "process_load_seconds": 7.282630983972922,
+      "stage_medians": {
+        "frontend_seconds": 0.004794433014467359,
+        "bert_seconds": 0.17885670997202396,
+        "acoustic_seconds": 0.04581019200850278,
+        "flow_seconds": 0.5110486299963668,
+        "vocoder_seconds": 5.433964177034795
+      },
+      "samples": [
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.811972789115647,
+          "compute_seconds": 8.668330912012607,
+          "rtf": 0.9836992373285057,
+          "repeat": 0,
+          "sha256": "d3820fb1bac05421a28d2f3e9c1c4580a24b3b6155358cbcd1aa91c044b228f2",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 3.000475868000649,
+          "minimum_gapless_start_seconds": 3.000475868000649,
+          "rss_peak_mib": 2051.30078125,
+          "stages": {
+            "frontend_seconds": 0.9388411659747362,
+            "bert_seconds": 0.2304776180535555,
+            "acoustic_seconds": 0.06079661101102829,
+            "phonemes": 157,
+            "frames": 759,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "4bb910032d6ff3e9ec628401094289afa635e7049a8d749c87bff5cce94ec055",
+            "flow_seconds": 0.6833230500342324,
+            "vocoder_seconds": 6.751467416062951
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 3.000475868000649,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 4.1866913250414655,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.3380268920445815,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 6.48573589802254,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 7.6630506390938535,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 8.668142786016688,
+              "audio_before_seconds": 7.430385487528345,
+              "chunk_seconds": 1.3815873015873017
+            }
+          ]
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.804988662131519,
+          "compute_seconds": 5.089066493907012,
+          "rtf": 0.8766712202394501,
+          "repeat": 0,
+          "sha256": "2130eec25df918f4dcbd186d50d651e3e1cef502a1f33c92d62a1deef3f00f9b",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.6970872239908203,
+          "minimum_gapless_start_seconds": 1.6970872239908203,
+          "rss_peak_mib": 2051.69140625,
+          "stages": {
+            "frontend_seconds": 0.004134677932597697,
+            "bert_seconds": 0.16217614605557173,
+            "acoustic_seconds": 0.0414564450038597,
+            "phonemes": 107,
+            "frames": 500,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "e7c72e47590ea10c3d4808b16963c6ce2b00bfbe4baf80937c06c8e1fa2805b7",
+            "flow_seconds": 0.3707583340583369,
+            "vocoder_seconds": 4.50826150807552
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.6970872239908203,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 2.9263955949572846,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 4.116478521958925,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.0889314520172775,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 1.3467573696145125
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.884716553287982,
+          "compute_seconds": 6.0995933070080355,
+          "rtf": 0.8859614277213795,
+          "repeat": 0,
+          "sha256": "a5b5900e9ecb8f175437e9a7b3bbe9f2f17d98c8e17263d7effb8dfd3e29f02f",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.8144658070523292,
+          "minimum_gapless_start_seconds": 1.8144658070523292,
+          "rss_peak_mib": 2051.69140625,
+          "stages": {
+            "frontend_seconds": 0.004658513003960252,
+            "bert_seconds": 0.18214722198899835,
+            "acoustic_seconds": 0.054200569982640445,
+            "phonemes": 121,
+            "frames": 593,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "bb8749836de57d7bc2b89ae4cbcd45a507f68f91b0abd136cf5aec74d01207eb",
+            "flow_seconds": 0.5124107780866325,
+            "vocoder_seconds": 5.343552089878358
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.8144658070523292,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 3.0174988860962912,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 4.218717536074109,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.375370296067558,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 6.099427931010723,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.9404081632653061
+            }
+          ]
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.811972789115647,
+          "compute_seconds": 7.9340038880473,
+          "rtf": 0.9003663626659408,
+          "repeat": 1,
+          "sha256": "d3820fb1bac05421a28d2f3e9c1c4580a24b3b6155358cbcd1aa91c044b228f2",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 2.062782487948425,
+          "minimum_gapless_start_seconds": 2.062782487948425,
+          "rss_peak_mib": 2087.9609375,
+          "stages": {
+            "frontend_seconds": 0.006905228015966713,
+            "bert_seconds": 0.22158886503893882,
+            "acoustic_seconds": 0.05854992393869907,
+            "phonemes": 157,
+            "frames": 759,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "4bb910032d6ff3e9ec628401094289afa635e7049a8d749c87bff5cce94ec055",
+            "flow_seconds": 0.6714752460829914,
+            "vocoder_seconds": 6.972244198084809
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 2.062782487948425,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 3.3098079659976065,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 4.511935633025132,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.714096584008075,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 6.922712758998387,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 7.933800886967219,
+              "audio_before_seconds": 7.430385487528345,
+              "chunk_seconds": 1.3815873015873017
+            }
+          ]
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.804988662131519,
+          "compute_seconds": 5.019660967052914,
+          "rtf": 0.8647150337774747,
+          "repeat": 1,
+          "sha256": "2130eec25df918f4dcbd186d50d651e3e1cef502a1f33c92d62a1deef3f00f9b",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.670951373060234,
+          "minimum_gapless_start_seconds": 1.670951373060234,
+          "rss_peak_mib": 2095.6953125,
+          "stages": {
+            "frontend_seconds": 0.004328054958023131,
+            "bert_seconds": 0.17850406293291599,
+            "acoustic_seconds": 0.03999025106895715,
+            "phonemes": 107,
+            "frames": 500,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "e7c72e47590ea10c3d4808b16963c6ce2b00bfbe4baf80937c06c8e1fa2805b7",
+            "flow_seconds": 0.3776296080322936,
+            "vocoder_seconds": 4.416943607968278
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.670951373060234,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 2.8765766069991514,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 4.0370406459551305,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.019521257956512,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 1.3467573696145125
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.884716553287982,
+          "compute_seconds": 6.177045775926672,
+          "rtf": 0.8972113416893913,
+          "repeat": 1,
+          "sha256": "a5b5900e9ecb8f175437e9a7b3bbe9f2f17d98c8e17263d7effb8dfd3e29f02f",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.826483042910695,
+          "minimum_gapless_start_seconds": 1.826483042910695,
+          "rss_peak_mib": 2101.8828125,
+          "stages": {
+            "frontend_seconds": 0.004794433014467359,
+            "bert_seconds": 0.17885670997202396,
+            "acoustic_seconds": 0.04581019200850278,
+            "phonemes": 121,
+            "frames": 593,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "bb8749836de57d7bc2b89ae4cbcd45a507f68f91b0abd136cf5aec74d01207eb",
+            "flow_seconds": 0.5110486299963668,
+            "vocoder_seconds": 5.433964177034795
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.826483042910695,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 3.0326643419684842,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 4.272613786975853,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.474141010898165,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 6.176878358935937,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.9404081632653061
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chunk-results/fp32-c256",
+      "context": "fp32",
+      "cpu_threads": 4,
+      "warm_n": 3,
+      "total_n": 6,
+      "median_rtf": 0.8155748680818448,
+      "median_first_pcm_seconds": 2.829795851954259,
+      "first_pcm_basis": "Explicit chunk events",
+      "median_gapless_start_seconds": 2.829795851954259,
+      "peak_rss_mib": 2001.98046875,
+      "process_load_seconds": 7.264386245980859,
+      "stage_medians": {
+        "frontend_seconds": 0.004834399907849729,
+        "bert_seconds": 0.1798195510637015,
+        "acoustic_seconds": 0.04604594502598047,
+        "flow_seconds": 0.5228615700034425,
+        "vocoder_seconds": 4.902511707972735
+      },
+      "samples": [
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.811972789115647,
+          "compute_seconds": 8.144524225965142,
+          "rtf": 0.9242566245807157,
+          "repeat": 0,
+          "sha256": "d3820fb1bac05421a28d2f3e9c1c4580a24b3b6155358cbcd1aa91c044b228f2",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 4.076829754980281,
+          "minimum_gapless_start_seconds": 4.076829754980281,
+          "rss_peak_mib": 1889.48046875,
+          "stages": {
+            "frontend_seconds": 0.9500810699537396,
+            "bert_seconds": 0.25999752001371235,
+            "acoustic_seconds": 0.06097261200193316,
+            "phonemes": 157,
+            "frames": 759,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "4bb910032d6ff3e9ec628401094289afa635e7049a8d749c87bff5cce94ec055",
+            "flow_seconds": 0.6890020649880171,
+            "vocoder_seconds": 6.181304028839804
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 4.076829754980281,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 2.972154195011338
+            },
+            {
+              "ready_seconds": 6.188678603968583,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 2.972154195011338
+            },
+            {
+              "ready_seconds": 8.144339891965501,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 2.8676643990929707
+            }
+          ]
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.804988662131519,
+          "compute_seconds": 4.614594888989814,
+          "rtf": 0.7949360726736359,
+          "repeat": 0,
+          "sha256": "3d1b867b0b33a8a0b781a2aa28dfc30ab49b9f558dafe91a31e617bc833dadd5",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 2.6856860850239173,
+          "minimum_gapless_start_seconds": 2.6856860850239173,
+          "rss_peak_mib": 1941.1015625,
+          "stages": {
+            "frontend_seconds": 0.0042525200406089425,
+            "bert_seconds": 0.1643351069651544,
+            "acoustic_seconds": 0.04177852999418974,
+            "phonemes": 107,
+            "frames": 500,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "e7c72e47590ea10c3d4808b16963c6ce2b00bfbe4baf80937c06c8e1fa2805b7",
+            "flow_seconds": 0.3995545899961144,
+            "vocoder_seconds": 4.002545548952185
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 2.6856860850239173,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 2.972154195011338
+            },
+            {
+              "ready_seconds": 4.614466555067338,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 2.8328344671201813
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.884716553287982,
+          "compute_seconds": 5.678736462024972,
+          "rtf": 0.8248322814848402,
+          "repeat": 0,
+          "sha256": "a5b5900e9ecb8f175437e9a7b3bbe9f2f17d98c8e17263d7effb8dfd3e29f02f",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 2.84423273592256,
+          "minimum_gapless_start_seconds": 2.84423273592256,
+          "rss_peak_mib": 1951.6796875,
+          "stages": {
+            "frontend_seconds": 0.004720938974060118,
+            "bert_seconds": 0.1818439569324255,
+            "acoustic_seconds": 0.046265847980976105,
+            "phonemes": 121,
+            "frames": 593,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "bb8749836de57d7bc2b89ae4cbcd45a507f68f91b0abd136cf5aec74d01207eb",
+            "flow_seconds": 0.5227715560467914,
+            "vocoder_seconds": 4.920734315062873
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 2.84423273592256,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 2.972154195011338
+            },
+            {
+              "ready_seconds": 4.95305573195219,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 2.972154195011338
+            },
+            {
+              "ready_seconds": 5.678574585937895,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.9404081632653061
+            }
+          ]
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.811972789115647,
+          "compute_seconds": 7.186823545023799,
+          "rtf": 0.8155748680818448,
+          "repeat": 1,
+          "sha256": "d3820fb1bac05421a28d2f3e9c1c4580a24b3b6155358cbcd1aa91c044b228f2",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 3.036219514091499,
+          "minimum_gapless_start_seconds": 3.036219514091499,
+          "rss_peak_mib": 1988.05859375,
+          "stages": {
+            "frontend_seconds": 0.0068979510106146336,
+            "bert_seconds": 0.220337457023561,
+            "acoustic_seconds": 0.058679247042164207,
+            "phonemes": 157,
+            "frames": 759,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "4bb910032d6ff3e9ec628401094289afa635e7049a8d749c87bff5cce94ec055",
+            "flow_seconds": 0.6895573580404744,
+            "vocoder_seconds": 6.2084161839447916
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 3.036219514091499,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 2.972154195011338
+            },
+            {
+              "ready_seconds": 5.225209203083068,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 2.972154195011338
+            },
+            {
+              "ready_seconds": 7.186646211077459,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 2.8676643990929707
+            }
+          ]
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.804988662131519,
+          "compute_seconds": 4.5073757929494604,
+          "rtf": 0.7764659080823094,
+          "repeat": 1,
+          "sha256": "3d1b867b0b33a8a0b781a2aa28dfc30ab49b9f558dafe91a31e617bc833dadd5",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 2.5988973809871823,
+          "minimum_gapless_start_seconds": 2.5988973809871823,
+          "rss_peak_mib": 1995.53515625,
+          "stages": {
+            "frontend_seconds": 0.004080727929249406,
+            "bert_seconds": 0.1611656069289893,
+            "acoustic_seconds": 0.04051649698521942,
+            "phonemes": 107,
+            "frames": 500,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "e7c72e47590ea10c3d4808b16963c6ce2b00bfbe4baf80937c06c8e1fa2805b7",
+            "flow_seconds": 0.4030115850036964,
+            "vocoder_seconds": 3.8965241140685976
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 2.5988973809871823,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 2.972154195011338
+            },
+            {
+              "ready_seconds": 4.507244833977893,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 2.8328344671201813
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.884716553287982,
+          "compute_seconds": 5.658464270061813,
+          "rtf": 0.8218877605584882,
+          "repeat": 1,
+          "sha256": "a5b5900e9ecb8f175437e9a7b3bbe9f2f17d98c8e17263d7effb8dfd3e29f02f",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 2.829795851954259,
+          "minimum_gapless_start_seconds": 2.829795851954259,
+          "rss_peak_mib": 2001.98046875,
+          "stages": {
+            "frontend_seconds": 0.004834399907849729,
+            "bert_seconds": 0.1798195510637015,
+            "acoustic_seconds": 0.04604594502598047,
+            "phonemes": 121,
+            "frames": 593,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "bb8749836de57d7bc2b89ae4cbcd45a507f68f91b0abd136cf5aec74d01207eb",
+            "flow_seconds": 0.5228615700034425,
+            "vocoder_seconds": 4.902511707972735
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 2.829795851954259,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 2.972154195011338
+            },
+            {
+              "ready_seconds": 4.9251666710479185,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 2.972154195011338
+            },
+            {
+              "ready_seconds": 5.6583035599906,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.9404081632653061
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chunk-results/int8-c128",
+      "context": "int8",
+      "cpu_threads": 4,
+      "warm_n": 3,
+      "total_n": 6,
+      "median_rtf": 0.8808737305879127,
+      "median_first_pcm_seconds": 1.715527071035467,
+      "first_pcm_basis": "Explicit chunk events",
+      "median_gapless_start_seconds": 1.715527071035467,
+      "peak_rss_mib": 1070.4921875,
+      "process_load_seconds": 4.606155707035214,
+      "stage_medians": {
+        "frontend_seconds": 0.004959228914231062,
+        "bert_seconds": 0.07122151099611074,
+        "acoustic_seconds": 0.04701424192171544,
+        "flow_seconds": 0.5004904629895464,
+        "vocoder_seconds": 5.336009589955211
+      },
+      "samples": [
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 8.695696927024983,
+          "rtf": 0.972707575288661,
+          "repeat": 0,
+          "sha256": "b083c08ff239feb9b4bec3671d7b4e6b02f01ee5ddaa5096ddf79ae02ddd4147",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 2.7142794859828427,
+          "minimum_gapless_start_seconds": 2.7142794859828427,
+          "rss_peak_mib": 1017.1484375,
+          "stages": {
+            "frontend_seconds": 0.8640748880570754,
+            "bert_seconds": 0.10387570201419294,
+            "acoustic_seconds": 0.06181255297269672,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2",
+            "flow_seconds": 0.6172152359504253,
+            "vocoder_seconds": 7.044804951059632
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 2.7142794859828427,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 3.92782660597004,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.11635595804546,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 6.3194456869969144,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 7.48130033898633,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 8.554036816000007,
+              "audio_before_seconds": 7.430385487528345,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 8.69513750798069,
+              "audio_before_seconds": 8.916462585034013,
+              "chunk_seconds": 0.023219954648526078
+            }
+          ]
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 5.09189595002681,
+          "rtf": 0.8684738992736012,
+          "repeat": 0,
+          "sha256": "087cf955fdc309b0f227bb5508e7d33ca47036adf99fe716c6eae97b493175d0",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.6547128539532423,
+          "minimum_gapless_start_seconds": 1.6547128539532423,
+          "rss_peak_mib": 1020.20703125,
+          "stages": {
+            "frontend_seconds": 0.004872309975326061,
+            "bert_seconds": 0.08355610293801874,
+            "acoustic_seconds": 0.04472258302848786,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246",
+            "flow_seconds": 0.41134107392281294,
+            "vocoder_seconds": 4.5448672459460795
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.6547128539532423,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 2.845923098968342,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 4.045186321949586,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.091757699032314,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 1.4048072562358276
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 5.920299052959308,
+          "rtf": 0.8746689678773099,
+          "repeat": 0,
+          "sha256": "127b3a79cabbbdb79669e32035f16bbece8750f71fb9d9e51d06e9cf8e5bf020",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.7005232620285824,
+          "minimum_gapless_start_seconds": 1.7005232620285824,
+          "rss_peak_mib": 1020.20703125,
+          "stages": {
+            "frontend_seconds": 0.00465005892328918,
+            "bert_seconds": 0.06826017796993256,
+            "acoustic_seconds": 0.04761359898839146,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e",
+            "flow_seconds": 0.47980254993308336,
+            "vocoder_seconds": 5.3173887798329815
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.7005232620285824,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 2.872064732015133,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 4.089086286025122,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.2760375019861385,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.920130177983083,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.8243083900226758
+            }
+          ]
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.93968253968254,
+          "compute_seconds": 7.957702253945172,
+          "rtf": 0.8901549041167361,
+          "repeat": 1,
+          "sha256": "b083c08ff239feb9b4bec3671d7b4e6b02f01ee5ddaa5096ddf79ae02ddd4147",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.880147703923285,
+          "minimum_gapless_start_seconds": 1.880147703923285,
+          "rss_peak_mib": 1057.6015625,
+          "stages": {
+            "frontend_seconds": 0.007186111994087696,
+            "bert_seconds": 0.08272632805164903,
+            "acoustic_seconds": 0.06009932199958712,
+            "phonemes": 157,
+            "frames": 770,
+            "normalized_text": "下午好喵!欢迎来到猫耳塔菲的小小展台.这个声音是人工智能合成的,不是本人录音喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "a356c253d42c773ffdf8f70aa58d9e255ed791a674662059010b8a189860d8e2",
+            "flow_seconds": 0.6206204250920564,
+            "vocoder_seconds": 7.18364034302067
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.880147703923285,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 3.1198879819130525,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 4.330883549991995,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.498217345913872,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 6.716168088023551,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 7.801552898949012,
+              "audio_before_seconds": 7.430385487528345,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 7.957484961021692,
+              "audio_before_seconds": 8.916462585034013,
+              "chunk_seconds": 0.023219954648526078
+            }
+          ]
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.863038548752835,
+          "compute_seconds": 5.062936317990534,
+          "rtf": 0.8635345437166714,
+          "repeat": 1,
+          "sha256": "087cf955fdc309b0f227bb5508e7d33ca47036adf99fe716c6eae97b493175d0",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.645022002980113,
+          "minimum_gapless_start_seconds": 1.645022002980113,
+          "rss_peak_mib": 1065.3359375,
+          "stages": {
+            "frontend_seconds": 0.004333017976023257,
+            "bert_seconds": 0.06650960899423808,
+            "acoustic_seconds": 0.043739389977417886,
+            "phonemes": 107,
+            "frames": 505,
+            "normalized_text": "今天的阳光暖暖的,小猫趴在窗边,看着一朵云慢慢飘过去.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "d43b479e24211576a8fd35eb9e6d2abbe0db7969400152e30cb2afed85b64246",
+            "flow_seconds": 0.4406034089624882,
+            "vocoder_seconds": 4.505258884048089
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.645022002980113,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 2.8056501989485696,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 4.00779559800867,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.062789025949314,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 1.4048072562358276
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.768616780045352,
+          "compute_seconds": 5.962296713958494,
+          "rtf": 0.8808737305879127,
+          "repeat": 1,
+          "sha256": "127b3a79cabbbdb79669e32035f16bbece8750f71fb9d9e51d06e9cf8e5bf020",
+          "sample_rate": 44100,
+          "first_pcm_seconds": 1.715527071035467,
+          "minimum_gapless_start_seconds": 1.715527071035467,
+          "rss_peak_mib": 1070.4921875,
+          "stages": {
+            "frontend_seconds": 0.004959228914231062,
+            "bert_seconds": 0.07122151099611074,
+            "acoustic_seconds": 0.04701424192171544,
+            "phonemes": 121,
+            "frames": 583,
+            "normalized_text": "现在是十月十五日,下午三点二十分.请记得喝水,也要记得休息喵.",
+            "unsupported_latin": [],
+            "bert_fingerprint": "ce2a23115d33d73f2de1767490def87a88a3af7931258c90e38fdb72f4c5c11e",
+            "flow_seconds": 0.5004904629895464,
+            "vocoder_seconds": 5.336009589955211
+          },
+          "chunk_events": [
+            {
+              "ready_seconds": 1.715527071035467,
+              "audio_before_seconds": 0,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 2.8840937190689147,
+              "audio_before_seconds": 1.486077097505669,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 4.132405032985844,
+              "audio_before_seconds": 2.972154195011338,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.311788246035576,
+              "audio_before_seconds": 4.458231292517007,
+              "chunk_seconds": 1.486077097505669
+            },
+            {
+              "ready_seconds": 5.962128128972836,
+              "audio_before_seconds": 5.944308390022676,
+              "chunk_seconds": 0.8243083900226758
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "quality": [
+    {
+      "profile": "fp32-t4",
+      "original_text_cer": 0.3220338983050847,
+      "effective_target_cer": 0.3023255813953488,
+      "warning": "Effective-target CER does not excuse dropped content. Original input CER and Latin-loss flags remain visible. No subjective timbre score.",
+      "against_x86_fp32": [
+        {
+          "id": "heldout-1",
+          "equal_length": true,
+          "duration_ratio": 1.0,
+          "waveform_rmse": 2.2073753739745747e-06,
+          "correlation": 0.9999999983104456
+        },
+        {
+          "id": "heldout-2",
+          "equal_length": true,
+          "duration_ratio": 1.0,
+          "waveform_rmse": 4.8856148629244105e-06,
+          "correlation": 0.9999999931917445
+        },
+        {
+          "id": "heldout-3",
+          "equal_length": true,
+          "duration_ratio": 1.0,
+          "waveform_rmse": 3.0330427256385115e-06,
+          "correlation": 0.9999999981690374
+        },
+        {
+          "id": "heldout-4",
+          "equal_length": true,
+          "duration_ratio": 1.0,
+          "waveform_rmse": 3.0240827777957503e-06,
+          "correlation": 0.9999999976171422
+        },
+        {
+          "id": "welcome",
+          "equal_length": true,
+          "duration_ratio": 1.0,
+          "waveform_rmse": 2.5038774357008383e-06,
+          "correlation": 0.9999999980948573
+        },
+        {
+          "id": "actions",
+          "equal_length": true,
+          "duration_ratio": 1.0,
+          "waveform_rmse": 2.6386469158504038e-06,
+          "correlation": 0.9999999963417016
+        },
+        {
+          "id": "story",
+          "equal_length": true,
+          "duration_ratio": 1.0,
+          "waveform_rmse": 2.813581682523464e-06,
+          "correlation": 0.9999999980605977
+        },
+        {
+          "id": "numbers",
+          "equal_length": true,
+          "duration_ratio": 1.0,
+          "waveform_rmse": 1.877360829490397e-06,
+          "correlation": 0.99999999886949
+        }
+      ]
+    },
+    {
+      "profile": "int8-t4",
+      "original_text_cer": 0.2824858757062147,
+      "effective_target_cer": 0.26744186046511625,
+      "warning": "Effective-target CER does not excuse dropped content. Original input CER and Latin-loss flags remain visible. No subjective timbre score.",
+      "against_x86_fp32": [
+        {
+          "id": "heldout-1",
+          "equal_length": false,
+          "duration_ratio": 0.9934426229508196
+        },
+        {
+          "id": "heldout-2",
+          "equal_length": true,
+          "duration_ratio": 1.0,
+          "waveform_rmse": 0.05456697226304397,
+          "correlation": 0.11667805675671206
+        },
+        {
+          "id": "heldout-3",
+          "equal_length": false,
+          "duration_ratio": 0.9933774834437086
+        },
+        {
+          "id": "heldout-4",
+          "equal_length": false,
+          "duration_ratio": 0.9921259842519685
+        },
+        {
+          "id": "welcome",
+          "equal_length": false,
+          "duration_ratio": 1.0144927536231885
+        },
+        {
+          "id": "actions",
+          "equal_length": false,
+          "duration_ratio": 0.9412878787878788
+        },
+        {
+          "id": "story",
+          "equal_length": false,
+          "duration_ratio": 1.01
+        },
+        {
+          "id": "numbers",
+          "equal_length": false,
+          "duration_ratio": 0.9831365935919055
+        }
+      ]
+    },
+    {
+      "profile": "zero-t4",
+      "original_text_cer": 0.2598870056497175,
+      "effective_target_cer": 0.23837209302325582,
+      "warning": "Effective-target CER does not excuse dropped content. Original input CER and Latin-loss flags remain visible. No subjective timbre score.",
+      "against_x86_fp32": [
+        {
+          "id": "heldout-1",
+          "equal_length": false,
+          "duration_ratio": 0.839344262295082
+        },
+        {
+          "id": "heldout-2",
+          "equal_length": false,
+          "duration_ratio": 0.7506112469437652
+        },
+        {
+          "id": "heldout-3",
+          "equal_length": false,
+          "duration_ratio": 0.9889624724061811
+        },
+        {
+          "id": "heldout-4",
+          "equal_length": false,
+          "duration_ratio": 1.0236220472440944
+        },
+        {
+          "id": "welcome",
+          "equal_length": false,
+          "duration_ratio": 0.9090909090909091
+        },
+        {
+          "id": "actions",
+          "equal_length": false,
+          "duration_ratio": 0.8238636363636364
+        },
+        {
+          "id": "story",
+          "equal_length": false,
+          "duration_ratio": 0.914
+        },
+        {
+          "id": "numbers",
+          "equal_length": false,
+          "duration_ratio": 0.866779089376054
+        }
+      ]
+    }
+  ],
+  "source_revision": "8d3a82bc3a94242cf91cee4f32902f13357653e9",
+  "source_weight_sha256": "de9643c67cb99a208471b54c8557b5bc8a43e8d7ae73aca39e0b0fa9e3fba6a8",
+  "noise_policy": "External NumPy PCG64 noises for backend parity, not waveform-identical to the previous Torch seeded baseline.",
+  "parameters": {
+    "sdp_ratio": 0.2,
+    "noise_scale": 0.35,
+    "noise_scale_w": 0.6
+  },
+  "phrase_cache": {
+    "synthetic": true,
+    "exact_text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+    "profile": "gsv-original-mixed-20261015",
+    "sha256": "f4e751fda98c2a31f551d065142774d1cfc76c6aaaef4604754a2f36209d5143",
+    "wav_bytes": 577324,
+    "n": 25,
+    "warm_median_verified_lookup_seconds": 0.0005805694963783026,
+    "exact_audio_bytes_preserved": true,
+    "arbitrary_text_tts": false,
+    "speaker_playback_verified": false,
+    "method": "Local cache lookup plus whole-file SHA256. Existing OS page cache may be warm. No neural inference, network, speaker output or microphone capture in this measurement."
+  },
+  "export_parity": [
+    {
+      "text": "这是一段人工智能合成的语音。",
+      "phones": 59,
+      "frames": 251,
+      "waveform_rmse": 1.3369705698096368e-07,
+      "waveform_correlation": 0.9999999999948812,
+      "bert_fp32_rmse": 7.083043556121993e-07,
+      "bert_int8_cosine": 0.9913036823272705
+    },
+    {
+      "text": "今天的阳光暖暖的，小猫在窗边看云。",
+      "phones": 69,
+      "frames": 331,
+      "waveform_rmse": 8.616451907528244e-08,
+      "waveform_correlation": 0.9999999999961349,
+      "bert_fp32_rmse": 7.492993177038443e-07,
+      "bert_int8_cosine": 0.9912943243980408
+    },
+    {
+      "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+      "phones": 121,
+      "frames": 593,
+      "waveform_rmse": 1.0992281573862783e-07,
+      "waveform_correlation": 0.9999999999961251,
+      "bert_fp32_rmse": 7.33774811578769e-07,
+      "bert_int8_cosine": 0.9902341961860657
+    }
+  ],
+  "vocoder_overlap_parity": [
+    {
+      "frames": 173,
+      "chunk_frames": 64,
+      "overlap_frames": 4,
+      "waveform_rmse": 0.0008566283504478633,
+      "max_abs_error": 0.014289164915680885,
+      "correlation": 0.9974171111262657
+    },
+    {
+      "frames": 173,
+      "chunk_frames": 64,
+      "overlap_frames": 8,
+      "waveform_rmse": 3.9608104998478666e-05,
+      "max_abs_error": 0.0007921899668872356,
+      "correlation": 0.9999944709058659
+    },
+    {
+      "frames": 173,
+      "chunk_frames": 64,
+      "overlap_frames": 16,
+      "waveform_rmse": 8.522900607488282e-09,
+      "max_abs_error": 1.511070877313614e-07,
+      "correlation": 0.9999999999997438
+    },
+    {
+      "frames": 173,
+      "chunk_frames": 64,
+      "overlap_frames": 32,
+      "waveform_rmse": 8.185529587478868e-09,
+      "max_abs_error": 1.511070877313614e-07,
+      "correlation": 0.9999999999997643
+    },
+    {
+      "frames": 593,
+      "chunk_frames": 64,
+      "overlap_frames": 4,
+      "waveform_rmse": 0.0026130550540983677,
+      "max_abs_error": 0.06259950995445251,
+      "correlation": 0.9917620013299419
+    },
+    {
+      "frames": 593,
+      "chunk_frames": 64,
+      "overlap_frames": 8,
+      "waveform_rmse": 0.0001640132541069761,
+      "max_abs_error": 0.010362878441810608,
+      "correlation": 0.9999675292305155
+    },
+    {
+      "frames": 593,
+      "chunk_frames": 64,
+      "overlap_frames": 16,
+      "waveform_rmse": 1.5379880480281827e-08,
+      "max_abs_error": 3.809109330177307e-07,
+      "correlation": 0.9999999999997147
+    },
+    {
+      "frames": 593,
+      "chunk_frames": 64,
+      "overlap_frames": 32,
+      "waveform_rmse": 1.537986804578395e-08,
+      "max_abs_error": 3.809109330177307e-07,
+      "correlation": 0.9999999999997148
+    }
+  ],
+  "board_stream_parity": [
+    {
+      "context": "fp32",
+      "id": "welcome",
+      "equal_length": true,
+      "max_pcm_lsb": 1,
+      "waveform_rmse": 5.624464269824872e-07
+    },
+    {
+      "context": "fp32",
+      "id": "story",
+      "equal_length": true,
+      "max_pcm_lsb": 0,
+      "waveform_rmse": 0.0
+    },
+    {
+      "context": "fp32",
+      "id": "numbers",
+      "equal_length": true,
+      "max_pcm_lsb": 1,
+      "waveform_rmse": 6.192168194987426e-07
+    },
+    {
+      "context": "int8",
+      "id": "welcome",
+      "equal_length": true,
+      "max_pcm_lsb": 1,
+      "waveform_rmse": 5.952718581508248e-07
+    },
+    {
+      "context": "int8",
+      "id": "story",
+      "equal_length": true,
+      "max_pcm_lsb": 1,
+      "waveform_rmse": 8.4875900171277e-08
+    },
+    {
+      "context": "int8",
+      "id": "numbers",
+      "equal_length": true,
+      "max_pcm_lsb": 1,
+      "waveform_rmse": 6.220018118361236e-07
+    }
+  ],
+  "cosy_modes": [
+    {
+      "id": "cosy-instruct",
+      "utterances": 8,
+      "writing_normalized_cer": 0.05649717514124294,
+      "characters": 177,
+      "warm_median_rtf": 0.21064792484200248,
+      "method": "Same live model, reference WAV and accurate transcript, seed reset per prompt. Instruct2 first; excludes first prompt for warm timing. PyTorch allocator memory excludes ONNX CUDA allocations. No timbre score.",
+      "reference_sha256": "a0ee00e104a7261ecf45a06e77899ce68315fb25d8dcf90be04f970936f72232",
+      "samples": [
+        {
+          "id": "heldout-1",
+          "text": "最后编辑于今天，今天刚更新过",
+          "seconds": 2.92,
+          "compute_seconds": 1.1488870250759646,
+          "rtf": 0.39345446064245365,
+          "sha256": "44f2858c883024f4d8fd3f163a7cd4f0c48666d1d928f02e6f4007e4c5081cc4",
+          "asr_text": "最后编辑于今天,今天刚更新过",
+          "writing_normalized_cer": 0.0,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "heldout-2",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "seconds": 3.2,
+          "compute_seconds": 0.7730903840856627,
+          "rtf": 0.24159074502676958,
+          "sha256": "e04467d8f9edefd5ff530d5ff3bf471762e6442aac95734f09f0666683db3945",
+          "asr_text": "不敢说这毛巾谁让你们放图的",
+          "writing_normalized_cer": 0.07142857142857142,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "heldout-3",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "seconds": 6.28,
+          "compute_seconds": 1.3057578839361668,
+          "rtf": 0.2079232299261412,
+          "sha256": "f718f09746b9d086067f8095108c0f73ba2c53b4d9872cc6c0a2595d5c582846",
+          "asr_text": "塔飞3D在哪不塔飞都想好了塔飞本来就是找了一个比较",
+          "writing_normalized_cer": 0.16,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "heldout-4",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "seconds": 4.16,
+          "compute_seconds": 0.9734346329933032,
+          "rtf": 0.23399870985415944,
+          "sha256": "4e971e8e8a5df07583f017121b7f6406be22d82e45ee83ecf8b58a728cc6b6d3",
+          "asr_text": "这些是YQ不是YQ王子的告白花束喵",
+          "writing_normalized_cer": 0.11764705882352941,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 8.24,
+          "compute_seconds": 1.6551288700429723,
+          "rtf": 0.20086515413142866,
+          "sha256": "e6de951dea3a8b722374f38f710a36cf25a2dcdc3bd0d84f8c8855394d9451dc",
+          "asr_text": "下午好喵,欢迎来到猫儿塔飞的小小展台这个声音是人工智能合成的,不是本人录音喵",
+          "writing_normalized_cer": 0.05555555555555555,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "actions",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "seconds": 4.4,
+          "compute_seconds": 0.9840574699919671,
+          "rtf": 0.2236494249981743,
+          "sha256": "ba2413d6ee059d779360dd27dba52fd7e4455c905b3faef79fa117749df378cd",
+          "asr_text": "你可以点一下招手再换一个开心的表情好可爱喵",
+          "writing_normalized_cer": 0.0,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 5.68,
+          "compute_seconds": 1.1827903480734676,
+          "rtf": 0.20823773733687811,
+          "sha256": "04f5bd1b8127a85ed93073086c1a4eb4106d4fac9a380bbbd748165ead2f0863",
+          "asr_text": "今天的阳光暖暖的小猫趴在窗边看着一朵云慢慢飘过去",
+          "writing_normalized_cer": 0.0,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 6.0,
+          "compute_seconds": 1.263887549052015,
+          "rtf": 0.21064792484200248,
+          "sha256": "dce21f2d77d57a7420d4d7e84df22b45ec751c031d40b262b6514c1606242d74",
+          "asr_text": "现在是10月15日下午3点20分请记得喝水也要记得休息秒",
+          "writing_normalized_cer": 0.037037037037037035,
+          "clipped_fraction": 0.0
+        }
+      ]
+    },
+    {
+      "id": "cosy-zero",
+      "utterances": 8,
+      "writing_normalized_cer": 0.1016949152542373,
+      "characters": 177,
+      "warm_median_rtf": 0.2106138608628259,
+      "method": "Same live model, reference WAV and accurate transcript, seed reset per prompt. Instruct2 first; excludes first prompt for warm timing. PyTorch allocator memory excludes ONNX CUDA allocations. No timbre score.",
+      "reference_sha256": "a0ee00e104a7261ecf45a06e77899ce68315fb25d8dcf90be04f970936f72232",
+      "samples": [
+        {
+          "id": "heldout-1",
+          "text": "最后编辑于今天，今天刚更新过",
+          "seconds": 4.2,
+          "compute_seconds": 0.9634164310991764,
+          "rtf": 0.22938486454742293,
+          "sha256": "da30cb769f6111c1ed56ee79746299a92fba4bc916d0a68b5306878b208a1286",
+          "asr_text": "最好编辑于今天今天更更辛苦",
+          "writing_normalized_cer": 0.3076923076923077,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "heldout-2",
+          "text": "不敢说，啊，这毛巾谁让你们放图的",
+          "seconds": 3.68,
+          "compute_seconds": 0.8721783109940588,
+          "rtf": 0.23700497581360294,
+          "sha256": "ba60ea87de4c939c97b5e99da9d64a0b0174b529ccadcea6680254db6d1c541f",
+          "asr_text": "不敢說啊這毛巾想要你們放圖的",
+          "writing_normalized_cer": 0.14285714285714285,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "heldout-3",
+          "text": "塔菲3D在哪播，塔菲都想好了，塔菲本来就是找了一个比较",
+          "seconds": 9.2,
+          "compute_seconds": 1.8573853669222444,
+          "rtf": 0.20188971379589615,
+          "sha256": "28fa30b51fd4dc99ec2233c8111a5af9e0d42239609cb2a2fa0f94b35e047973",
+          "asr_text": "塔菲山地在哪多塔菲都想好了塔菲本来就是找了一个比较",
+          "writing_normalized_cer": 0.12,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "heldout-4",
+          "text": "谢谢是YQ不是yq王子的告白花束喵",
+          "seconds": 6.08,
+          "compute_seconds": 1.2805322740459815,
+          "rtf": 0.2106138608628259,
+          "sha256": "270d74abf45d90f3e5fb8b85315f4fefa459073b3871615b2ffabb99bcdffbfd",
+          "asr_text": "谢谢是YQ不是YQ王子的告白花束喵",
+          "writing_normalized_cer": 0.0,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "welcome",
+          "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+          "seconds": 10.28,
+          "compute_seconds": 2.0925330069148913,
+          "rtf": 0.20355379444697388,
+          "sha256": "e2f159cacd4267e181762999783dc33ebe7c376ce87e8d335139d0e870e10388",
+          "asr_text": "笑我好喵,欢迎来到猫儿塔菲的小小展坛这个声音是人工智能合成的,不是本人录音喵",
+          "writing_normalized_cer": 0.1111111111111111,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "actions",
+          "text": "你可以点一下招手，再换一个开心的表情。好可爱喵！",
+          "seconds": 6.32,
+          "compute_seconds": 1.346889073960483,
+          "rtf": 0.2131153598038739,
+          "sha256": "3634c16fb050eddc3636b31d60017bd8c84cf29f15bb2af3f5d54c264470335a",
+          "asr_text": "你可以点一下招手再换一个开心的表情好可爱喵",
+          "writing_normalized_cer": 0.0,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "story",
+          "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+          "seconds": 7.8,
+          "compute_seconds": 1.6642720820382237,
+          "rtf": 0.21336821564592612,
+          "sha256": "802a5f1dc45f67ea418b272d21049398b91261fe63342fc88aea4e3bc3ebb3ed",
+          "asr_text": "今天的阳光暖暖的小猫它在窗边看着一朵云慢慢飘过去",
+          "writing_normalized_cer": 0.041666666666666664,
+          "clipped_fraction": 0.0
+        },
+        {
+          "id": "numbers",
+          "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+          "seconds": 9.44,
+          "compute_seconds": 1.9630320080323145,
+          "rtf": 0.20794830593562655,
+          "sha256": "f9c5c14f4c10ab90b7324d056d16744eb53016ac3ca7dab0f5a738c1c4d92f51",
+          "asr_text": "现在是10月15日下午3点20分请静的喝水也要静的休息喵",
+          "writing_normalized_cer": 0.14814814814814814,
+          "clipped_fraction": 0.0
+        }
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "variant": "x86-fp32",
+      "name": "x86 · FP32 数值参考",
+      "phrase": "welcome",
+      "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+      "synthetic": true,
+      "raw": "audio/x86-fp32-welcome-AI.wav",
+      "listen": "audio/x86-fp32-welcome-AI-listen.wav",
+      "listen_gain": 2.4652782205130173,
+      "sha256": "d1b08cdbfb7b692a5736968670ba190139d287ffbd47c4e3781200ddaad36a5d",
+      "seconds": 8.811972789115647,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "x86-fp32",
+      "name": "x86 · FP32 数值参考",
+      "phrase": "story",
+      "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+      "synthetic": true,
+      "raw": "audio/x86-fp32-story-AI.wav",
+      "listen": "audio/x86-fp32-story-AI-listen.wav",
+      "listen_gain": 2.213648157299042,
+      "sha256": "949e0d72d9c8e867399123235e4c813e6f9d14f0236513cbe767d9ea9a715a6b",
+      "seconds": 5.804988662131519,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "x86-fp32",
+      "name": "x86 · FP32 数值参考",
+      "phrase": "numbers",
+      "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+      "synthetic": true,
+      "raw": "audio/x86-fp32-numbers-AI.wav",
+      "listen": "audio/x86-fp32-numbers-AI-listen.wav",
+      "listen_gain": 2.5327210986762125,
+      "sha256": "47e06911a5e12216547e871c5557260dfd8cda1a414a5be0d60191daa9eb3b5c",
+      "seconds": 6.884716553287982,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "rk-fp32",
+      "name": "RK · FP32 整句",
+      "phrase": "welcome",
+      "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+      "synthetic": true,
+      "raw": "audio/rk-fp32-welcome-AI.wav",
+      "listen": "audio/rk-fp32-welcome-AI-listen.wav",
+      "listen_gain": 2.465276943414031,
+      "sha256": "db70981b56df6bf32a8d09fad2a9af1d80fdc2203b4f4837616df67a73f7f19a",
+      "seconds": 8.811972789115647,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "rk-fp32",
+      "name": "RK · FP32 整句",
+      "phrase": "story",
+      "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+      "synthetic": true,
+      "raw": "audio/rk-fp32-story-AI.wav",
+      "listen": "audio/rk-fp32-story-AI-listen.wav",
+      "listen_gain": 2.213649941220905,
+      "sha256": "2130eec25df918f4dcbd186d50d651e3e1cef502a1f33c92d62a1deef3f00f9b",
+      "seconds": 5.804988662131519,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "rk-fp32",
+      "name": "RK · FP32 整句",
+      "phrase": "numbers",
+      "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+      "synthetic": true,
+      "raw": "audio/rk-fp32-numbers-AI.wav",
+      "listen": "audio/rk-fp32-numbers-AI-listen.wav",
+      "listen_gain": 2.5327207166758225,
+      "sha256": "e9821200dd95a340b09586f561f31c9824f12bf918bfddd52624dfc654ab1c03",
+      "seconds": 6.884716553287982,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "rk-stream",
+      "name": "RK · FP32 / 128 帧",
+      "phrase": "welcome",
+      "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+      "synthetic": true,
+      "raw": "audio/rk-stream-welcome-AI.wav",
+      "listen": "audio/rk-stream-welcome-AI-listen.wav",
+      "listen_gain": 2.4652769638849144,
+      "sha256": "d3820fb1bac05421a28d2f3e9c1c4580a24b3b6155358cbcd1aa91c044b228f2",
+      "seconds": 8.811972789115647,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "rk-stream",
+      "name": "RK · FP32 / 128 帧",
+      "phrase": "story",
+      "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+      "synthetic": true,
+      "raw": "audio/rk-stream-story-AI.wav",
+      "listen": "audio/rk-stream-story-AI-listen.wav",
+      "listen_gain": 2.213649941220905,
+      "sha256": "2130eec25df918f4dcbd186d50d651e3e1cef502a1f33c92d62a1deef3f00f9b",
+      "seconds": 5.804988662131519,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "rk-stream",
+      "name": "RK · FP32 / 128 帧",
+      "phrase": "numbers",
+      "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+      "synthetic": true,
+      "raw": "audio/rk-stream-numbers-AI.wav",
+      "listen": "audio/rk-stream-numbers-AI-listen.wav",
+      "listen_gain": 2.5327207732763064,
+      "sha256": "a5b5900e9ecb8f175437e9a7b3bbe9f2f17d98c8e17263d7effb8dfd3e29f02f",
+      "seconds": 6.884716553287982,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "rk-int8",
+      "name": "RK · BERT INT8 / 128 帧",
+      "phrase": "welcome",
+      "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+      "synthetic": true,
+      "raw": "audio/rk-int8-welcome-AI.wav",
+      "listen": "audio/rk-int8-welcome-AI-listen.wav",
+      "listen_gain": 2.657934635506493,
+      "sha256": "b083c08ff239feb9b4bec3671d7b4e6b02f01ee5ddaa5096ddf79ae02ddd4147",
+      "seconds": 8.93968253968254,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "rk-int8",
+      "name": "RK · BERT INT8 / 128 帧",
+      "phrase": "story",
+      "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+      "synthetic": true,
+      "raw": "audio/rk-int8-story-AI.wav",
+      "listen": "audio/rk-int8-story-AI-listen.wav",
+      "listen_gain": 2.145753366644506,
+      "sha256": "087cf955fdc309b0f227bb5508e7d33ca47036adf99fe716c6eae97b493175d0",
+      "seconds": 5.863038548752835,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "rk-int8",
+      "name": "RK · BERT INT8 / 128 帧",
+      "phrase": "numbers",
+      "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+      "synthetic": true,
+      "raw": "audio/rk-int8-numbers-AI.wav",
+      "listen": "audio/rk-int8-numbers-AI-listen.wav",
+      "listen_gain": 2.4667499081906477,
+      "sha256": "127b3a79cabbbdb79669e32035f16bbece8750f71fb9d9e51d06e9cf8e5bf020",
+      "seconds": 6.768616780045352,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "rk-zero",
+      "name": "RK · 删除 BERT 的消融",
+      "phrase": "welcome",
+      "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+      "synthetic": true,
+      "raw": "audio/rk-zero-welcome-AI.wav",
+      "listen": "audio/rk-zero-welcome-AI-listen.wav",
+      "listen_gain": 2.8715913643365827,
+      "sha256": "79dff858757f625183334e35ab2657b6d8120fa02c86a11ce64ba0b2c53bd826",
+      "seconds": 8.010884353741497,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "rk-zero",
+      "name": "RK · 删除 BERT 的消融",
+      "phrase": "story",
+      "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+      "synthetic": true,
+      "raw": "audio/rk-zero-story-AI.wav",
+      "listen": "audio/rk-zero-story-AI-listen.wav",
+      "listen_gain": 2.841212205202746,
+      "sha256": "404490971ddad162c579450fdefa878b740a451ef2860b9f31a419882423d93b",
+      "seconds": 5.305759637188209,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "rk-zero",
+      "name": "RK · 删除 BERT 的消融",
+      "phrase": "numbers",
+      "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+      "synthetic": true,
+      "raw": "audio/rk-zero-numbers-AI.wav",
+      "listen": "audio/rk-zero-numbers-AI-listen.wav",
+      "listen_gain": 2.411524393379834,
+      "sha256": "054a51a88d7e87a2e3112ac702a7ca362dc560c8b68b1707bb04bb03960a3a57",
+      "seconds": 5.9675283446712015,
+      "sample_rate": 44100,
+      "asr_text": null,
+      "cer": null
+    },
+    {
+      "variant": "cosy-instruct",
+      "name": "Cosy3 · 原指令模式",
+      "phrase": "welcome",
+      "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+      "synthetic": true,
+      "raw": "audio/cosy-instruct-welcome-AI.wav",
+      "listen": "audio/cosy-instruct-welcome-AI-listen.wav",
+      "listen_gain": 0.34621130396879946,
+      "sha256": "e6de951dea3a8b722374f38f710a36cf25a2dcdc3bd0d84f8c8855394d9451dc",
+      "seconds": 8.24,
+      "sample_rate": 24000,
+      "asr_text": "下午好喵,欢迎来到猫儿塔飞的小小展台这个声音是人工智能合成的,不是本人录音喵",
+      "cer": 0.05555555555555555
+    },
+    {
+      "variant": "cosy-instruct",
+      "name": "Cosy3 · 原指令模式",
+      "phrase": "story",
+      "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+      "synthetic": true,
+      "raw": "audio/cosy-instruct-story-AI.wav",
+      "listen": "audio/cosy-instruct-story-AI-listen.wav",
+      "listen_gain": 0.35708934465389025,
+      "sha256": "04f5bd1b8127a85ed93073086c1a4eb4106d4fac9a380bbbd748165ead2f0863",
+      "seconds": 5.68,
+      "sample_rate": 24000,
+      "asr_text": "今天的阳光暖暖的小猫趴在窗边看着一朵云慢慢飘过去",
+      "cer": 0.0
+    },
+    {
+      "variant": "cosy-instruct",
+      "name": "Cosy3 · 原指令模式",
+      "phrase": "numbers",
+      "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+      "synthetic": true,
+      "raw": "audio/cosy-instruct-numbers-AI.wav",
+      "listen": "audio/cosy-instruct-numbers-AI-listen.wav",
+      "listen_gain": 0.3543992981607619,
+      "sha256": "dce21f2d77d57a7420d4d7e84df22b45ec751c031d40b262b6514c1606242d74",
+      "seconds": 6.0,
+      "sample_rate": 24000,
+      "asr_text": "现在是10月15日下午3点20分请记得喝水也要记得休息秒",
+      "cer": 0.037037037037037035
+    },
+    {
+      "variant": "cosy-zero",
+      "name": "Cosy3 · 保留参考 token",
+      "phrase": "welcome",
+      "text": "下午好喵！欢迎来到猫耳塔菲的小小展台。这个声音是人工智能合成的，不是本人录音喵。",
+      "synthetic": true,
+      "raw": "audio/cosy-zero-welcome-AI.wav",
+      "listen": "audio/cosy-zero-welcome-AI-listen.wav",
+      "listen_gain": 0.424024633602506,
+      "sha256": "e2f159cacd4267e181762999783dc33ebe7c376ce87e8d335139d0e870e10388",
+      "seconds": 10.28,
+      "sample_rate": 24000,
+      "asr_text": "笑我好喵,欢迎来到猫儿塔菲的小小展坛这个声音是人工智能合成的,不是本人录音喵",
+      "cer": 0.1111111111111111
+    },
+    {
+      "variant": "cosy-zero",
+      "name": "Cosy3 · 保留参考 token",
+      "phrase": "story",
+      "text": "今天的阳光暖暖的，小猫趴在窗边，看着一朵云慢慢飘过去。",
+      "synthetic": true,
+      "raw": "audio/cosy-zero-story-AI.wav",
+      "listen": "audio/cosy-zero-story-AI-listen.wav",
+      "listen_gain": 0.5018526662276475,
+      "sha256": "802a5f1dc45f67ea418b272d21049398b91261fe63342fc88aea4e3bc3ebb3ed",
+      "seconds": 7.8,
+      "sample_rate": 24000,
+      "asr_text": "今天的阳光暖暖的小猫它在窗边看着一朵云慢慢飘过去",
+      "cer": 0.041666666666666664
+    },
+    {
+      "variant": "cosy-zero",
+      "name": "Cosy3 · 保留参考 token",
+      "phrase": "numbers",
+      "text": "现在是十月十五日，下午三点二十分。请记得喝水，也要记得休息喵。",
+      "synthetic": true,
+      "raw": "audio/cosy-zero-numbers-AI.wav",
+      "listen": "audio/cosy-zero-numbers-AI-listen.wav",
+      "listen_gain": 0.3807005282229615,
+      "sha256": "f9c5c14f4c10ab90b7324d056d16744eb53016ac3ca7dab0f5a738c1c4d92f51",
+      "seconds": 9.44,
+      "sample_rate": 24000,
+      "asr_text": "现在是10月15日下午3点20分请静的喝水也要静的休息喵",
+      "cer": 0.14814814814814814
+    }
+  ]
+}

@@ -84,7 +84,9 @@ python cli.py --help
 
 NVIDIA：先比较我们实测的 F5、GPT‑SoVITS、IndexTTS、CosyVoice；带情绪优先听后两者。Qwen3、VoxCPM2、Step‑Audio‑EditX、Fish S2‑Pro 等见研究清单，未跑的不填实测值。
 
-RK3588：目前没有这块板子的实测结果。可研究固定音色 Piper/ONNX 与参考克隆 ZipVoice‑Distill/sherpa‑onnx；不能把 4090 的 RTF 当成板端表现，也不能认为任意 PyTorch 模型都能无损导出 RKNN。
+RK3588：已在 16GB 实板跑通 Bert‑VITS2 的纯 CPU / ONNX 路线，见 [板端代码、实测与许可](edge/README.md) 和 [独立机器可读报告](reports/rk3588-20261015.json)。推荐先保留 FP32 音色条件，再优化局部声码器输出；低内存才考虑只量化 BERT。GPT‑SoVITS 板端、RKNN/NPU 尚未验收，不把导出成功当作部署成功。旧 GPU 报告中的 `rk3588_measured:false` 仅指那一轮，板端结果单独列出。
+
+新增板端导出器包含 AGPL-3.0-only 改编代码，本目录原有 MIT LICENSE 不覆盖这些文件；组合运行需遵守对应 copyleft 义务，详见 `edge/README.md`。不再笼统把整套运行环境称为 MIT。
 
 ## 本轮实测摘要（2026-10-15）
 

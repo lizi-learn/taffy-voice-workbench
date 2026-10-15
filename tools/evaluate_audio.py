@@ -63,7 +63,7 @@ def main():
         print("evaluated",item["id"],item["asr_text"],item["writing_normalized_cer"],flush=True)
     groups = {}
     for name in ["baseline","emotion","showcase","control"]:
-        rows = [s for s in metrics["samples"] if s["group"]==name]
+        rows = [s for s in metrics["samples"] if s.get("group","baseline")==name]
         if not rows: continue
         chars=sum(x["writing_normalized_characters"] for x in rows)
         warm=rows[1:] if name=="baseline" else rows
