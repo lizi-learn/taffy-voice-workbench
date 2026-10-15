@@ -1,0 +1,24 @@
+Taffy Voice Workbench — 实测摘要（2026-10-15）
+所有音频为 AI 合成。非本人录音、非官方、非商业。
+共 5 种引擎、10 套配置、113 条原始生成。网页精选 6 套配置、71 条。
+
+配置 | 基础 CER | 情绪组 CER | 基础热 RTF | 最大原始削波率
+f5-refined | 5.08% | 未测 | 0.083 | 0.00000%
+gsv-base | 59.89% | 未测 | 0.115 | 0.00000%
+gsv-trained | 28.25% | 未测 | 0.120 | 0.00000%
+public-baseline | 33.33% | 未测 | 0.008 | 0.00000%
+gsv-base-prepared-ref | 23.16% | 未测 | 0.108 | 0.00000%
+gsv-trained-prepared-ref | 28.25% | 未测 | 0.111 | 0.00000%
+gsv-sovits-only-prepared-ref | 17.51% | 未测 | 0.109 | 0.00000%
+cosy-instruct | 5.65% | 4.02% | 0.218 | 0.00000%
+index-upstream-pcm | 3.39% | 8.62% | 0.229 | 0.02111%
+index-peak-safe | 3.39% | 8.62% | 0.226 | 0.00000%
+
+选型：情绪对照先听 CosyVoice3；Index 提供更多明确控制，基础转写更好，但本次强情绪/语速控制下文本错误增加。F5 保留为自训固定音色基线。
+Index 原始版有轻微削波；发布适配器在进入上游 PCM clamp 前增加线性余量保护，21 条重跑均无削波。没有修改模型权重。
+语速实测（同一条 Index 开心文案）：0.8× 7.488 秒，1× 5.991 秒，1.25× 4.783 秒。
+CosyVoice3 的开心/温柔等条件改变音高、时长，不代表已通过情绪识别或主观盲听。未发现本轮控制指令被 ASR 转写为正文。
+基础组只有 8 句；参考处理并不完全一致；公共模型训练集未知。不是严格架构排名，不是商业权利证明。
+RK3588 尚未实测；不能拿 x86 或作者宣传速度冒充实板结果。
+
+RTX 4090 48 GiB. Batch 1, 4 CPU threads. Shared train-only reference contents; normalized 32 kHz reference for GSV proper/new models, original gain for F5: a confound. Public Bert training set unknown and legacy condition-layer mismatch. Same Whisper large-v3-turbo; OpenCC t2s+cn2an+NFKC. Do not call CER a timbre/MOS score. Equal-loudness listening copies; raw WAV hashes retained.

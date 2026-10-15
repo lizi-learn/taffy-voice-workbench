@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#fff8fa">
+  <title>小菲的声音实验室 · 塔菲喵</title>
+  <meta name="description" content="非官方 AI 语音研究试听：相同文字、不同模型与情绪，真实指标、模型来源、开源代码和硬件选型。">
+  <link rel="icon" href="../favicon.svg"><link rel="stylesheet" href="../style.css?v=20261014-4">
+  <link rel="stylesheet" href="./voice.css?v=1"><script type="module" src="./voice.js?v=1"></script>
+</head>
+<body>
+  <div class="top-note">这里的声音由 AI 合成 <span>✧</span> 非本人录音 · 非官方 · 非商业研究</div>
+  <header class="site-header wrap">
+    <a class="brand" href="../"><img src="../favicon.svg" width="42" height="42" alt=""><span>塔菲喵<small>TAFFY STICKER CLUB</small></span></a>
+    <nav aria-label="主导航"><a href="https://塔菲.com/#gallery">表情收藏馆</a><a href="https://塔菲.com/resources/">二创资源</a><a href="./" class="nav-active" aria-current="page">声音实验室</a></nav>
+    <a class="repo-link" href="https://github.com/lizi-learn/taffy-voice-workbench" target="_blank" rel="noopener">开源代码 ↗</a>
+  </header>
+  <main>
+    <section class="voice-hero wrap">
+      <div><span class="eyebrow"><i></i> THE LITTLE VOICE LAB</span><h1>今天的小菲，<br>用什么<span>心情</span>说话？</h1><p>同一句话，也可以有不同的小情绪。<br>戴上耳机，听听开心、温柔与一点点小委屈。</p><div class="hero-flags"><span>✧ 全部 AI 合成</span><span>♫ 点击才播放</span><span>♡ 不上传你的数据</span></div><a href="#listen" class="button primary">去听一点可爱 ↓</a></div>
+      <div class="voice-art" aria-hidden="true"><span class="art-star">✦</span><span class="art-heart">♡</span><div class="sound-bubble">开心地说，<br>也要听得出来喵。</div><div class="vinyl"><div class="vinyl-label">ฅ^•ﻌ•^ฅ<small>AI VOICE / SIDE A</small></div></div><div class="wave-sticker"><b>小小声音，认真对照。</b><div class="wave-bars"></div><span>PRESS PLAY TO LISTEN</span></div></div>
+    </section>
+    <section class="lab-stats wrap" id="counts" aria-label="实验统计"><p>正在读取已验证的实验清单…</p></section>
+    <section class="listen-section wrap" id="listen">
+      <div class="section-heading"><div><span class="eyebrow muted">A MOOD, A LITTLE STORY</span><h2>把心情，放进声音里 <span>♡</span></h2><p>预生成试听，不是在线任意文本合成；不调用你的设备或我们的 GPU。</p></div><a href="#compare">看实测对照 ↗</a></div>
+      <div class="studio">
+        <div class="studio-controls"><label>01 · 选一套声音引擎<select id="engine" aria-label="声音引擎"></select></label><label>02 · 今天读什么<select id="phrase" aria-label="朗读文案"><option value="emotion">同一句话 · 情绪对照</option><option value="welcome">欢迎来到小展台</option><option value="actions">互动提示</option><option value="story">窗边的小猫</option><option value="numbers">喝水提醒</option></select></label><div><span class="control-label" id="moodLabel">03 · 选一个小心情</span><div id="moods" class="mood-grid" role="group" aria-labelledby="moodLabel"></div></div><label id="variantWrap" hidden>附加对照 · Index 开心语气<select id="variant" aria-label="情绪强度与语速对照"><option value="standard">标准强度 · 正常语速</option><option value="soft">轻一点 · 强度 0.4</option><option value="slow">慢一点 · 语速 0.8×</option><option value="fast">快一点 · 语速 1.25×</option></select></label><p class="control-note" id="engineNote"></p></div>
+        <div class="studio-player"><div class="player-eyebrow"><span class="ai-pill">AI 合成 · 非本人录音</span><span id="sampleInfo"></span></div><blockquote id="spokenText">正在读取试听文案…</blockquote><div class="play-row"><button class="big-play" id="play" aria-label="播放 AI 试听" disabled>▶</button><div class="waveform" id="waveform" aria-hidden="true"></div></div><audio id="audio" controls preload="none" aria-label="AI 语音试听播放器"></audio><p id="playStatus" role="status" aria-live="polite">选择引擎和心情，然后播放。</p><div class="sample-actions"><a id="downloadAudio" class="button secondary" download>↓ 下载 AI WAV</a><button id="share" class="text-button">复制这个试听 ↗</button></div><details><summary>本条技术记录 / ASR 转写</summary><div id="sampleDetails"></div></details></div>
+      </div>
+      <p class="honest-note">情绪标签代表传入模型的控制条件，不等于听感已经通过验收。温柔、惊讶等指令可能不稳定；相同文案方便你自己听差异。试听做统一线性响度调整，原始 WAV 另行保留。</p>
+    </section>
+    <section class="blind-section wrap" id="blind"><div><span class="eyebrow muted">LET YOUR EARS DECIDE</span><h2>先别看名字，听听你喜欢谁。</h2><p>同一条欢迎文案，随机选两个模型。偏好仅存在本机，不上传，也不冒充公开评测票数。</p></div><div class="blind-panel"><div class="blind-actions"><button id="blindA" class="button secondary">▶ 听 A</button><button id="blindB" class="button secondary">▶ 听 B</button><button id="reveal" class="text-button">揭晓引擎</button></div><audio id="blindAudio" controls preload="none" aria-label="A/B AI 合成试听播放器"></audio><p id="blindResult" role="status">点击 A 或 B 开始。音量差异已尽量对齐。</p><div class="blind-actions"><button data-vote="A">更喜欢 A ♡</button><button data-vote="B">更喜欢 B ♡</button><button id="reshuffle">重新抽一组 ↻</button></div><p id="voteStatus" class="small-note"></p></div></section>
+    <section class="compare-section wrap" id="compare"><div class="section-heading"><div><span class="eyebrow muted">MEASUREMENTS, NOT MARKETING</span><h2>认真做一次，同题对照。</h2><p>相同 8 条基础文案，单张 RTX 4090；冷启动不计入热推理 RTF。情绪组用同一句话测六种语气，不混进基础 CER。</p></div><a href="./catalog.json" download="taffy-AI-voice-results.json">↓ 下载完整实验清单</a></div><div class="table-scroll"><table><caption class="sr-only">模型基础文案实测结果</caption><thead><tr><th>声音方案</th><th>基础 CER ↓</th><th>情绪组 CER ↓</th><th>热推理 RTF ↓</th><th>显存峰值*</th><th>情绪控制</th></tr></thead><tbody id="measurements"></tbody></table></div><p class="small-note">* 显存为 PyTorch 分配器峰值，不含 ONNX Runtime / CUDA 上下文等额外占用。CER 是统一 ASR 转写错误率，不是音色相似度；少量短句不能代替主观盲听和生产测试。参考源录音仅 16kHz，输出采样率升高不代表还原了录音里没有的高频。参考处理存在差异、公共音色训练集未知，不能看作严格架构排名；详见实验清单。</p></section>
+    <section class="research-section wrap" id="research"><div class="section-heading"><div><span class="eyebrow muted">BEYOND THE FIRST MODEL</span><h2>还有这些，值得认真探索。</h2><p>只使用官方项目资料。实测、文档核验和暂缓，会明确分开。</p></div><label class="research-filter">筛选<select id="researchFilter"><option value="all">全部路线</option><option value="measured">已实测</option><option value="emotion">情绪 / 表演</option><option value="edge">低资源 / ARM</option></select></label></div><div class="research-grid" id="researchCards"></div></section>
+    <section class="hardware-section wrap"><span class="eyebrow muted">RIGHT MODEL, RIGHT DEVICE</span><h2>大显卡和小设备，各有合适的玩法。</h2><div class="hardware-grid"><article><span>01 / NVIDIA</span><h3>4090 · 音色与情绪实验</h3><p>本页已实测的模型可作选型起点。重情绪先对比 IndexTTS、CosyVoice；文本稳定性也要一起看，不能只听一条成功样本。</p></article><article><span>02 / RK3588</span><h3>先小模型，再谈 NPU</h3><p>固定音色可研究 Piper / ONNX；参考克隆可研究 ZipVoice‑Distill / sherpa‑onnx。目前没有 RK3588 实测数据，不拿电脑成绩冒充板端成绩。</p></article><article><span>03 / THE WEB</span><h3>网页轻盈，模型留在本地</h3><p>试听是静态音频，Cloudflare 托管，腾讯云只做流式转发，不存语音文件。没有公开任意人物克隆 API，也不开放 GPU 或 SSH。</p></article></div></section>
+    <section class="download-section wrap" id="resources"><div><span class="eyebrow muted">KEEP IT REPRODUCIBLE</span><h2>把方法带走，把边界留下。</h2><p>开源适配器、批量对照、哈希校验与实验记录。训练权重和原始录音不在公开仓库；第三方模型遵循各自许可。</p></div><div class="download-links"><a class="button primary" href="https://github.com/lizi-learn/taffy-voice-workbench" target="_blank" rel="noopener">GitHub 开源工作台 ↗</a><a class="button secondary" href="./catalog.json" download>↓ 指标与试听清单 JSON</a><a class="button secondary" href="./licenses.txt" download>↓ 来源与许可说明</a></div></section>
+    <section class="voice-disclaimer wrap"><strong>这不是塔菲本人在说话。</strong><p>本站是非官方、非商业 AI 语音研究演示，不代表本人意见或背书。禁止用于冒充身份、私信诈骗、认证、电话或交易。人物音色与录音权益不因代码开源而转移；权利人可通过 <a href="https://blog.bismih.cn/" target="_blank" rel="noopener">站长博客</a> 或 GitHub issue 联系更正、移除。</p></section>
+  </main>
+  <footer class="wrap"><a class="brand footer-brand" href="../"><img src="../favicon.svg" alt="" width="30" height="30"><span>塔菲喵</span></a><p>非官方 · AI 合成研究 · 可爱也要认真</p><a href="https://塔菲.com/resources/nekomimi-taffy/#showcase">去看小菲跳舞 ↗</a></footer>
+</body>
+</html>

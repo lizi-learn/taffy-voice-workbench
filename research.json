@@ -1,0 +1,401 @@
+[
+  {
+    "name": "F5‑TTS · 自训音色",
+    "url": "https://github.com/SWivid/F5-TTS",
+    "status": "measured",
+    "tags": [
+      "gpu"
+    ],
+    "license": "代码 MIT / 本次基座 CC‑BY‑NC‑4.0",
+    "focus": "文本稳定、流匹配微调",
+    "note": "已有私有训练与同题实测。没有独立的自然语言情绪接口，不把‘开心地说’简单拼入朗读文本；先保留为基础音色候选。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-14T15:09:13Z",
+      "stars": 15409,
+      "checked_at": "2026-10-15T12:58:14.376238+00:00"
+    }
+  },
+  {
+    "name": "GPT‑SoVITS v2ProPlus",
+    "url": "https://github.com/RVC-Boss/GPT-SoVITS",
+    "status": "measured",
+    "tags": [
+      "gpu"
+    ],
+    "license": "代码 MIT；音色与依赖另计",
+    "focus": "少样本音色训练",
+    "note": "已实训 GPT 与 SoVITS，并做基座/混合/双训练消融。本次双训练的文本错误率反而更差，不能把训练完成当成效果必然更好。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-08T16:27:11Z",
+      "stars": 62854,
+      "checked_at": "2026-10-15T12:58:14.040457+00:00"
+    }
+  },
+  {
+    "name": "公共 Taffy Bert‑VITS2",
+    "url": "https://huggingface.co/spaces/songdaooi/Taffy-Bert-VITS2",
+    "status": "measured",
+    "tags": [
+      "gpu"
+    ],
+    "license": "音色未重授权，不分发权重",
+    "focus": "固定音色外部基线",
+    "note": "使用公开音色作为外部参考，未自行重训。源码与 checkpoint 存在旧条件层兼容差异；原训练集未知，不作严格公平的训练排名。"
+  },
+  {
+    "name": "IndexTTS‑2.5",
+    "url": "https://github.com/index-tts/index-tts",
+    "status": "measured",
+    "tags": [
+      "gpu",
+      "emotion"
+    ],
+    "license": "bilibili 模型使用协议",
+    "focus": "音色 / 情绪分离、8 维向量",
+    "note": "用独立向量控制开心、生气、难过、惊讶等，不另加载文本情绪 LLM。支持语速与强度；温柔暂以低强度平静近似，不称原生独立类别。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-09-29T16:06:53Z",
+      "stars": 24495,
+      "checked_at": "2026-10-15T12:58:13.754355+00:00"
+    }
+  },
+  {
+    "name": "CosyVoice3‑0.5B‑2512",
+    "url": "https://github.com/QwenAudio/CosyVoice",
+    "status": "measured",
+    "tags": [
+      "gpu",
+      "emotion"
+    ],
+    "license": "Apache‑2.0 主项目与模型",
+    "focus": "指令语气、流式、参考音色",
+    "note": "官方明确提供‘请非常开心/伤心/生气地说一句话’控制词。语气指令与正文分开；本次使用非流式 batch 1，不声称首包延迟或并发成绩。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-05-25T18:15:40Z",
+      "stars": 23994,
+      "checked_at": "2026-10-15T12:58:13.584140+00:00"
+    }
+  },
+  {
+    "name": "Qwen3‑TTS",
+    "url": "https://github.com/QwenLM/Qwen3-TTS",
+    "status": "reviewed",
+    "tags": [
+      "gpu",
+      "emotion"
+    ],
+    "license": "Apache‑2.0，权重见各模型卡",
+    "focus": "0.6B / 1.7B、多语种",
+    "note": "Base 用参考音频克隆；CustomVoice 的情绪指令作用于内置或另行训练音色，不能把 Vivian 等内置女声冒充成塔菲。下一步需要专门音色适配评测。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-03-17T06:38:41Z",
+      "stars": 13801,
+      "checked_at": "2026-10-15T12:58:16.469647+00:00"
+    }
+  },
+  {
+    "name": "VoxCPM2",
+    "url": "https://github.com/OpenBMB/VoxCPM",
+    "status": "reviewed",
+    "tags": [
+      "gpu",
+      "emotion"
+    ],
+    "license": "Apache‑2.0；模型卡分别确认",
+    "focus": "2B、48kHz、LoRA 与声音设计",
+    "note": "支持参考克隆与声音设计，值得补测长句、情绪表达和音色保持。高输出采样率不弥补参考录音本来的 16kHz 限制。尚无我们的 RTF 数据。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-08T03:26:41Z",
+      "stars": 39346,
+      "checked_at": "2026-10-15T12:58:16.929047+00:00"
+    }
+  },
+  {
+    "name": "Step‑Audio‑EditX",
+    "url": "https://github.com/stepfun-ai/Step-Audio-EditX",
+    "status": "reviewed",
+    "tags": [
+      "gpu",
+      "emotion"
+    ],
+    "license": "Apache‑2.0；模型另核对",
+    "focus": "3B、二次编辑、情绪与副语言",
+    "note": "特色是对已有音频编辑开心、低语、撒娇、笑声等，适合在合成后再改变表达。官方环境 Python≥3.12、Torch≥2.9.1；需另隔离，不能升级当前生产环境硬凑。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-04-09T02:27:46Z",
+      "stars": 984,
+      "checked_at": "2026-10-15T12:58:16.466150+00:00"
+    }
+  },
+  {
+    "name": "Fish Speech S2‑Pro / Drama 3",
+    "url": "https://github.com/fishaudio/fish-speech",
+    "status": "deferred",
+    "tags": [
+      "gpu",
+      "emotion"
+    ],
+    "license": "社区协议 / S2‑Pro Research License",
+    "focus": "标签表演、多角色与局部修改",
+    "note": "S2‑Pro 为 4B；Drama 3 是 35B‑A3B，不等于只有 3B 权重。先不在共享 48GB 卡上硬装旗舰。公开代码不意味着音色、全部模型权重都可自由商用。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-14T06:14:59Z",
+      "stars": 33153,
+      "checked_at": "2026-10-15T12:58:16.118991+00:00"
+    }
+  },
+  {
+    "name": "OmniVoice",
+    "url": "https://github.com/k2-fsa/OmniVoice",
+    "status": "reviewed",
+    "tags": [
+      "gpu",
+      "emotion"
+    ],
+    "license": "Apache‑2.0",
+    "focus": "0.8B、多语种、GGML 生态",
+    "note": "参考录音克隆、指令声音设计是不同模式；有显式时长/语速与 FlashInfer 路线。语气设计不保证保留特定人物音色，尚未完成本地测试。",
+    "github": {
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2026-10-12T23:05:28Z",
+      "stars": 14586,
+      "checked_at": "2026-10-15T12:58:18.752028+00:00"
+    }
+  },
+  {
+    "name": "MOSS‑TTS 家族",
+    "url": "https://github.com/OpenMOSS/MOSS-TTS",
+    "status": "reviewed",
+    "tags": [
+      "gpu",
+      "emotion"
+    ],
+    "license": "Apache‑2.0；各子模型分别核对",
+    "focus": "长音频、对话、实时与音效",
+    "note": "不是单一模型：v1.5 8B、Local 4B、Realtime 1.7B、VoiceGenerator 等职责不同。可研究多角色对话和故事，不把声音设计与参考克隆混为同一个能力。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-09-06T06:19:28Z",
+      "stars": 4212,
+      "checked_at": "2026-10-15T12:58:18.649200+00:00"
+    }
+  },
+  {
+    "name": "Chatterbox Multilingual",
+    "url": "https://github.com/resemble-ai/chatterbox",
+    "status": "reviewed",
+    "tags": [
+      "gpu",
+      "emotion"
+    ],
+    "license": "MIT",
+    "focus": "表现力控制、内置神经水印",
+    "note": "支持中文等多语言；exaggeration 改变表现力，不等同一组可精确指定的快乐/悲伤标签。保留官方 Perth 水印，不去除或规避合成标记。",
+    "github": {
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2026-07-21T12:27:05Z",
+      "stars": 26955,
+      "checked_at": "2026-10-15T12:58:20.063436+00:00"
+    }
+  },
+  {
+    "name": "Higgs Audio",
+    "url": "https://github.com/boson-ai/higgs-audio",
+    "status": "reviewed",
+    "tags": [
+      "gpu",
+      "emotion"
+    ],
+    "license": "Higgs 社区模型协议，分版本核对",
+    "focus": "文本 / 音频上下文、表达与对话",
+    "note": "值得研究上下文驱动的语气和多说话人，但版本、模型卡与推理成本要单独核对。目前只完成官方资料核验，不填效果或性能排名。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-06-05T04:01:06Z",
+      "stars": 8371,
+      "checked_at": "2026-10-15T12:58:20.990180+00:00"
+    }
+  },
+  {
+    "name": "ZipVoice‑Distill",
+    "url": "https://github.com/k2-fsa/ZipVoice",
+    "status": "reviewed",
+    "tags": [
+      "edge"
+    ],
+    "license": "Apache‑2.0",
+    "focus": "123M、4/8 步、ONNX INT8",
+    "note": "低资源参考音色克隆的优先实验候选。短参考、蒸馏和量化需要分别对照；INT8 可能损失音质，GPU ONNX 也不一定比 PyTorch 快。没有 RK3588 实测。",
+    "github": {
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2025-12-02T08:58:26Z",
+      "stars": 1084,
+      "checked_at": "2026-10-15T12:58:20.010057+00:00"
+    }
+  },
+  {
+    "name": "Piper（维护版）",
+    "url": "https://github.com/OHF-Voice/piper1-gpl",
+    "status": "reviewed",
+    "tags": [
+      "edge"
+    ],
+    "license": "GPL‑3.0 引擎，音色各自许可",
+    "focus": "固定音色、小型 CPU TTS",
+    "note": "适合训练后固定音色的设备端。现代中文 PINYIN 路线使用 g2pW，前端大小也要计算；不保证所有新模型可直接装入 sherpa‑onnx。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-15T11:59:19Z",
+      "stars": 5880,
+      "checked_at": "2026-10-15T12:58:20.298744+00:00"
+    }
+  },
+  {
+    "name": "sherpa‑onnx",
+    "url": "https://github.com/k2-fsa/sherpa-onnx",
+    "status": "reviewed",
+    "tags": [
+      "edge"
+    ],
+    "license": "Apache‑2.0",
+    "focus": "ARM64 / C++ 运行时",
+    "note": "成熟端侧语音推理框架，不是任意 PyTorch 到 NPU 的魔法转换器。需使用兼容模型、分词和中文前端，再在真实设备测 RAM 与 RTF。",
+    "github": {
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2026-10-15T05:52:35Z",
+      "stars": 15295,
+      "checked_at": "2026-10-15T12:58:21.852598+00:00"
+    }
+  },
+  {
+    "name": "MeloTTS",
+    "url": "https://github.com/myshell-ai/MeloTTS",
+    "status": "reviewed",
+    "tags": [
+      "edge"
+    ],
+    "license": "MIT；训练素材另计",
+    "focus": "中英固定音色、ONNX 路线",
+    "note": "sherpa‑onnx 提供 Melo 导出参考，但零 BERT 特征导出与微调模型质量必须重新验收。作者声称 CPU 实时，不代表本项目 RK3588 已经做到。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2024-12-24T19:17:13Z",
+      "stars": 7673,
+      "checked_at": "2026-10-15T12:58:23.707574+00:00"
+    }
+  },
+  {
+    "name": "RKNN Model Zoo · MMS‑TTS",
+    "url": "https://github.com/airockchip/rknn_model_zoo",
+    "status": "reviewed",
+    "tags": [
+      "edge"
+    ],
+    "license": "Apache‑2.0 / 各模型条件",
+    "focus": "RK3588 官方算子与导出参考",
+    "note": "官方 MMS‑TTS 示例是英语示范，不是中文塔菲音色。先测 CPU 全链路，再看 NPU 图分区、动态长度、声码器是否能真正获益。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-13T06:50:14Z",
+      "stars": 2815,
+      "checked_at": "2026-10-15T12:58:21.913535+00:00"
+    }
+  },
+  {
+    "name": "OpenVoiceStream",
+    "url": "https://github.com/Seeed-Solution/openvoicestream",
+    "status": "reviewed",
+    "tags": [
+      "edge"
+    ],
+    "license": "逐后端核对",
+    "focus": "社区端侧流式架构",
+    "note": "可借鉴 RK3588 等设备的语音服务结构，但部分复现步骤仍 deferred。Matcha 并非直接参考音色克隆，社区速度不是我们的测试结果。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-14T12:22:24Z",
+      "stars": 18,
+      "checked_at": "2026-10-15T12:58:23.376770+00:00"
+    }
+  },
+  {
+    "name": "Piper‑Plus",
+    "url": "https://github.com/ayutaz/piper-plus",
+    "status": "reviewed",
+    "tags": [
+      "edge"
+    ],
+    "license": "MIT 风格 fork，模型另计",
+    "focus": "多语种 G2P 与训练分支",
+    "note": "可作替代前端与训练研究，不能直接与维护版 GPL Piper 混装或假设二进制模型互通。必须固定分支与导出版本。",
+    "github": {
+      "archived": false,
+      "default_branch": "dev",
+      "pushed_at": "2026-10-15T10:26:43Z",
+      "stars": 236,
+      "checked_at": "2026-10-15T12:58:24.688762+00:00"
+    }
+  },
+  {
+    "name": "eai‑rk3588",
+    "url": "https://github.com/kyshipit/eai-rk3588",
+    "status": "reviewed",
+    "tags": [
+      "edge"
+    ],
+    "license": "项目及模型分别核对",
+    "focus": "中文 Melo 的 RKNN 适配线索",
+    "note": "已有中英适配文档，可作为板端验证路线，不等于 GPT‑SoVITS、F5 或本次新模型可以直接导出 RKNN。仍需实板复测。",
+    "github": {
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-12T01:32:30Z",
+      "stars": 4,
+      "checked_at": "2026-10-15T12:58:24.936027+00:00"
+    }
+  },
+  {
+    "name": "VITS 微调 WebUI / 历史方案",
+    "url": "https://github.com/ANONEKO777/sherpa-onnx-vits-fine-tuning-webui",
+    "status": "reviewed",
+    "tags": [
+      "edge"
+    ],
+    "license": "按项目与数据分别确认",
+    "focus": "训练 → ONNX 流程研究",
+    "note": "作者标记为开发阶段，不作为成熟交付平台默认。另有已归档的 VITS-fast-fine-tuning 可作历史配方参考，不把旧项目热度当维护质量。",
+    "github": {
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2025-02-02T14:58:00Z",
+      "stars": 15,
+      "checked_at": "2026-10-15T12:58:24.743065+00:00"
+    }
+  }
+]

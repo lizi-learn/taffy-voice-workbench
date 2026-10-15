@@ -1,0 +1,42 @@
+塔菲喵 · AI 语音实验说明（2026-10-15）
+
+所有试听均为人工智能合成，非永雏塔菲本人录音，不代表本人言论、授权或背书。
+非官方、非商业粉丝研究；不提供身份认证、电话、私信冒充或交易用途。
+人物音色、训练录音、原始素材的权益不因代码开源而转移。公开下载不等于取得商用授权。
+权利人可通过 https://blog.bismih.cn/ 或仓库 issue 联系更正、移除。
+
+原创适配器及评测代码（MIT）：
+https://github.com/lizi-learn/taffy-voice-workbench
+不含私有训练录音、音色权重、账号、SSH 密钥或服务器访问入口。
+
+引擎与模型分别遵循上游许可：
+F5-TTS：https://github.com/SWivid/F5-TTS
+本次基座 SWivid/F5-TTS：CC-BY-NC-4.0；原创代码 MIT。
+GPT-SoVITS：https://github.com/RVC-Boss/GPT-SoVITS
+代码 MIT；辅助模型及录音另行确认，不公开本次训练权重。
+公开 Taffy Bert-VITS2：https://huggingface.co/spaces/songdaooi/Taffy-Bert-VITS2
+原作者页面署名 Xz乔希；未再分发权重，源码/旧条件层兼容性存疑，训练集未知。
+CosyVoice3：https://github.com/QwenAudio/CosyVoice
+FunAudioLLM/Fun-CosyVoice3-0.5B-2512 模型卡 Apache-2.0，依赖分别核对。
+IndexTTS-2.5：https://github.com/index-tts/index-tts
+使用 bilibili Model Use License Agreement，而非 MIT。
+请阅读本目录 index-license.txt 和 index-license-zh.txt 的完整条款。
+Index 试听下载包附 WAV、原协议和修改声明，不附模型权重。
+“Any modifications made to the original model in this Derivative Work are not endorsed,
+warranted, or guaranteed by the original right-holder of the original model,
+and the original right-holder disclaims all liability related to this Derivative Work.”
+本次未修改 Index 主模型权重，仅通过原创适配器调用参考音色、情绪与语速接口。
+
+数据来源：KYOU-0/Ace-Taffy-voice（Hugging Face）公开直播语音片段。
+revision: 48623d4de7338a82a83bd9c76a9a4ee193aadb3f
+数据集标注 MIT，不代表已经核实表演者声音商业使用授权。本页不再分发训练集或参考录音。
+参考从训练部分取，测试文本和选 checkpoint 不混入训练。原录音 16kHz。
+
+评测边界：
+- 统一 Whisper large-v3-turbo，beam=5、temperature=0、seed=20261015，无 VAD/fallback/上文。
+- CER 统一繁简与数字写法归一，不手工纠正同音字。它不是音色相似度或主观 MOS。
+- RTF 为整句计算耗时/音频时长；基础组热推理不计首句，未测流式首包与并发。
+- PyTorch 显存峰值不包含 ONNX Runtime 和 CUDA 上下文。
+- 所有试听只做统一线性增益，不变速、不变调；原始 PCM16 WAV 保留。
+- 情绪标签是传入条件，YIN 音高仅辅助观察，不是情绪识别验收结果。
+- 暂无人工盲听验收、RK3588 实板结果，不作相应承诺。

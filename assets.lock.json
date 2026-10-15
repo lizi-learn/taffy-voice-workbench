@@ -1,0 +1,333 @@
+{
+  "repositories": [
+    {
+      "repo": "IndexTeam/IndexTTS-2.5",
+      "revision": "c39ce5ba981572cb187443877ff559dfb246ce63",
+      "license": "other"
+    },
+    {
+      "repo": "facebook/w2v-bert-2.0",
+      "revision": "da985ba0987f70aaeb84a80f2851cfac8c697a7b",
+      "license": "mit"
+    },
+    {
+      "repo": "amphion/MaskGCT",
+      "revision": "265c6cef07625665d0c28d2faafb1415562379dc",
+      "license": "cc-by-nc-4.0"
+    },
+    {
+      "repo": "funasr/campplus",
+      "revision": "e4b6ede7ce16997aff4ae69fbca1f0175e2afede",
+      "license": "apache-2.0"
+    },
+    {
+      "repo": "nvidia/bigvgan_v2_22khz_80band_256x",
+      "revision": "633ff708ed5b74903e86ff1298cf4a98e921c513",
+      "license": "mit"
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "license": "apache-2.0"
+    }
+  ],
+  "files": [
+    {
+      "repo": "IndexTeam/IndexTTS-2.5",
+      "revision": "c39ce5ba981572cb187443877ff559dfb246ce63",
+      "source": "LICENSE",
+      "mirror_repo": "IndexTeam/IndexTTS-2.5",
+      "destination": "index/LICENSE",
+      "bytes": 10553,
+      "sha256": null
+    },
+    {
+      "repo": "IndexTeam/IndexTTS-2.5",
+      "revision": "c39ce5ba981572cb187443877ff559dfb246ce63",
+      "source": "README.md",
+      "mirror_repo": "IndexTeam/IndexTTS-2.5",
+      "destination": "index/README.md",
+      "bytes": 4272,
+      "sha256": null
+    },
+    {
+      "repo": "IndexTeam/IndexTTS-2.5",
+      "revision": "c39ce5ba981572cb187443877ff559dfb246ce63",
+      "source": "codec.pth",
+      "mirror_repo": "IndexTeam/IndexTTS-2.5",
+      "destination": "index/codec.pth",
+      "bytes": 607290935,
+      "sha256": "d15cbed16a40f478438c961fb043f68dfa6353bf56c966761315db3433e9722c"
+    },
+    {
+      "repo": "IndexTeam/IndexTTS-2.5",
+      "revision": "c39ce5ba981572cb187443877ff559dfb246ce63",
+      "source": "config.yaml",
+      "mirror_repo": "IndexTeam/IndexTTS-2.5",
+      "destination": "index/config.yaml",
+      "bytes": 2860,
+      "sha256": null
+    },
+    {
+      "repo": "IndexTeam/IndexTTS-2.5",
+      "revision": "c39ce5ba981572cb187443877ff559dfb246ce63",
+      "source": "feat1.pt",
+      "mirror_repo": "IndexTeam/IndexTTS-2.5",
+      "destination": "index/feat1.pt",
+      "bytes": 57170,
+      "sha256": "f219cb447d80216ba615666da2ff8d63ac544eee26657f3a7b278692bf7a67c4"
+    },
+    {
+      "repo": "IndexTeam/IndexTTS-2.5",
+      "revision": "c39ce5ba981572cb187443877ff559dfb246ce63",
+      "source": "feat2.pt",
+      "mirror_repo": "IndexTeam/IndexTTS-2.5",
+      "destination": "index/feat2.pt",
+      "bytes": 374866,
+      "sha256": "9c4292e96dee535aea9a6206e9a0c856dd578dde9212acdb16dd3ada4d12bf80"
+    },
+    {
+      "repo": "IndexTeam/IndexTTS-2.5",
+      "revision": "c39ce5ba981572cb187443877ff559dfb246ce63",
+      "source": "gpt.pth",
+      "mirror_repo": "IndexTeam/IndexTTS-2.5",
+      "destination": "index/gpt.pth",
+      "bytes": 3259599833,
+      "sha256": "43a8f4c30eccdf201958d3b9713511482c19d56dc20b0b1c4ee1e6b080b19d85"
+    },
+    {
+      "repo": "IndexTeam/IndexTTS-2.5",
+      "revision": "c39ce5ba981572cb187443877ff559dfb246ce63",
+      "source": "multilingual_zh_ja_yue_char_del.tiktoken",
+      "mirror_repo": "IndexTeam/IndexTTS-2.5",
+      "destination": "index/multilingual_zh_ja_yue_char_del.tiktoken",
+      "bytes": 907395,
+      "sha256": null
+    },
+    {
+      "repo": "IndexTeam/IndexTTS-2.5",
+      "revision": "c39ce5ba981572cb187443877ff559dfb246ce63",
+      "source": "s2mel.pth",
+      "mirror_repo": "IndexTeam/IndexTTS-2.5",
+      "destination": "index/s2mel.pth",
+      "bytes": 414908601,
+      "sha256": "9b1b0003fc189c94cc349758d7ebc25f903b7eb2de4602879959cc64ce816456"
+    },
+    {
+      "repo": "IndexTeam/IndexTTS-2.5",
+      "revision": "c39ce5ba981572cb187443877ff559dfb246ce63",
+      "source": "wav2vec2bert_stats.pt",
+      "mirror_repo": "IndexTeam/IndexTTS-2.5",
+      "destination": "index/wav2vec2bert_stats.pt",
+      "bytes": 9343,
+      "sha256": "c9c176c2b8850ab2e3ba828bbfa969deaf4566ce55db5f2687b8430b87526ad2"
+    },
+    {
+      "repo": "facebook/w2v-bert-2.0",
+      "revision": "da985ba0987f70aaeb84a80f2851cfac8c697a7b",
+      "source": "config.json",
+      "mirror_repo": "AI-ModelScope/w2v-bert-2.0",
+      "destination": "index/hf_cache/w2v-bert-2.0/config.json",
+      "bytes": 1874,
+      "sha256": null
+    },
+    {
+      "repo": "facebook/w2v-bert-2.0",
+      "revision": "da985ba0987f70aaeb84a80f2851cfac8c697a7b",
+      "source": "model.safetensors",
+      "mirror_repo": "AI-ModelScope/w2v-bert-2.0",
+      "destination": "index/hf_cache/w2v-bert-2.0/model.safetensors",
+      "bytes": 2322063736,
+      "sha256": "eb890c9660ed6e3414b6812e27257b8ce5454365d5490d3ad581ea60b93be043"
+    },
+    {
+      "repo": "facebook/w2v-bert-2.0",
+      "revision": "da985ba0987f70aaeb84a80f2851cfac8c697a7b",
+      "source": "preprocessor_config.json",
+      "mirror_repo": "AI-ModelScope/w2v-bert-2.0",
+      "destination": "index/hf_cache/w2v-bert-2.0/preprocessor_config.json",
+      "bytes": 275,
+      "sha256": null
+    },
+    {
+      "repo": "amphion/MaskGCT",
+      "revision": "265c6cef07625665d0c28d2faafb1415562379dc",
+      "source": "semantic_codec/model.safetensors",
+      "mirror_repo": "amphion/MaskGCT",
+      "destination": "index/hf_cache/semantic_codec/model.safetensors",
+      "bytes": 177183712,
+      "sha256": "ec947271175d8cad75ec37e83aa487e27c97a0f72a303393772da5ffa84bddf2"
+    },
+    {
+      "repo": "funasr/campplus",
+      "revision": "e4b6ede7ce16997aff4ae69fbca1f0175e2afede",
+      "source": "campplus_cn_common.bin",
+      "mirror_repo": "iic/speech_campplus_sv_zh-cn_16k-common",
+      "destination": "index/hf_cache/campplus_cn_common.bin",
+      "bytes": 28036335,
+      "sha256": "3388cf5fd3493c9ac9c69851d8e7a8badcfb4f3dc631020c4961371646d5ada8"
+    },
+    {
+      "repo": "nvidia/bigvgan_v2_22khz_80band_256x",
+      "revision": "633ff708ed5b74903e86ff1298cf4a98e921c513",
+      "source": "LICENSE",
+      "mirror_repo": "nvidia/bigvgan_v2_22khz_80band_256x",
+      "destination": "index/hf_cache/bigvgan/LICENSE",
+      "bytes": 1076,
+      "sha256": null
+    },
+    {
+      "repo": "nvidia/bigvgan_v2_22khz_80band_256x",
+      "revision": "633ff708ed5b74903e86ff1298cf4a98e921c513",
+      "source": "bigvgan_generator.pt",
+      "mirror_repo": "nvidia/bigvgan_v2_22khz_80band_256x",
+      "destination": "index/hf_cache/bigvgan/bigvgan_generator.pt",
+      "bytes": 449228171,
+      "sha256": "e95ba25972d3de0628d99cd156e9315a9c018899bf739988959ebe3544080ced"
+    },
+    {
+      "repo": "nvidia/bigvgan_v2_22khz_80band_256x",
+      "revision": "633ff708ed5b74903e86ff1298cf4a98e921c513",
+      "source": "config.json",
+      "mirror_repo": "nvidia/bigvgan_v2_22khz_80band_256x",
+      "destination": "index/hf_cache/bigvgan/config.json",
+      "bytes": 1405,
+      "sha256": null
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "CosyVoice-BlankEN/config.json",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/CosyVoice-BlankEN/config.json",
+      "bytes": 659,
+      "sha256": null
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "CosyVoice-BlankEN/generation_config.json",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/CosyVoice-BlankEN/generation_config.json",
+      "bytes": 242,
+      "sha256": null
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "CosyVoice-BlankEN/merges.txt",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/CosyVoice-BlankEN/merges.txt",
+      "bytes": 1402109,
+      "sha256": null
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "CosyVoice-BlankEN/model.safetensors",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/CosyVoice-BlankEN/model.safetensors",
+      "bytes": 988097824,
+      "sha256": "130282af0dfa9fe5840737cc49a0d339d06075f83c5a315c3372c9a0740d0b96"
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "CosyVoice-BlankEN/tokenizer_config.json",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/CosyVoice-BlankEN/tokenizer_config.json",
+      "bytes": 1287,
+      "sha256": null
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "CosyVoice-BlankEN/vocab.json",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/CosyVoice-BlankEN/vocab.json",
+      "bytes": 2776833,
+      "sha256": null
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "README.md",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/README.md",
+      "bytes": 11982,
+      "sha256": null
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "campplus.onnx",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/campplus.onnx",
+      "bytes": 28303423,
+      "sha256": "a6ac6a63997761ae2997373e2ee1c47040854b4b759ea41ec48e4e42df0f4d73"
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "config.json",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/config.json",
+      "bytes": 2,
+      "sha256": null
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "configuration.json",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/configuration.json",
+      "bytes": 47,
+      "sha256": null
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "cosyvoice3.yaml",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/cosyvoice3.yaml",
+      "bytes": 6934,
+      "sha256": null
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "flow.pt",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/flow.pt",
+      "bytes": 1329116148,
+      "sha256": "a6fab32a7825e5b0bc855ddd948f8db9370b0a786fbc249caa4595e95b608e4b"
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "hift.pt",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/hift.pt",
+      "bytes": 83202622,
+      "sha256": "b279d7641eb97ae55b3b540cfba4f953c26492a2df758328a89a4d007ab87a65"
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "llm.pt",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/llm.pt",
+      "bytes": 2024669519,
+      "sha256": "69f43bd545131c30e98947fb360ea8b4dc9916d8e83dded7757c7ea4f5a24970"
+    },
+    {
+      "repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "revision": "29e01c4e8d000f4bcd70751be16fa94bf3d85a18",
+      "source": "speech_tokenizer_v3.onnx",
+      "mirror_repo": "FunAudioLLM/Fun-CosyVoice3-0.5B-2512",
+      "destination": "cosy/speech_tokenizer_v3.onnx",
+      "bytes": 969451503,
+      "sha256": "23236a74175dbdda47afc66dbadd5bcb41303c467a57c261cb8539ad9db9208d"
+    }
+  ]
+}

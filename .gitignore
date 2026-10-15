@@ -1,0 +1,17 @@
+.venv*/
+__pycache__/
+models/
+weights/
+data/
+private/
+outputs/
+*.wav
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.onnx
+*.bin
+*.partial
+.env*
+!.env.example
